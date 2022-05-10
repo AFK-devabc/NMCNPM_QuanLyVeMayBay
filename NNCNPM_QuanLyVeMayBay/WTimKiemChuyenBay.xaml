@@ -1,0 +1,45 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NNCNPM_QuanLyVeMayBay"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="NNCNPM_QuanLyVeMayBay.WTimKiemChuyenBay"
+        mc:Ignorable="d"
+        Title="WTimKiemChuyenBay" Height="770" Width="1120" >
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="720" Margin="10,10,0,0" VerticalAlignment="Top" Width="297">
+            <Label Content="Tìm kiếm chuyến bay" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="264" FontSize="16"/>
+            <Label Content="Sân bay đi" HorizontalAlignment="Left" Margin="0,84,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
+            <Label Content="Sân bay đến" HorizontalAlignment="Left" Margin="0,138,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
+            <ComboBox HorizontalAlignment="Left" Margin="0,108,-11,0" VerticalAlignment="Top" Width="285"/>
+            <ComboBox HorizontalAlignment="Left" Margin="0,162,-11,0" VerticalAlignment="Top" Width="285"/>
+            <Label Width="259" VerticalAlignment="Top" Margin="5,192,0,0" HorizontalAlignment="Left" FontWeight="Bold" Content="Ngày - giờ bay tối đa " RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.026"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <DatePicker Width="166" VerticalAlignment="Top" Margin="-3,221,0,0" HorizontalAlignment="Left"/>
+            <materialDesign:TimePicker HorizontalAlignment="Left" Margin="168,221,0,0" VerticalAlignment="Top" Width="124" Is24Hours="True"/>
+            <CheckBox Content="Còn ghế trống" HorizontalAlignment="Left" Margin="10,251,0,0" VerticalAlignment="Top" Width="117" Height="22"/>
+        </Grid>
+        <Label Content="Danh sách các chuyến bay" HorizontalAlignment="Left" Margin="312,10,0,0" VerticalAlignment="Top" Width="792" Height="47" FontSize="20" FontWeight="Bold"/>
+        <DataGrid HorizontalAlignment="Left" Height="668" Margin="312,62,0,0" VerticalAlignment="Top" Width="792">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Mã chuyến bay"/>
+                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Sân bay đi"/>
+                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" HeaderStringFormat="" Header="Sân bay đến"/>
+                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" HeaderStringFormat="Khởi hành"/>
+                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Thời gian"/>
+                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Giá vé cơ bản"/>
+                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Số ghế trống"/>
+                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="số ghế đặt"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

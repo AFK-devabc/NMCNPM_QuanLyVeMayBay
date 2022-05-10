@@ -1,0 +1,110 @@
+﻿<Window x:Class="NNCNPM_QuanLyVeMayBay.WBaoCaoDoanhThu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         xmlns:dvc="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=DotNetProjects.DataVisualization.Toolkit"
+        mc:Ignorable="d"
+        Name="WD1"
+        xmlns:local="clr-namespace:NNCNPM_QuanLyVeMayBay"
+         xmlns:uc="clr-namespace:NNCNPM_QuanLyVeMayBay.MyUserControls"
+        Title="WBaoCaoDoanhThu" Height="770" Width="1120">
+    
+    <Grid x:Name="grd">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--Biểu đồ năm-->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <ComboBox materialDesign:HintAssist.Hint="Chọn năm" Margin="15,60,400,0" FontSize="15">
+                    <ComboBoxItem Content="1" /> 
+                    <ComboBoxItem Content="2" />
+                    <ComboBoxItem Content="3" />
+                    <ComboBoxItem Content="4" />
+                    <ComboBoxItem Content="5" />
+                    <ComboBoxItem Content="6" />
+                    <ComboBoxItem Content="7" />
+                    <ComboBoxItem Content="8" />
+                    <ComboBoxItem Content="9" />
+                    <ComboBoxItem Content="10" />
+                    <ComboBoxItem Content="11" />
+                    <ComboBoxItem Content="12" />
+                </ComboBox>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <dvc:Chart Title="Báo Cáo Doanh Thu Năm " Background="Azure">
+                    <dvc:ColumnSeries x:Name="Col_CountTicket" DependentValuePath="Value" 
+		IndependentValuePath="Key"  Title="Số vé" />
+                    <dvc:ColumnSeries x:Name="Col_TurnoverFlight" DependentValuePath="Value" 
+		IndependentValuePath="Key" ItemsSource="{Binding}" Title="Doanh thu" />
+                </dvc:Chart>
+            </Grid>
+
+            <Grid Grid.Row="2">
+
+            </Grid>
+        </Grid>
+
+        <!--Biểu đồ bán vé-->
+        <Grid Grid.Column="2">
+            <!--<uc:MyChart></uc:MyChart>--> 
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="100"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <ComboBox materialDesign:HintAssist.Hint="Chọn tháng" Margin="15,60,400,0" FontSize="15">
+                        <ComboBoxItem Content="1" />
+                        <ComboBoxItem Content="2" />
+                        <ComboBoxItem Content="3" />
+                        <ComboBoxItem Content="4" />
+                        <ComboBoxItem Content="5" />
+                        <ComboBoxItem Content="6" />
+                        <ComboBoxItem Content="7" />
+                        <ComboBoxItem Content="8" />
+                        <ComboBoxItem Content="9" />
+                        <ComboBoxItem Content="10" />
+                        <ComboBoxItem Content="11" />
+                        <ComboBoxItem Content="12" />
+                    </ComboBox>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <dvc:Chart Title="Báo Cáo Doanh Thu Bán Vé Các Chuyến Bay" Background="Azure" >
+                        <dvc:ColumnSeries x:Name="Col_CountFlight" DependentValuePath="Value" 
+		IndependentValuePath="Key"  Title="Số chuyến bay" />
+                        <dvc:ColumnSeries x:Name="Col_TurnoverYear" DependentValuePath="Value" 
+		IndependentValuePath="Key" ItemsSource="{Binding}" Title="Doanh thu" />
+                    </dvc:Chart>
+                </Grid>
+
+                <Grid Grid.Row="2">
+
+                    <Button x:Name="btn_Export" Content="Xuất" Margin="100,10,100,0"></Button>
+                    
+                </Grid>
+            </Grid>
+
+        </Grid>
+
+        
+
+    </Grid>
+</Window>
