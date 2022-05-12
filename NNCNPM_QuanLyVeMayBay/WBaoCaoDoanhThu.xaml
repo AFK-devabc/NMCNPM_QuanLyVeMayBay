@@ -29,7 +29,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <ComboBox materialDesign:HintAssist.Hint="Chọn năm" Margin="15,60,400,0" FontSize="15">
+                <ComboBox x:Name="cbb_ChonNam" materialDesign:HintAssist.Hint="Chọn năm" Margin="15,60,400,0" FontSize="15">
                     <ComboBoxItem Content="1" /> 
                     <ComboBoxItem Content="2" />
                     <ComboBoxItem Content="3" />
@@ -49,8 +49,9 @@
                 <dvc:Chart Title="Báo Cáo Doanh Thu Năm " Background="Azure">
                     <dvc:ColumnSeries x:Name="Col_CountTicket" DependentValuePath="Value" 
 		IndependentValuePath="Key"  Title="Số vé" />
-                    <dvc:ColumnSeries x:Name="Col_TurnoverFlight" DependentValuePath="Value" 
-		IndependentValuePath="Key" ItemsSource="{Binding}" Title="Doanh thu" />
+                    <dvc:LineSeries  x:Name="Line_TurnoverFlight"  DependentValuePath="Value" 
+		IndependentValuePath="Key" ItemsSource="{Binding}" 
+		IsSelectionEnabled="True" Title="Doanh thu"/>
                 </dvc:Chart>
             </Grid>
 
