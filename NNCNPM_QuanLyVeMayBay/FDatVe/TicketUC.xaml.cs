@@ -20,11 +20,14 @@ namespace NNCNPM_QuanLyVeMayBay.MyUserControls
     /// </summary>
     public partial class TicketUC : UserControl
     {
+        public string MaVe;
+        public event EventHandler HuyVe;
+        public event EventHandler LoadAfterHuyVe;
         public TicketUC()
         {
             InitializeComponent();
         }
-
+        public event EventHandler LoadDSVeMayBay;
 
 
         private void btn_Book_Click(object sender, RoutedEventArgs e)
@@ -36,9 +39,28 @@ namespace NNCNPM_QuanLyVeMayBay.MyUserControls
         }
 
         #region Method lấy Window từ UserControl
-        
+
 
         #endregion
 
+        private void BTN_Ban_Click(object sender, RoutedEventArgs e)
+        {
+            HuyVe(this, new EventArgs());
+            string query = "SELECT COUNT(*) FROM VEMAYBAY WHERE VEMAYBAY.LoaiVe = 'Ve Dat Cho' AND VEMAYBAY.MaVe = '"+MaVe+"'";
+            int count = 0;
+            count = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(query));
+            if(count>0)
+            {
+                query = "UPDATE VEMAYBAY SET Loaive = 'Ve Mua' where VEMAYBAY.MaVe = '" + MaVe + "' ";
+                DataProvider.Instance.ExecuteNonQuery(query);
+                MessageBox.Show("Đã hoàn tất chuyển thành vé mua", "Thông báo", MessageBoxButton.OK);
+            }
+            else
+            {
+                MessageBox.Show("Vé này đã bị hủy", "Thông báo", MessageBoxButton.OK);
+            } 
+                
+            LoadAfterHuyVe(this, new EventArgs());
+        }
     }
 }

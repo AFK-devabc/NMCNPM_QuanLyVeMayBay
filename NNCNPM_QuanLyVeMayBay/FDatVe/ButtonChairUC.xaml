@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Width="60" Height="40">
         <Border  BorderThickness="1" Background="Transparent" CornerRadius="0,0,0,0">
-            <Button Content="1-C" x:Name="myself" Click="myself_Click" Height="Auto" Margin="0.2,3.2,9.2,9.2" FontSize="12">
+            <Button Content="1-C" x:Name="myself" Click="myself_Click" Height="Auto" Margin="0.2,3.2,9.2,9.2" FontSize="12" Background="BlueViolet">
             </Button>
         </Border>
     </Grid>

@@ -1,0 +1,26 @@
+﻿<Window x:Class="NNCNPM_QuanLyVeMayBay.WChonHangVe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NNCNPM_QuanLyVeMayBay"
+        mc:Ignorable="d"
+        Title="Chọn hạng vé" Height="300" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Grid.Column="0" Text="Danh sách hạng vé"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Height="50" Margin="0,10,0,0"></TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
+            <DataGrid x:Name="DG_DSHangVe" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" MouseDoubleClick="DG_DSHangVe_MouseDoubleClick" IsReadOnly="True">
+                
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
