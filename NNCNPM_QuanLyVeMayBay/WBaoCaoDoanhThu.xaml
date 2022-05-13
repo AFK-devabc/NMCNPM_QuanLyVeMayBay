@@ -29,13 +29,13 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <ComboBox x:Name="cbb_ChonNam" materialDesign:HintAssist.Hint="Chọn năm" Margin="15,60,400,0" FontSize="15">
-                    <ComboBoxItem Content="1" /> 
-                    <ComboBoxItem Content="2" />
-                    <ComboBoxItem Content="3" />
-                    <ComboBoxItem Content="4" />
-                    <ComboBoxItem Content="5" />
-                    <ComboBoxItem Content="6" />
+                <ComboBox x:Name="cbb_ChonNam" materialDesign:HintAssist.Hint="Chọn năm" Margin="15,60,400,0" FontSize="15" SelectionChanged="cbb_ChonNam_SelectionChanged">
+                    <ComboBoxItem Content="2018" />
+                    <ComboBoxItem Content="2019" />
+                    <ComboBoxItem Content="2020" />
+                    <ComboBoxItem Content="2021" />
+                    <ComboBoxItem Content="2022" />
+                    <ComboBoxItem Content="2023" />
                     <ComboBoxItem Content="7" />
                     <ComboBoxItem Content="8" />
                     <ComboBoxItem Content="9" />
@@ -48,7 +48,7 @@
             <Grid Grid.Row="1">
                 <dvc:Chart Title="Báo Cáo Doanh Thu Năm " Background="Azure">
                     <dvc:ColumnSeries x:Name="Col_CountTicket" DependentValuePath="Value" 
-		IndependentValuePath="Key"  Title="Số vé" />
+		IndependentValuePath="Key"  Title="Số chuyến bay" />
                     <dvc:LineSeries  x:Name="Line_TurnoverFlight"  DependentValuePath="Value" 
 		IndependentValuePath="Key" ItemsSource="{Binding}" 
 		IsSelectionEnabled="True" Title="Doanh thu"/>
@@ -71,7 +71,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <ComboBox materialDesign:HintAssist.Hint="Chọn tháng" Margin="15,60,400,0" FontSize="15">
+                    <ComboBox x:Name="cbb_ChonThang" materialDesign:HintAssist.Hint="Chọn tháng" Margin="15,60,400,0" FontSize="15" SelectionChanged="cbb_ChonThang_SelectionChanged">
                         <ComboBoxItem Content="1" />
                         <ComboBoxItem Content="2" />
                         <ComboBoxItem Content="3" />
@@ -89,10 +89,11 @@
 
                 <Grid Grid.Row="1">
                     <dvc:Chart Title="Báo Cáo Doanh Thu Bán Vé Các Chuyến Bay" Background="Azure" >
-                        <dvc:ColumnSeries x:Name="Col_CountFlight" DependentValuePath="Value" 
-		IndependentValuePath="Key"  Title="Số chuyến bay" />
-                        <dvc:ColumnSeries x:Name="Col_TurnoverYear" DependentValuePath="Value" 
-		IndependentValuePath="Key" ItemsSource="{Binding}" Title="Doanh thu" />
+                        <dvc:ColumnSeries x:Name="Cot_SoVeThang" DependentValuePath="Value" 
+		IndependentValuePath="Key"  Title="Số vé" />
+                        <dvc:LineSeries  x:Name="Duong_DoanhThuThang"  DependentValuePath="Value" 
+		IndependentValuePath="Key" ItemsSource="{Binding}" 
+		IsSelectionEnabled="True" Title="Doanh thu"/>
                     </dvc:Chart>
                 </Grid>
 

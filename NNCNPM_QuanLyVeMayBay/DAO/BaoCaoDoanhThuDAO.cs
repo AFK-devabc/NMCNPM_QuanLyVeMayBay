@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,12 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
         private BaoCaoDoanhThuDAO() { }
         #endregion
 
+
+        /// <summary>
+        /// Trả về số chuyến bay của từng tháng trong năm
+        /// </summary>
+        /// <param name="nam"></param>
+        /// <returns></returns>
         public List<KeyValuePair<string, int>> LaySoChuyenBayTheoNam(int nam)
         {
             List<KeyValuePair<string, int>> soChuyenBay = new List<KeyValuePair<string, int>>();
@@ -41,7 +48,7 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
 
             for (int i = 1; i < 13; i++)
             {
-                string query = string.Format("SELECT COUNT(*) FROM VEMAYBAY vmb, CHUYENBAY cb WHERE vmb.MaChuyenBay = cb.MaChuyenBay AND YEAR(cb.NgayBay) = {0} AND MONTH(cb.NgayBay) = {1}", nam, i);
+                string query = string.Format("SELECT COUNT(cb.MaChuyenBay) FROM VEMAYBAY vmb, CHUYENBAY cb WHERE vmb.MaChuyenBay = cb.MaChuyenBay AND YEAR(cb.NgayBay) = {0} AND MONTH(cb.NgayBay) = {1}", nam, i);
 
                 int _soChuyenBay = (int)DataProvider.Instance.ExecuteScalar(query);
 
@@ -51,6 +58,12 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
             return soChuyenBay;
         }
 
+
+        /// <summary>
+        /// Trả về doanh thu của từng tháng trong năm
+        /// </summary>
+        /// <param name="nam"></param>
+        /// <returns></returns>
         public List<KeyValuePair<string, int>> LayDoanhThuTheoNam(int nam)
         {
             List<KeyValuePair<string, int>> doanhThu = new List<KeyValuePair<string, int>>();
@@ -74,6 +87,79 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
             }
 
             return doanhThu;
+        }
+
+
+        /// <summary>
+        /// Trả về doanh thu của từng chuyến bay trong tháng 
+        /// </summary>
+        /// <param name="thang"></param>
+        /// <returns></returns>
+        public List<KeyValuePair<string, int>> LayDoanhThuTheoThang(int nam, int thang)
+        {
+            List<KeyValuePair<string, int>> doanhThu = new List<KeyValuePair<string, int>>();
+
+            string query = string.Format("SELECT cb.MaChuyenBay, SUM(vmb.GiaTien) DoanhThu FROM(SELECT * FROM CHUYENBAY cb WHERE MONTH(cb.NgayBay) = {0} AND YEAR(cb.NgayBay) = {1}) cb LEFT JOIN VeMayBay vmb ON cb.MaChuyenBay = vmb.MaChuyenBay GROUP BY cb.MaChuyenBay ", thang, nam);
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow row in data.Rows)
+            {
+                string maChuyenBay = (string)row["MaChuyenBay"];
+
+                System.Decimal _doanhThu = 0;
+                int __doanhThu = 0;
+                try
+                {
+                    _doanhThu = (System.Decimal)row["DoanhThu"];
+                    __doanhThu = Convert.ToInt32(_doanhThu);
+                }
+                catch
+                {
+
+                }
+
+                doanhThu.Add(new KeyValuePair<string, int>(maChuyenBay, __doanhThu));
+            }
+
+            return doanhThu;
+        }
+
+
+        /// <summary>
+        /// Hàm trả về số vé từng chuyến bay trong tháng
+        /// </summary>
+        /// <param name="nam"></param>
+        /// <param name="thang"></param>
+        /// <returns></returns>
+        public List<KeyValuePair<string, int>> LaySoVeTheoThang(int nam, int thang)
+        {
+            List<KeyValuePair<string, int>> soVe = new List<KeyValuePair<string, int>>();
+
+            string query = string.Format("SELECT cb.MaChuyenBay, COUNT(vmb.MaChuyenBay) SoVe FROM(SELECT * FROM CHUYENBAY cb WHERE MONTH(cb.NgayBay) = {0} AND YEAR(cb.NgayBay) = {1}) cb LEFT JOIN VeMayBay vmb ON cb.MaChuyenBay = vmb.MaChuyenBay GROUP BY cb.MaChuyenBay ", thang, nam);
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow row in data.Rows)
+            {
+                string maChuyenBay = (string)row["MaChuyenBay"];
+
+                System.Decimal _soVe = 0;
+                int __soVe = 0;
+                try
+                {
+                    _soVe = (System.Decimal)row["SoVe"];
+                    __soVe = Convert.ToInt32(_soVe);
+                }
+                catch
+                {
+
+                }
+
+                soVe.Add(new KeyValuePair<string, int>(maChuyenBay, __soVe));
+            }
+
+            return soVe;
         }
     }
 }

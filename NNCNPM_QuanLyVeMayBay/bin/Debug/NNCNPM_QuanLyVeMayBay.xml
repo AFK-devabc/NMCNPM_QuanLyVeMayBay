@@ -4,6 +4,35 @@
         <name>NNCNPM_QuanLyVeMayBay</name>
     </assembly>
     <members>
+        <member name="M:NNCNPM_QuanLyVeMayBay.DAO.BaoCaoDoanhThuDAO.LaySoChuyenBayTheoNam(System.Int32)">
+            <summary>
+            Trả về số chuyến bay của từng tháng trong năm
+            </summary>
+            <param name="nam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NNCNPM_QuanLyVeMayBay.DAO.BaoCaoDoanhThuDAO.LayDoanhThuTheoNam(System.Int32)">
+            <summary>
+            Trả về doanh thu của từng tháng trong năm
+            </summary>
+            <param name="nam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NNCNPM_QuanLyVeMayBay.DAO.BaoCaoDoanhThuDAO.LayDoanhThuTheoThang(System.Int32,System.Int32)">
+            <summary>
+            Trả về doanh thu của từng chuyến bay trong tháng 
+            </summary>
+            <param name="thang"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NNCNPM_QuanLyVeMayBay.DAO.BaoCaoDoanhThuDAO.LaySoVeTheoThang(System.Int32,System.Int32)">
+            <summary>
+            Hàm trả về số vé từng chuyến bay trong tháng
+            </summary>
+            <param name="nam"></param>
+            <param name="thang"></param>
+            <returns></returns>
+        </member>
         <member name="M:NNCNPM_QuanLyVeMayBay.DataProvider.ExecuteQuery(System.String,System.Object[])">
             <summary>
             Hàm thực hiện lệnh truyền vào 
