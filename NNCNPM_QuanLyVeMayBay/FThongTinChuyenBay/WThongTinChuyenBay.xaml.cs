@@ -35,7 +35,7 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             DataTable table = new DataTable();
             table.Clear();
-            table = SQLHandler.GetDataTableCommand("select * from SANBAY");
+            table = DataProvider.Instance.ExecuteQuery("select * from SANBAY");
             foreach (DataRow i in table.Rows)
             {
                 CB_SanBayDi.Items.Add(i.ItemArray[1].ToString());
@@ -43,7 +43,7 @@ namespace NNCNPM_QuanLyVeMayBay
             }
 
             table.Clear();
-            table = SQLHandler.GetDataTableCommand("select * from HANGVE");
+            table = DataProvider.Instance.ExecuteQuery("select * from HANGVE");
 
             foreach(DataRow i in table.Rows)
             {
