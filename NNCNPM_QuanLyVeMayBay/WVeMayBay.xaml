@@ -8,52 +8,63 @@
         xmlns:uc="clr-namespace:NNCNPM_QuanLyVeMayBay.UserControls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="WVeMayBay" Height="770" Width="1120" OpacityMask="#FF732929" >
+        Title="Bán vé máy bay" Height="770" Width="1120" OpacityMask="#FF732929" >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <TextBlock Text="Danh sách chuyến bay "
-                       FontSize="40"
-                       Height="50" Margin="0,41,0,0"></TextBlock>
-            <TextBox x:Name="TB_Name_Copy"
-                            Margin="643,26,120.6,10"
-                            materialDesign:HintAssist.Hint="Tìm theo mã chuyến bay"
-                            FontSize="20"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+                <ColumnDefinition Width="350"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Thông tin vé"
+                       Foreground="Black"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       Height="50" Margin="0,10,0,0"/>
+            <TextBlock Grid.Column="1" Text="Danh sách vé"
+                       Foreground="Black"
+                       FontSize="25"
+                       FontWeight="Bold"
+                       Height="50" Margin="0,10,0,0"></TextBlock>
+            <TextBox Grid.Column="2" x:Name="TB_TimVe" Height="50"
+                            Margin="0,0,0,10"
+                            materialDesign:HintAssist.Hint="Tìm theo CNND/CCCD"
+                            FontSize="18"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TB_TimVe_TextChanged"/>
         </Grid>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="400"></ColumnDefinition>
+                <ColumnDefinition Width="720"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <ScrollViewer>
-                <StackPanel x:Name="SPN_ShowList" Grid.Column="0" Background="White">
+            <ScrollViewer Grid.Column="1">
+                <StackPanel x:Name="SPN_ShowList" Grid.Column="0" Background="WhiteSmoke">
                     <StackPanel.Resources>
                         <Style TargetType="{x:Type uc:AvailableFlights}">
                             <Setter Property="Margin" Value="7,10,10,0"/>
                         </Style>
                     </StackPanel.Resources>
 
-                    <uc:AvailableFlights></uc:AvailableFlights>
-
                 </StackPanel>
             </ScrollViewer>
 
-            <Grid Grid.Column="1" x:Name="grd_Book">
+            <Grid Grid.Column="0" x:Name="grd_Book">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="327.2"></RowDefinition>
+                    <RowDefinition Height="230"></RowDefinition>
+                    <RowDefinition Height="230"></RowDefinition>
+                    <RowDefinition Height="90"></RowDefinition>
+                    <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-
                 <Grid Grid.Row="0" Margin="0,0,0,7.2">
                     <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
@@ -62,95 +73,120 @@
 
                     <Grid Grid.Row="0">
                         <TextBlock Margin="10,20,0,0"
-                                   Text="Thông tin khách hàng"
+                                   Text="Thông tin chuyến bay"
+                                   Foreground="Black"
                                    FontSize="20">
                         </TextBlock>
                     </Grid>
-
                     <Grid Grid.Row="1">
-                        <TextBox x:Name="TB_Name"
+                        <DatePicker x:Name="DP_NgayBay"
+                                 Margin="30,0,80,0"
+                                 materialDesign:HintAssist.Hint="Nhập ngày bay"
+                                 FontSize="18"
+                                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDateChanged="DP_NgayBay_SelectedDateChanged"/>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="280"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" x:Name="TB_MaChuyenBay"
+                                 Margin="30,0,0,0"
+                                 materialDesign:HintAssist.Hint="Nhập mã chuyến bay"
+                                 FontSize="18"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 IsReadOnly="True"/>
+                        <Button Grid.Column="1" x:Name="BTN_MaChuyenBay" Content="Chọn" Margin="5,10,15,0" Click="BTN_MaChuyenBay_Click"></Button>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="280"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" x:Name="TB_HangVe"
+                                 Margin="30,0,0,0"
+                                 materialDesign:HintAssist.Hint="Nhập hạng vé"
+                                 FontSize="18"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 IsReadOnly="True"/>
+                        <Button Grid.Column="1" x:Name="BTN_HangVe" Content="Chọn" Margin="5,10,15,0" Click="BTN_HangVe_Click"></Button>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0,0,0,7.2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <TextBlock Margin="10,20,0,0"
+                                   Text="Thông tin hành khách"
+                                   Foreground="Black"
+                                   FontSize="20">
+                        </TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <TextBox x:Name="TB_CMND"
+                                 Margin="30,0,20,0"
+                                 materialDesign:HintAssist.Hint="Nhập CMND/CCCD"
+                                 FontSize="20"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TB_CMND_TextChanged"/>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <TextBox x:Name="TB_TenKH"
                                  Margin="30,0,20,0"
                                  materialDesign:HintAssist.Hint="Nhập họ tên"
-                                 FontSize="20"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    </Grid>
-
-                    <Grid Grid.Row="2">
-                        <TextBox x:Name="TB_ID"
-                                 Margin="30,0,20,0"
-                                 materialDesign:HintAssist.Hint="CMND/CCCD"
-                                 FontSize="20"
+                                 FontSize="18"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                     </Grid>
 
                     <Grid Grid.Row="3">
                         <TextBox x:Name="TB_SDT"
                                  Margin="30,0,20,0"
-                                 materialDesign:HintAssist.Hint="SDT"
-                                 FontSize="20"
+                                 materialDesign:HintAssist.Hint="Nhập số điện thoại"
+                                 FontSize="18"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                     </Grid>
 
-                    <Grid Grid.Row="4">
-                        <TextBox x:Name="TB_Age"
-                                 Margin="30,0,20,0"
-                                 materialDesign:HintAssist.Hint="Tuổi"
-                                 FontSize="20"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    </Grid>
-
                 </Grid>
-
-                <Grid x:Name="gr_book"  Grid.Row="1" Background="Transparent" Margin="0,9.8,0,0">
+                <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30"></RowDefinition>
-                        <RowDefinition Height="160"></RowDefinition>
+                        <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0">
-                        <TextBlock Text="Chọn ghế" FontSize="20" Margin="10,0,0,0"></TextBlock>
-                    </Grid>
-
-                    <Grid Grid.Row="1" Margin="7,0,0,0">
-                        <ScrollViewer>
-                            <WrapPanel>
-                                <WrapPanel.Resources>
-                                    <Style TargetType="{x:Type uc:ButtonChair}">
-
-                                        <Setter Property="Margin" Value="5,10,10,0"/>
-                                    </Style>
-                                </WrapPanel.Resources>
-
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-                                <uc:ButtonChair></uc:ButtonChair>
-
-                            </WrapPanel>
-                        </ScrollViewer>
-                    </Grid>
-
-                    <Grid Grid.Row="2" Width="300" Margin="0,0,0,0" Height="30">
+                    <TextBlock Grid.Row="0" Margin="10,20,0,0"
+                                   Text="Loại vé"
+                                   Foreground="Black"
+                                   FontSize="20">
+                    </TextBlock>
+                    <ComboBox x:Name="CB_LoaiVe" Grid.Row="1" Margin="30,0,20,0"
+                              materialDesign:HintAssist.Hint="Nhập loại vé"
+                              FontSize="18"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                              />
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Margin="10,20,0,0"
+                                   Text="Thành tiền:"
+                                   FontWeight="Bold"
+                                   Foreground="Black"
+                                   FontSize="25">
+                    </TextBlock>
+                    <TextBox x:Name="TB_ThanhTien" IsReadOnly="True" Grid.Column="1" Margin="0,20,20,12" FontSize="18"></TextBox>
+                </Grid>
+                <Grid x:Name="gr_book"  Grid.Row="4" Background="Transparent" Margin="0,9.8,0,0">
+                    <Grid Grid.Row="2" Width="300" Margin="0,0,0,0" Height="40">
                         <Border BorderThickness="1" Background="Lime" CornerRadius="10,10,10,10">
-                            <Button x:Name="BTN_DatCho" Content="Đặt chỗ" 
+                            <Button x:Name="BTN_HoanTat" Content="Hoàn tất" 
                                 BorderBrush="Transparent"
-                                FontSize="15"
-                                Background="Transparent">
+                                FontSize="18"
+                                Background="Transparent" Click="BTN_HoanTat_Click">
                             </Button>
                         </Border>
                     </Grid>
