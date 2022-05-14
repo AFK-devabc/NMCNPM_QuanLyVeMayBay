@@ -25,18 +25,18 @@ namespace NNCNPM_QuanLyVeMayBay.UserControls
             InitializeComponent();
         }
 
-        bool isGreen = true;
+        bool isOrdered = true;
         private void myself_Click(object sender, RoutedEventArgs e)
         {
-            if (isGreen)
+            if (isOrdered)
             {
                 (sender as Button).Background = Brushes.Yellow;
-                isGreen = false;
+                isOrdered = false;
             }
             else
             {
-                (sender as Button).Background = Brushes.Lime;
-                isGreen = true;
+                (sender as Button).Background = Brushes.BlueViolet;
+                isOrdered = true;
             }
             
         }

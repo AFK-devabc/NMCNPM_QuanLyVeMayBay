@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NNCNPM_QuanLyVeMayBay.DAO;
 
 namespace NNCNPM_QuanLyVeMayBay
 {
@@ -22,59 +23,8 @@ namespace NNCNPM_QuanLyVeMayBay
     /// </summary>
     public partial class WBaoCaoDoanhThu : Window, INotifyPropertyChanged
     {
-
+        #region Binding
         public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string newName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(newName));
-            }
-        }
-
-        public WBaoCaoDoanhThu()
-        {
-            InitializeComponent();
-
-            this.DataContext = this;
-
-            CotSoVe_ChuyenBay();
-
-            CotDoanhThu_ChuyenBay();
-
-            FullName = "Hong Truong Vinh";
-        }
-
-        private void CotSoVe_ChuyenBay()
-        {
-            List<KeyValuePair<string, int>> SoVe = new List<KeyValuePair<string, int>>();
-
-            SoVe.Add(new KeyValuePair<string, int>("B52", 100));
-            SoVe.Add(new KeyValuePair<string, int>("Vietnam Airlines", 200));
-            SoVe.Add(new KeyValuePair<string, int>("Vietjet Air", 150));
-            SoVe.Add(new KeyValuePair<string, int>("Bamboo Airways", 260));
-            SoVe.Add(new KeyValuePair<string, int>("Jetstar Pacific", 230));
-
-            //Setting data for column chart
-
-            Col_CountTicket.ItemsSource = SoVe;
-        }
-
-        private void CotDoanhThu_ChuyenBay()
-        {
-            List<KeyValuePair<string, int>> SoVe = new List<KeyValuePair<string, int>>();
-
-            SoVe.Add(new KeyValuePair<string, int>("B52", 2500));
-            SoVe.Add(new KeyValuePair<string, int>("Vietnam Airlines", 3000));
-            SoVe.Add(new KeyValuePair<string, int>("Vietjet Air", 2800));
-            SoVe.Add(new KeyValuePair<string, int>("Bamboo Airways", 4000));
-            SoVe.Add(new KeyValuePair<string, int>("Jetstar Pacific", 2000));
-
-            //Setting data for column chart
-
-            Col_TurnoverFlight.ItemsSource = SoVe;
-        }
 
         private string fullName;
 
@@ -90,6 +40,81 @@ namespace NNCNPM_QuanLyVeMayBay
                 fullName = value;
                 OnPropertyChanged("FullName");
             }
+        }
+
+        protected virtual void OnPropertyChanged(string newName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(newName));
+            }
+        }
+        #endregion
+        public WBaoCaoDoanhThu()
+        {
+            InitializeComponent();
+
+            this.DataContext = this;
+
+
+            LoadCbbChonNam();
+
+            Load((int)DateTime.Now.Year);
+
+            FullName = "Hong Truong Vinh";
+        }
+
+        void Load(int nam)
+        {
+            CotSoVe_ChuyenBay(nam);
+            CotDoanhThu_ChuyenBay(nam);
+        }
+
+        void LoadCbbChonNam()
+        {
+            cbb_ChonNam.Items.Clear();
+            //string currentMonth = DateTime.Now.Month.ToString();
+            int currentYear = (int)DateTime.Now.Year;
+
+            for (int i = currentYear; i >= 2015; i--)
+            {
+                cbb_ChonNam.Items.Add(i);
+            }
+
+            cbb_ChonNam.SelectedItem = (int)DateTime.Now.Year;
+
+        }
+
+        private void CotSoVe_ChuyenBay(int nam)
+        {
+            Col_CountTicket.ItemsSource = BaoCaoDoanhThuDAO.Instance.LaySoChuyenBayTheoNam(nam);
+        }
+
+        private void CotDoanhThu_ChuyenBay(int nam)
+        {
+            Line_TurnoverFlight.ItemsSource = BaoCaoDoanhThuDAO.Instance.LayDoanhThuTheoNam(nam);
+        }
+
+        private void cbb_ChonNam_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            int nam = (int)(sender as ComboBox).SelectedItem;
+
+            Load(nam);
+        }
+
+        private void cbb_ChonThang_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int nam = (int)cbb_ChonNam.SelectedItem;
+
+            ComboBoxItem typeItem = (ComboBoxItem)(sender as ComboBox).SelectedItem;
+
+            string value = typeItem.Content.ToString();
+
+            int thang = int.Parse(value);
+
+            Duong_DoanhThuThang.ItemsSource = BaoCaoDoanhThuDAO.Instance.LayDoanhThuTheoThang(nam, thang);
+            Cot_SoVeThang.ItemsSource = BaoCaoDoanhThuDAO.Instance.LaySoVeTheoThang(nam, thang);
         }
     }
 }

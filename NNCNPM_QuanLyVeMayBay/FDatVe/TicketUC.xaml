@@ -4,211 +4,56 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NNCNPM_QuanLyVeMayBay.MyUserControls"
-             mc:Ignorable="d" d:DesignWidth="800" Height="157.2">
-    <Border BorderThickness="1" Background="AliceBlue" CornerRadius="30,30,30,30">
-        <Grid Margin="0.2,0.2,0.2,-0.4" >
+             mc:Ignorable="d" d:DesignWidth="720" Height="153.365">
+    <Border x:Name="border_ticket" BorderThickness="4" BorderBrush="Blue" Background="AliceBlue" CornerRadius="30,30,30,30" Margin="0,0,0,10.6">
+        <Grid>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width ="150"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0">
+            <TextBlock Grid.Column="0" x:Name="TB_HangVe" Text="Phổ thông" FontSize="18" Foreground="Black" FontWeight="Bold" Margin="0,20,0,0" HorizontalAlignment="Center"></TextBlock>
+            <Image Grid.Column="0" x:Name="IMG_LoaiVe" Source="/Icon/icons8-two-tickets-50.png" Width="70" Height="70" Margin="0,30,0,0"></Image>
+            <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="91.2"></RowDefinition>
-                    <RowDefinition Height="12"></RowDefinition>
-                    <RowDefinition Height="157.6"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
                 </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0" Margin="0,0,0,41.2">
+                <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="260"></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Chuyến bay :" Foreground="Black" FontSize="18" Margin="10,10,0,0" FontWeight="Bold"></TextBlock>
+                    <TextBlock Grid.Column="0" x:Name="TB_MaChuyenBay" Foreground="Black" Text="CB0001" Margin="130,13,0,0" FontSize="15"></TextBlock>
+                    <Image Grid.Column="0" Source="/Icon/icons8-calendar-13-48.png" Height="30" Width="30" Margin="20,0,0,0" HorizontalAlignment="Left"></Image>
+                    <TextBlock Grid.Column="0" x:Name="TB_NgayBay" Foreground="Black" Text="13/11/2002" HorizontalAlignment="Left" Margin="55,43,0,0" FontSize="14"></TextBlock>
+                    <Image Grid.Column="0" Source="/Icon/icons8-airplane-take-off-50.png" Height="30" Width="30" Margin="20,70,0,0" HorizontalAlignment="Left"></Image>
+                    <TextBlock Grid.Column="0" x:Name="TB_SanBayDi" Foreground="Black" Text="Hà nội" HorizontalAlignment="Left" Margin="55,78,0,0" FontSize="14"></TextBlock>
+                    <Image Grid.Column="0" Source="/Icon/icons8-destination-66.png" HorizontalAlignment="Left" Width="30" Height="30" Margin="145,70,0,0"></Image>
+                    <TextBlock Grid.Column="0" x:Name="TB_SanBayDen" Foreground="Black" Text="TPHCM" HorizontalAlignment="Left" Margin="180,78,0,0" FontSize="14"></TextBlock>
 
-                    <Grid Grid.Column="0" Margin="0,0,5,0">
-                        <TextBlock Text="Chuyến bay:"
-                               FontSize="15"
-                               FontStyle="Italic"
-                               Margin="10,10,70,9.2" VerticalAlignment="Center" FontWeight="Bold"/>
-
-                        <TextBlock Text="......"
-                               FontSize="15"
-                               Margin="113,14,37.8,14" VerticalAlignment="Center"/>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <TextBlock Text="Nơi đi:"
-                               FontSize="15"
-                               FontWeight="Bold"
-                               Margin="10,14,0,14" VerticalAlignment="Center" Width="91" HorizontalAlignment="Left" TextAlignment="Center"/>
-
-                        <TextBlock Text="......."
-                               FontSize="15"
-                               Margin="118,14,9.8,14" VerticalAlignment="Center"/>
-                    </Grid>
-                    <Grid Grid.Column="2">
-                        <TextBlock Text="Nơi đến:"
-                               FontSize="15"
-                               FontWeight="Bold"
-                               Margin="0,14,86.8,14" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" TextAlignment="Center"/>
-
-                        <TextBlock Text="......."
-                               FontSize="15"
-                               Margin="113,14,9.8,14" VerticalAlignment="Center"/>
-                    </Grid>
+                    <TextBlock Grid.Column="1" Text="Hành khách :" Foreground="Black" FontSize="18" Margin="10,10,0,0" FontWeight="Bold"></TextBlock>
+                    <TextBlock Grid.Column="1" x:Name="TB_CMND" Foreground="Black" Text="231387905" Margin="130,13,0,0" FontSize="15"></TextBlock>
+                    <Image Grid.Column="1" Source="/Icon/icons8-passenger-60.png" Height="30" Width="30" Margin="20,0,0,0" HorizontalAlignment="Left"></Image>
+                    <TextBlock Grid.Column="1" x:Name="TB_TenHanhKhach" Foreground="Black" Text="Trần Trung Thành" HorizontalAlignment="Left" Margin="55,43,0,0" FontSize="14"></TextBlock>
+                    <Image Grid.Column="1" Source="/Icon/icons8-phone-50.png" Height="30" Width="30" Margin="20,70,0,0" HorizontalAlignment="Left"></Image>
+                    <TextBlock Grid.Column="1" x:Name="TB_SDT" Foreground="Black" Text="0898371246" HorizontalAlignment="Left" Margin="55,78,0,0" FontSize="14"></TextBlock>
 
                 </Grid>
-
-                <Grid Margin="0,44,0,5.2">
+                <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition Width="180"></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="0">
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0" Margin="10,0,10.4,0">
-                            <TextBlock Text="Thời gian đi:"
-                               FontSize="15"
-                               FontWeight="Bold" Margin="0,10" VerticalAlignment="Center"
-                               />
-                        </Grid>
-
-                        <Grid Grid.Column="1">
-                            <TextBlock Text="....sgdfgdg..."
-                               FontSize="15" 
-                               Margin="0,10,9.6,10" VerticalAlignment="Center"/>
-                        </Grid>
-
-
-
-                    </Grid>
-
-                    <Grid Grid.Column="1">
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0" Margin="0,0,41.4,0">
-                            <TextBlock Text="Thời gian đến:"
-                               FontStyle="Normal"
-                               FontWeight="Bold"
-                               FontSize="15"
-                               Margin="0,10" VerticalAlignment="Center"/>
-                        </Grid>
-
-                        <Grid Grid.Column="1">
-                            <TextBlock Text="gdgrght"
-                               FontSize="15"
-                               Margin="0,10,-0.4,10" VerticalAlignment="Center"/>
-                        </Grid>
-                    </Grid>
-                </Grid>
-
-                <Grid Grid.Row="2" Margin="10,3.8,0,-0.2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0" Margin="0,-30,0,58">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="0" Margin="0,0,10,0">
-                            <TextBlock Text="Hành khách:"
-                               FontStyle="Normal"
-                               FontWeight="Bold"
-                               FontSize="15" VerticalAlignment="Center" Margin="10,12,0,12"/>
-
-                            <TextBlock x:Name="tb_NameUC" Text="___________"
-                               FontStyle="Normal"
-                               FontWeight="Bold"
-                               FontSize="15"
-                               Margin="108,12,0,12" VerticalAlignment="Center"/>
-                        </Grid>
-
-                        <Grid Grid.Column="1" HorizontalAlignment="Left" Width="206">
-                            <TextBlock Text="SDT:"
-                               FontStyle="Normal"
-                               FontWeight="Bold"
-                               FontSize="15" VerticalAlignment="Center"/>
-
-                            <TextBlock Text="___________"
-                               FontStyle="Normal"
-                               FontWeight="Bold"
-                               FontSize="15"
-                               Margin="50,12,10,12" VerticalAlignment="Center"/>
-                        </Grid>
-
-                        <Grid Grid.Column="2">
-                            <TextBlock Text="CMND:"
-                               FontStyle="Normal"
-                               FontWeight="Bold"
-                               FontSize="15" VerticalAlignment="Center"/>
-
-                            <TextBlock Text="___________"
-                               FontStyle="Normal"
-                               FontWeight="Bold"
-                               FontSize="15"
-                               Margin="69,12,0,12" VerticalAlignment="Center"/>
-                        </Grid>
-
-                    </Grid>
-
-                    <Grid Margin="0,10,0,29.6">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-
-                        <Grid Grid.Column="1">
-                            <TextBlock Text="Giá tiền:"
-                               FontStyle="Normal"
-                               FontWeight="Bold"
-                               FontSize="15"
-                               Margin="0,0,0,0.2" VerticalAlignment="Center"/>
-
-                            <TextBlock Text="___________"
-                               FontStyle="Normal"
-                               FontWeight="Bold"
-                               FontSize="15"
-                               Margin="70,0,0,0.2" VerticalAlignment="Center"/>
-                        </Grid>
-
-                    </Grid>
-
+                    <TextBlock Grid.Column="0" Text="Giá tiền:" Foreground="Black" FontSize="20" FontWeight="Bold" Margin="40,5,0,-10" ></TextBlock>
+                    <TextBlock Grid.Column="1" x:Name="TB_ThanhTien" Foreground="Black" Text="1,000,000" FontSize="20" Margin="0,5,0,0" Width="180" HorizontalAlignment="Right"></TextBlock>
+                    <TextBlock Grid.Column="2" Text="VND" FontSize="20" FontWeight="Bold" Foreground="Gray" Margin="0,5,0,0"></TextBlock>
 
                 </Grid>
-
-
             </Grid>
-
-            <Grid Grid.Column="1" Margin="0,0,0.4,0" VerticalAlignment="Center">
-
-                <Grid Width="110" Background="Transparent" Margin="20,10,20,10.2" VerticalAlignment="Center" Height="167">
-                    <Border BorderThickness="1" Background="Lime" CornerRadius="20,20,20,20" Margin="0,21,0,19" VerticalAlignment="Center">
-                        <Button x:Name="btn_Book" Content="Bán" 
-                                BorderBrush="Transparent"
-                                FontSize="14"
-                                Background="Transparent" Click="btn_Book_Click" Height="40" Margin="0.2,0,-0.4,0">
-                        </Button>
-                    </Border>
-                </Grid>
-
-
-            </Grid>
-
+            <Button Grid.Column="2" x:Name="BTN_Ban" Content="Bán" Margin="5,0,20,0" Click="BTN_Ban_Click"></Button>
         </Grid>
     </Border>
 </UserControl>
