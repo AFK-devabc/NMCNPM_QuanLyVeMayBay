@@ -145,6 +145,9 @@
     <Compile Include="Bán vé máy bay\WChonHangVe.xaml.cs">
       <DependentUpon>WChonHangVe.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WCaiDat.xaml.cs">
+      <DependentUpon>WCaiDat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WDangNhap.xaml.cs">
       <DependentUpon>WDangNhap.xaml</DependentUpon>
     </Compile>
@@ -162,6 +165,9 @@
     </Compile>
     <Compile Include="WTimKiemChuyenBay.xaml.cs">
       <DependentUpon>WTimKiemChuyenBay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WTrangChu.xaml.cs">
+      <DependentUpon>WTrangChu.xaml</DependentUpon>
     </Compile>
     <Compile Include="WVeMayBay.xaml.cs">
       <DependentUpon>WVeMayBay.xaml</DependentUpon>
@@ -206,6 +212,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WCaiDat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WDangNhap.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -227,6 +237,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WTimKiemChuyenBay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WTrangChu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -330,7 +344,11 @@
   <ItemGroup>
     <Resource Include="Icon\icons8-phone-50.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Icon\2413253.png" />
+    <Resource Include="Icon\icons8-flight-64.png" />
+    <Resource Include="Icon\icons8-ticket-confirmed-100.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

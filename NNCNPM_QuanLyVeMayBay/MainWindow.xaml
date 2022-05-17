@@ -47,9 +47,7 @@
         </Button>
         <Grid x:Name="GridTabWindow" HorizontalAlignment="Left" Height="770" Margin="284,0,-4,-0.4" VerticalAlignment="Top" Width="1120" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.RowSpan="2"/>
         <TextBox HorizontalAlignment="Left" Height="146" Margin="24,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Text="&#xD;&#xA;ĐỒ ÁN NHÓM 9&#xA;BÁN VÉ CHUYẾN BAY" TextAlignment="Center" FontWeight="Bold" FontSize="26" IsEnabled="False" Foreground="Black"/>
-        <Image HorizontalAlignment="Left" Height="120" Margin="83,181,0,0" VerticalAlignment="Top" Width="120" Source="Icon/219986.png"/>
         <Button Content="Đăng xuất" HorizontalAlignment="Left" Margin="26,714,0,0" VerticalAlignment="Top" Width="235" Height="35" Click="Button_Click" Background="#FF22577E" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="L_name" Content="Xin chào,&#xD;&#xA;" HorizontalAlignment="Left" Margin="83,306,0,0" VerticalAlignment="Top" Width="120" Height="48" FontWeight="Bold" HorizontalContentAlignment="Center" FontSize="16" Foreground="Black"/>
         <TextBox HorizontalAlignment="Left" Height="146" Margin="24,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Text="&#xA;ĐỒ ÁN NHÓM 9&#xA;BÁN VÉ CHUYẾN BAY" TextAlignment="Center" FontWeight="Bold" FontSize="26" IsEnabled="False" Foreground="Black"/>
         <Button x:Name="BTN_CaiDat" HorizontalAlignment="Right" Margin="0,673,1139,0" VerticalAlignment="Top" Width="235" Height="35" Background="#FF205375" Click="BTN_CaiDat_Click">
             <StackPanel Orientation="Horizontal">
@@ -57,16 +55,10 @@
                 <TextBlock Width="134" FontWeight="Bold" Height="17" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Text="Cài đặt"/>
             </StackPanel>
         </Button>
-        <Button x:Name="BTN_DoiMatKhau" HorizontalAlignment="Right" Margin="0,559,1139,0" VerticalAlignment="Top" Width="235" Height="35" Background="#FF205375" Click="BTN_DoiMatKhau_Click">
+        <Button x:Name="BTN_TrangChu" Margin="0,319,1139,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="235"  Height="35" Background="#FF205375" Click="BTN_TrangChu_Click">
             <StackPanel Orientation="Horizontal">
-                <Image Source="Icon/istockphoto-662107734-170667a.jpg" Height="26" RenderTransformOrigin="0.02,0.533" Width="80"/>
-                <TextBlock Width="134" FontWeight="Bold" Height="17" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Text="Đổi mật khẩu"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="BTN_ThemTaiKhoan" HorizontalAlignment="Right" Margin="0,633,1139,0" VerticalAlignment="Top" Width="235" Height="35" Background="#FF205375" Click="BTN_ThemTaiKhoan_Click">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="Icon/adduser.png" Height="26" RenderTransformOrigin="0.02,0.533" Width="80"/>
-                <TextBlock Width="134" FontWeight="Bold" Height="17" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Text="Thêm tài khoản"/>
+                <Image Source="Icon/png-clipart-airplane-computer-icons-symbol-airport-hand-logo-thumbnail.png" Height="26" RenderTransformOrigin="0.02,0.533" Width="81" HorizontalAlignment="Center"/>
+                <TextBlock Width="134" FontWeight="Bold" Height="17" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Text="Trang chủ"/>
             </StackPanel>
         </Button>
     </Grid>

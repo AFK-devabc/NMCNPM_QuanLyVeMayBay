@@ -12,58 +12,43 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Loaded = "Window_Loaded"
         Title="WThongTinChuyenBay" Height="770" Width="1120">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="26*"/>
-            <ColumnDefinition Width="227*"/>
-            <ColumnDefinition Width="577*"/>
-            <ColumnDefinition Width="138*"/>
-            <ColumnDefinition Width="142*"/>
-        </Grid.ColumnDefinitions>
-
-        <Grid x:Name="TP_GioBay" HorizontalAlignment="Left" Height="720" Margin="0,10,0,0" VerticalAlignment="Top" Width="305" Grid.ColumnSpan="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="91*"/>
-                <ColumnDefinition Width="52*"/>
-                <ColumnDefinition Width="162*"/>
-            </Grid.ColumnDefinitions>
-            <Label Content="Thêm lịch trình bay" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="285" FontSize="16" Grid.ColumnSpan="3"/>
-            <Label Content="Mã chuyến bay" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold" Grid.ColumnSpan="2"/>
-            <Label Content="Sân bay đi" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold" Grid.ColumnSpan="2"/>
-            <Label Content="Sân bay đến" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold" Grid.ColumnSpan="2"/>
-            <Label Content="Ngày - giờ bay" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Width="153" FontWeight="Bold" Grid.ColumnSpan="3"/>
-            <Label Content="Thời gian bay" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold" Grid.ColumnSpan="2"/>
-            <ComboBox x:Name="CB_SanBayDi" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="285" Grid.ColumnSpan="3"/>
-            <ComboBox x:Name="CB_SanBayDen" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" Width="285" Grid.ColumnSpan="3"/>
-            <DatePicker x:Name="DP_NgayBay" HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="166" Grid.ColumnSpan="3"/>
-            <materialDesign:TimePicker x:Name="TP_NgayBay" HorizontalAlignment="Left" Margin="38,228,0,0" VerticalAlignment="Top" Width="124" Is24Hours="True" Grid.Column="2"/>
-            <TextBox x:Name="tb_ThoiGianBay" HorizontalAlignment="Left" Height="23" Margin="10,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" TextAlignment="Right" PreviewTextInput="IsNumberic_only" Grid.ColumnSpan="2" />
-            <Label Content="giờ" HorizontalAlignment="Left" Margin="26,285,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.561,1.283" Grid.Column="1"/>
-            <TextBox x:Name="tb_PhutBay" HorizontalAlignment="Center" Height="23" Margin="0,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextAlignment="Right" PreviewTextInput="IsNumberic_only" Grid.Column="2"/>
-            <Label Content="phút" HorizontalAlignment="Left" Margin="109,282,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.803,-1.65" Grid.Column="2"/>
-            <Button Content="Thêm" HorizontalAlignment="Left" Margin="27,678,0,0" VerticalAlignment="Top" Width="125" Grid.Column="2" Click="bt_Them_Click"/>
+   
+        <Grid HorizontalAlignment="Left" Height="720" Margin="0,10,0,0" VerticalAlignment="Top" Width="305">
+            <Label Content="Thêm lịch trình bay" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="285" FontSize="16"/>
+            <Label Content="Mã chuyến bay" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
+            <Label Content="Sân bay đi" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
+            <Label Content="Sân bay đến" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
+            <Label Content="Ngày - giờ bay" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Width="153" FontWeight="Bold"/>
+            <Label Content="Thời gian bay" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
+            <ComboBox HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="285"/>
+            <ComboBox HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" Width="285"/>
+            <DatePicker HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Width="166"/>
+            <materialDesign:TimePicker HorizontalAlignment="Left" Margin="181,228,0,0" VerticalAlignment="Top" Width="124" Is24Hours="True"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="10,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" TextAlignment="Right" PreviewTextInput="IsNumberic_only" />
+            <Label Content="giờ" HorizontalAlignment="Left" Margin="117,285,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.561,1.283"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="148,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" TextAlignment="Right" PreviewTextInput="IsNumberic_only"/>
+            <Label Content="phút" HorizontalAlignment="Left" Margin="252,282,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.803,-1.65"/>
+            <Button Content="Thêm" HorizontalAlignment="Left" Margin="170,678,0,0" VerticalAlignment="Top" Width="125"/>
             <Label Content="Giá vé : " HorizontalAlignment="Left" Margin="10,310,0,0" VerticalAlignment="Top" Width="56" FontWeight="Bold" RenderTransformOrigin="0.564,1.742"/>
-            <TextBox x:Name="tb_GiaVe" HorizontalAlignment="Left" Height="23" Margin="71,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" TextAlignment="Right" PreviewTextInput="IsNumberic_only" Grid.ColumnSpan="3" />
-            <Label Content="VNĐ" HorizontalAlignment="Left" Margin="109,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.561,1.283" Width="43" Grid.Column="2"/>
-            <TextBox x:Name="tb_MaChuyenBay" HorizontalAlignment="Left" Height="23" Margin="10,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" Grid.ColumnSpan="3"/>
-            <DataGrid  x:Name="dtg_LoaiVe" HorizontalAlignment="Left" Height="122" Margin="10,363,0,0" VerticalAlignment="Top" Width="276" AutoGenerateColumns="False" Grid.ColumnSpan="3">
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="71,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" TextAlignment="Right" PreviewTextInput="IsNumberic_only" />
+            <Label Content="VNĐ" HorizontalAlignment="Left" Margin="252,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.561,1.283" Width="43"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="10,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="285"/>
+            <DataGrid HorizontalAlignment="Left" Height="122" Margin="10,363,0,0" VerticalAlignment="Top" Width="276" CanUserResizeColumns="False" MinColumnWidth="48">
                 <DataGrid.Columns>
-                    <DataGridTextColumn  Header="Loại" Binding="{Binding TenLoaiVe}" />
-                    <DataGridTextColumn  Header="Số lượng" Binding="{Binding TiLe}"/>
+                    <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Loại"/>
+                    <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Số lượng"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="dtg_SanBayTrungGian" HorizontalAlignment="Left" Height="159" Margin="10,514,0,0" VerticalAlignment="Top" Width="276" AutoGenerateColumns="False" Grid.ColumnSpan="3">
+            <DataGrid HorizontalAlignment="Left" Height="159" Margin="10,514,0,0" VerticalAlignment="Top" Width="276" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Sân bay trung gian"/>
                     <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="thời gian dừng"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
-        <DataGrid x:Name="dtg_DSChuyenBay" HorizontalAlignment="Left" Height="668" Margin="47,62,0,0" VerticalAlignment="Top" Width="794" Grid.ColumnSpan="3" Grid.Column="4">
+        <DataGrid HorizontalAlignment="Left" Height="668" Margin="310,62,0,0" VerticalAlignment="Top" Width="794" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Mã chuyến bay"/>
                 <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Sân bay đi"/>
@@ -75,6 +60,6 @@
                 <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Giá vé"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Danh sách chuyến bay sắp bắt đầu" HorizontalAlignment="Left" Margin="47,10,0,0" VerticalAlignment="Top" Width="794" Height="47" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="4"/>
+        <Label Content="Danh sách chuyến bay sắp bắt đầu" HorizontalAlignment="Left" Margin="310,10,0,0" VerticalAlignment="Top" Width="794" Height="47" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
