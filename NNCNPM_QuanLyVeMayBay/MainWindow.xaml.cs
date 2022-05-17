@@ -25,25 +25,22 @@ namespace NNCNPM_QuanLyVeMayBay
         public MainWindow(string name = "")
         {
             InitializeComponent();
-
-            WThongTinChuyenBay child = new WThongTinChuyenBay();
+            WTrangChu child = new WTrangChu(name);
             object content = child.Content;
             child.Content = null;
             this.GridTabWindow.Children.Clear();
             this.GridTabWindow.Children.Add(content as UIElement);
-            L_name.Content += name;
             UserName = name;
-            if(UserName.ToLower() != "admin")
+            if (UserName.ToLower() != "admin")
             {
                 BTN_CaiDat.Visibility = Visibility.Hidden;
-                BTN_ThemTaiKhoan.Visibility = Visibility.Hidden;
             }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             this.GridTabWindow.Children.Clear();
-            
+
         }
 
         private void bnt_ChuyenBay_Click(object sender, RoutedEventArgs e)
@@ -100,27 +97,29 @@ namespace NNCNPM_QuanLyVeMayBay
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            if(islogout == false)
+            if (islogout == false)
             {
                 Environment.Exit(0);
             }
         }
 
-        private void BTN_DoiMatKhau_Click(object sender, RoutedEventArgs e)
-        {
-            WDoiMatKhau wDoiMatKhau = new WDoiMatKhau(UserName);
-            wDoiMatKhau.Show();
-        }
-
-        private void BTN_ThemTaiKhoan_Click(object sender, RoutedEventArgs e)
-        {
-            WThemTaiKhoan wThemTaiKhoan = new WThemTaiKhoan();
-            wThemTaiKhoan.Show();
-        }
 
         private void BTN_CaiDat_Click(object sender, RoutedEventArgs e)
         {
+            WCaiDat child = new WCaiDat();
+            object content = child.Content;
+            child.Content = null;
+            this.GridTabWindow.Children.Clear();
+            this.GridTabWindow.Children.Add(content as UIElement);
+        }
 
+        private void BTN_TrangChu_Click(object sender, RoutedEventArgs e)
+        {
+            WTrangChu child = new WTrangChu(UserName);
+            object content = child.Content;
+            child.Content = null;
+            this.GridTabWindow.Children.Clear();
+            this.GridTabWindow.Children.Add(content as UIElement);
         }
     }
 }
