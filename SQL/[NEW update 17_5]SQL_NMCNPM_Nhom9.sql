@@ -49,6 +49,7 @@ CREATE TABLE VEMAYBAY
 	MaHangVe CHAR(6),
 	GiaTien MONEY,
 	Loaive VARCHAR(10),
+	NgayMua smalldatetime,
 	CONSTRAINT PK_VE PRIMARY KEY (MaVe)
 )
 
