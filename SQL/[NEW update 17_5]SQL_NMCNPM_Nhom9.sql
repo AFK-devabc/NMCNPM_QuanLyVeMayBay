@@ -204,7 +204,7 @@ END
 -- Kiểm tra còn ghê trống hay không? (ứng với từng hạng vé)
 -- Kiểm tra ThoiGianDatVe đối với loại vé đặt chỗ
 CREATE TRIGGER TRG_VEMAYBAY ON VEMAYBAY
-FOR INSERT,UPDATE
+FOR INSERT
 AS
 BEGIN
 	DECLARE @COUNT1 INT
@@ -239,6 +239,14 @@ BEGIN
 	IF(@COUNT3 >0)
 	BEGIN
 		PRINT(N'ERROR: Đã quá thời gian đặt vé!')
+		ROLLBACK TRANSACTION
+	END
+	
+	DECLARE @COUNT4 INT
+	SELECT @COUNT4=COUNT(*) FROM inserted,CHUYENBAY,THAMSO WHERE inserted.MaChuyenBay=CHUYENBAY.MaChuyenBay AND inserted.Loaive='Ve Mua' AND (DATEDIFF(HOUR,CURRENT_TIMESTAMP,CHUYENBAY.NgayBay))<THAMSO.ThoiGianHuyVe
+	IF(@COUNT4 >0)
+	BEGIN
+		PRINT(N'ERROR: Đã quá thời gian mua vé!')
 		ROLLBACK TRANSACTION
 	END
 
@@ -301,8 +309,5 @@ insert into HANHKHACH values('2',N'Nguyễn Thị C','0323000324');
 insert into HANHKHACH values('20524032',N'Nguyễn VX X','656000001');
 
 
-insert into VEMAYBAY values('FF0001','MH0370','1','HV0001',110000,'Ve Mua')
-
-insert into VEMAYBAY values('FF0002','MH0666','1','HV0001',110000,'Ve Mua')
 
 
