@@ -1,4 +1,4 @@
-﻿CREATE DATABASE BANVEMAYBAY
+CREATE DATABASE BANVEMAYBAY
 USE BANVEMAYBAY
 
 create table USER_ACOUNT
@@ -15,7 +15,7 @@ insert into USER_ACOUNT values ('ADMIN' ,'202CB962AC59075B964B07152D234B70')
 -- TẠO BẢNG
 CREATE TABLE CHUYENBAY
 (
-	MaChuyenBay CHAR(6),	
+	MaChuyenBay CHAR(16),	
 	MaSanBayDi CHAR(6),
 	MaSanBayDen CHAR(6),
 	GiaVe MONEY,
@@ -27,7 +27,7 @@ CREATE TABLE CHUYENBAY
 
 CREATE TABLE TRUNGGIAN 
 (
-	MaChuyenBay CHAR(6),
+	MaChuyenBay CHAR(16),
 	MaSanBay CHAR(6),
 	ThoiGianDung INT,
 	GhiChu TEXT,
@@ -44,7 +44,7 @@ CREATE TABLE SANBAY
 CREATE TABLE VEMAYBAY
 (
 	MaVe CHAR(6),
-	MaChuyenBay CHAR(6),
+	MaChuyenBay CHAR(16),
 	CMND VARCHAR(15),
 	MaHangVe CHAR(6),
 	GiaTien MONEY,
@@ -63,7 +63,7 @@ CREATE TABLE HANGVE
 
 CREATE TABLE SOLUONGVE
 (
-	MaChuyenBay CHAR(6),
+	MaChuyenBay CHAR(16),
 	MaHangVe CHAR(6),
 	TongSoGhe INT,
 	SoGheDaDat INT,
@@ -121,7 +121,7 @@ ALTER TABLE THAMSO ADD CONSTRAINT CK_TS_TGHV CHECK(ThoiGianHuyVe >= 0)
 -- CHUYENBAY ThoiGianDung = Tổng ThoiGianDung tại các sân bay trung gian
 -- triger nhập chuyến bay.
 -- Kiểm tra thời gian bay tối thiểu
-
+go
 CREATE TRIGGER TRG_CHUYENBAY ON CHUYENBAY
 FOR INSERT, UPDATE
 AS 
@@ -139,6 +139,7 @@ END
 -- Trigger nhập trung gian
 -- Kiểm tra số lượng sân bay trung gian tối đa (ứng với một chuyến bay)
 -- kiểm tra ThoiGianDung có thỏa mãn điều kiện của tham số
+go
 CREATE TRIGGER TRG_TG ON TRUNGGIAN
 FOR INSERT, UPDATE
 AS
@@ -187,6 +188,7 @@ END
 
 -- Trigger nhập hạng vé
 -- cập nhật lại số hạng vé
+go
 CREATE TRIGGER TRG_HANGVE ON HANGVE
 FOR INSERT,UPDATE,DELETE
 AS
@@ -203,6 +205,7 @@ END
 -- Kiểm tra GiaTien
 -- Kiểm tra còn ghê trống hay không? (ứng với từng hạng vé)
 -- Kiểm tra ThoiGianDatVe đối với loại vé đặt chỗ
+go
 CREATE TRIGGER TRG_VEMAYBAY ON VEMAYBAY
 FOR INSERT
 AS
@@ -255,7 +258,7 @@ BEGIN
 	AND SOLUONGVE.MaHangVe IN (SELECT MaHangVe FROM inserted WHERE inserted.MaChuyenBay = SOLUONGVE.MaChuyenBay)
 
 END
-
+go
 CREATE TRIGGER TRG_VEMAYBAY_D ON VEMAYBAY
 FOR DELETE
 AS
@@ -307,7 +310,3 @@ insert into HANHKHACH values('233322333',N'Nguyễn Văn B','0379875985');
 insert into HANHKHACH values('1',N'Trần Văn Thành','0323000323');
 insert into HANHKHACH values('2',N'Nguyễn Thị C','0323000324');
 insert into HANHKHACH values('20524032',N'Nguyễn VX X','656000001');
-
-
-
-
