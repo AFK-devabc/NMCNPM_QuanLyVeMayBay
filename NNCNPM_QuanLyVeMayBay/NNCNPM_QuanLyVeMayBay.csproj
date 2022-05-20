@@ -121,8 +121,6 @@
     </ApplicationDefinition>
     <Compile Include="DAO\BaoCaoDoanhThuDAO.cs" />
     <Compile Include="DataProvider.cs" />
-    <Compile Include="FThongTinChuyenBay\DataBindingClass.cs" />
-    <Compile Include="FThongTinChuyenBay\VMThongTinChuyenBay.cs" />
     <Compile Include="FDatVe\AvailableFlightsUC.xaml.cs">
       <DependentUpon>AvailableFlightsUC.xaml</DependentUpon>
     </Compile>
@@ -136,6 +134,7 @@
     <Compile Include="FDatVe\TicketUC.xaml.cs">
       <DependentUpon>TicketUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\VMChuyenbay.cs" />
     <Compile Include="WBaoCaoDoanhThu.xaml.cs">
       <DependentUpon>WBaoCaoDoanhThu.xaml</DependentUpon>
     </Compile>
@@ -148,14 +147,14 @@
     <Compile Include="WCaiDat.xaml.cs">
       <DependentUpon>WCaiDat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WChuyenBay.xaml.cs">
+      <DependentUpon>WChuyenBay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WDangNhap.xaml.cs">
       <DependentUpon>WDangNhap.xaml</DependentUpon>
     </Compile>
     <Compile Include="WDatVeMayBay.xaml.cs">
       <DependentUpon>WDatVeMayBay.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FThongTinChuyenBay\WThongTinChuyenBay.xaml.cs">
-      <DependentUpon>WThongTinChuyenBay.xaml</DependentUpon>
     </Compile>
     <Compile Include="WDoiMatKhau.xaml.cs">
       <DependentUpon>WDoiMatKhau.xaml</DependentUpon>
@@ -216,15 +215,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WChuyenBay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WDangNhap.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="WDatVeMayBay.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FThongTinChuyenBay\WThongTinChuyenBay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

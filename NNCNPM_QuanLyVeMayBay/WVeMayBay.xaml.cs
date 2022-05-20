@@ -113,7 +113,7 @@ namespace NNCNPM_QuanLyVeMayBay
                 ticket.TB_TenHanhKhach.Text = i.ItemArray[7].ToString();
                 ticket.TB_SDT.Text = i.ItemArray[8].ToString();
                 string Tien = i.ItemArray[9].ToString();
-                Tien = Tien.Substring(0, Tien.IndexOf(","));
+                Tien = Tien.Substring(0, Tien.IndexOf("."));
                 double tien = Convert.ToDouble(Tien);
                 ticket.TB_ThanhTien.Text = String.Format("{0:0,0}", tien);
                 ticket.HuyVe += HuyVe;

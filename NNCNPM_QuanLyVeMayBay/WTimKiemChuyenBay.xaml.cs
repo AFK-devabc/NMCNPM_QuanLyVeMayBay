@@ -28,18 +28,16 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
-
-
         }
 
         private void WTimKiemChuyenBay_Loaded(object sender, RoutedEventArgs e)
 
         {
-            datatable_ChuyenBay = DataProvider.Instance.ExecuteQuery("select MaChuyenBay as'Chuyến bay',MaSanBayDi as 'Mã sân bay đi',SB1.TenSanBay as 'Tên sân bay đi',MaSanBayDen as 'Mã sân bay đến',SB2.TenSanBay as 'Tên sân bay đến', REPLACE(CONVERT(varchar(20), GiaVe, 1), '.00', '') as 'Giá vé cơ bản',NgayBay as 'Ngày-Giờ khởi hành', ThoiGianBay as 'Thời gian bay(phút)' from CHUYENBAY,SANBAY SB1,SANBAY SB2 where CHUYENBAY.MaSanBayDi=SB1.MaSanBay and CHUYENBAY.MaSanBayDen=SB2.MaSanBay", new object[] { "chuyenbay" });
+            datatable_ChuyenBay = DataProvider.Instance.ExecuteQuery("select MaChuyenBay as'Mã chuyến bay',MaSanBayDi as 'Mã sân bay đi',SB1.TenSanBay as 'Sân bay đi',MaSanBayDen as 'Mã sân bay đến',SB2.TenSanBay as 'Sân bay đến', REPLACE(CONVERT(varchar(20), GiaVe, 1), '.00', '') as 'Giá vé',NgayBay as 'Khởi hành', ThoiGianBay as 'Thời gian(phút)' from CHUYENBAY,SANBAY SB1,SANBAY SB2 where CHUYENBAY.MaSanBayDi=SB1.MaSanBay and CHUYENBAY.MaSanBayDen=SB2.MaSanBay", new object[] { "chuyenbay" });
             datagrid.ItemsSource = datatable_ChuyenBay.AsDataView();
             datagrid.IsReadOnly = true;
-            //datagrid.Columns[1].Visibility = Visibility.Collapsed;
-            //datagrid.Columns[3].Visibility = Visibility.Collapsed;
+            datagrid.Columns[1].Visibility = Visibility.Collapsed;
+            datagrid.Columns[3].Visibility = Visibility.Collapsed;
             list_MaSBDi.Add("Không chọn");
             list_MaSBDen.Add("Không chọn");
             list_TenSBDi.Add("Không chọn");
@@ -295,5 +293,6 @@ namespace NNCNPM_QuanLyVeMayBay
             }
             LoadSanBay();
         }
+
     }
 }
