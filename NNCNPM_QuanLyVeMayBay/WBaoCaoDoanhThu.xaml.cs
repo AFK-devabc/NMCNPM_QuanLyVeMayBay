@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -74,6 +75,7 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             cbb_ChonNam.Items.Clear();
             //string currentMonth = DateTime.Now.Month.ToString();
+            
             int currentYear = (int)DateTime.Now.Year;
 
             for (int i = currentYear; i >= 2015; i--)
@@ -83,6 +85,14 @@ namespace NNCNPM_QuanLyVeMayBay
 
             cbb_ChonNam.SelectedItem = (int)DateTime.Now.Year;
 
+
+            cbb_ChonThang.Items.Clear();
+            for (int i = 1; i <= 12; i++)
+            {
+                cbb_ChonThang.Items.Add(i);
+            }
+
+            cbb_ChonThang.SelectedItem = (int)DateTime.Now.Month;
         }
 
         private void CotSoVe_ChuyenBay(int nam)
@@ -107,14 +117,46 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             int nam = (int)cbb_ChonNam.SelectedItem;
 
-            ComboBoxItem typeItem = (ComboBoxItem)(sender as ComboBox).SelectedItem;
+            //ComboBoxItem typeItem = (ComboBoxItem)(cbb_ChonThang).SelectedItem;
 
-            string value = typeItem.Content.ToString();
+            //string value = typeItem.Content.ToString();
 
-            int thang = int.Parse(value);
+            //int thang = int.Parse(value);
+
+            int thang = (int)cbb_ChonThang.SelectedItem;
 
             Duong_DoanhThuThang.ItemsSource = BaoCaoDoanhThuDAO.Instance.LayDoanhThuTheoThang(nam, thang);
             Cot_SoVeThang.ItemsSource = BaoCaoDoanhThuDAO.Instance.LaySoVeTheoThang(nam, thang);
+        }
+
+        private void btn_ExportMonth_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int nam = (int)cbb_ChonNam.SelectedItem;
+
+                //ComboBoxItem typeItem = (ComboBoxItem)(cbb_ChonThang).SelectedItem;
+
+                //string value = typeItem.Content.ToString();
+
+                //int thang = int.Parse(value);
+
+                int thang = (int)cbb_ChonThang.SelectedItem;
+
+                BaoCaoDoanhThuDAO.Instance.XuatFileExelTheoThang(nam, thang);
+            }
+            catch
+            {
+                MessageBox.Show("Vui lòng nhập tháng");
+            }
+
+        }
+
+        private void btn_ExportYear_Click(object sender, RoutedEventArgs e)
+        {
+            int nam = (int)cbb_ChonNam.SelectedItem;
+
+            BaoCaoDoanhThuDAO.Instance.XuatFileExelTheoNam(nam);
         }
     }
 }

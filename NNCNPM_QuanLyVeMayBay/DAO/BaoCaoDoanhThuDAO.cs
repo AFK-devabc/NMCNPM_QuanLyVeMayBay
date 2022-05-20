@@ -33,19 +33,6 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
         {
             List<KeyValuePair<string, int>> soChuyenBay = new List<KeyValuePair<string, int>>();
 
-            //SoChuyenBay.Add(new KeyValuePair<string, int>("1", 25));
-            //SoChuyenBay.Add(new KeyValuePair<string, int>("2", 30));
-            //SoChuyenBay.Add(new KeyValuePair<string, int>("3", 20));
-            //SoChuyenBay.Add(new KeyValuePair<string, int>("4", 40));
-            //SoChuyenBay.Add(new KeyValuePair<string, int>("5", 20));
-            //SoChuyenBay.Add(new KeyValuePair<string, int>("6", 20));
-            //SoChuyenBay.Add(new KeyValuePair<string, int>("7", 30));
-            //SoChuyenBay.Add(new KeyValuePair<string, int>("8", 20));
-            //SoChuyenBay.Add(new KeyValuePair<string, int>("9", 40));
-            //SoChuyenBay.Add(new KeyValuePair<string, int>("10", 25));
-            //SoChuyenBay.Add(new KeyValuePair<string, int>("11", 30));
-            //SoChuyenBay.Add(new KeyValuePair<string, int>("12", 28));
-
             for (int i = 1; i < 13; i++)
             {
                 string query = string.Format("SELECT COUNT(cb.MaChuyenBay) FROM VEMAYBAY vmb, CHUYENBAY cb WHERE vmb.MaChuyenBay = cb.MaChuyenBay AND YEAR(cb.NgayBay) = {0} AND MONTH(cb.NgayBay) = {1}", nam, i);
@@ -160,6 +147,100 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
             }
 
             return soVe;
+        }
+
+        /// <summary>
+        /// Hàm xuất file exel doanh thu theo tháng 
+        /// </summary>
+        /// <param name="nam"></param>
+        /// <param name="thang"></param>
+        public void XuatFileExelTheoThang(int nam, int thang)
+        {
+            string query = string.Format("SELECT cb.MaChuyenBay, Count(vmb.MaChuyenBay) SoVe, SUM(vmb.GiaTien) DoanhThu FROM(SELECT * FROM CHUYENBAY cb WHERE MONTH(cb.NgayBay) = {0} AND YEAR(cb.NgayBay) = {1}) cb LEFT JOIN VeMayBay vmb ON cb.MaChuyenBay = vmb.MaChuyenBay GROUP BY cb.MaChuyenBay ", thang, nam);
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            if (data.Rows.Count > 0)
+            {
+                Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                for (int i = 1; i < data.Columns.Count + 1; i++)
+
+                {
+                    xcelApp.Cells[1, i] = data.Columns[i - 1].ColumnName;
+                }
+                for (int i = 0; i < data.Rows.Count; i++)
+                {
+                    for (int j = 0; j < data.Columns.Count; j++)
+                    {
+                        xcelApp.Cells[i + 2, j + 1] = data.Rows[i][j].ToString();
+                    }
+                }
+
+                xcelApp.Columns.AutoFit();
+                xcelApp.Visible = true;
+            }
+            else
+            {
+                
+            }
+        }
+
+        /// <summary>
+        /// Hàm xuất file exel doanh thu theo năm 
+        /// </summary>
+        /// <param name="nam"></param>
+        /// <param name="thang"></param>
+        public void XuatFileExelTheoNam(int nam)
+        {
+            DataTable data = new DataTable();
+
+            for (int i = 1; i < 13; i++)
+            {
+                string query = string.Format("SELECT COUNT(cb.MaChuyenBay) 'Số Chuyến Bay', Sum(vmb.GiaTien) 'Doanh Thu' FROM VEMAYBAY vmb, CHUYENBAY cb WHERE vmb.MaChuyenBay = cb.MaChuyenBay AND YEAR(cb.NgayBay) = {0} AND MONTH(cb.NgayBay) = {1}", nam, i);
+
+                DataTable dataRow = DataProvider.Instance.ExecuteQuery(query);
+
+                data.Merge(dataRow);
+
+            }
+
+
+            if (data.Rows.Count > 0)
+            {
+                Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                xcelApp.Application.Workbooks.Add(Type.Missing);
+                xcelApp.Cells[1, 1] = "Tháng";
+
+                //Thêm cột tháng
+                for (int i = 1; i < 13; i++)
+                {
+                    xcelApp.Cells[i + 1, 1] = i.ToString();
+                }
+
+                //Thêm tên các cột trong Datatable
+                for (int i = 1; i < data.Columns.Count + 1; i++)
+                {
+                    xcelApp.Cells[1, i + 1] = data.Columns[i - 1].ColumnName;
+                }
+
+                //Thêm giá trị
+                for (int i = 0; i < data.Rows.Count; i++)
+                {
+                    for (int j = 0; j < data.Columns.Count; j++)
+                    {
+                        xcelApp.Cells[i + 2, j + 2] = data.Rows[i][j].ToString();
+                    }
+                }
+
+                xcelApp.Columns.AutoFit();
+                xcelApp.Visible = true;
+            }
+            else
+            {
+
+            }
         }
     }
 }
