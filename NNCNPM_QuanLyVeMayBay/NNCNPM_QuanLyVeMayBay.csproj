@@ -165,6 +165,9 @@
     <Compile Include="WDoiMatKhau.xaml.cs">
       <DependentUpon>WDoiMatKhau.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPrintTicket.xaml.cs">
+      <DependentUpon>WPrintTicket.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WThemTaiKhoan.xaml.cs">
       <DependentUpon>WThemTaiKhoan.xaml</DependentUpon>
     </Compile>
@@ -234,6 +237,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WDoiMatKhau.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPrintTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -353,6 +360,15 @@
     <Resource Include="Icon\2413253.png" />
     <Resource Include="Icon\icons8-flight-64.png" />
     <Resource Include="Icon\icons8-ticket-confirmed-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\icons8-airplane-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\icons8-arrow-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\vemaybay.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets')" />

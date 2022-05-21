@@ -132,7 +132,7 @@
                                  Margin="30,0,20,0"
                                  materialDesign:HintAssist.Hint="Nhập CMND/CCCD"
                                  FontSize="20"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TB_CMND_TextChanged"/>
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TB_CMND_TextChanged" PreviewTextInput="TB_CMND_PreviewTextInput"/>
                     </Grid>
                     <Grid Grid.Row="2">
                         <TextBox x:Name="TB_TenKH"
@@ -147,7 +147,11 @@
                                  Margin="30,0,20,0"
                                  materialDesign:HintAssist.Hint="Nhập số điện thoại"
                                  FontSize="18"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" PreviewTextInput="TB_SDT_PreviewTextInput" MaxLength="10">
+                            <materialDesign:TextFieldAssist.CharacterCounterStyle>
+                                <Style TargetType="TextBlock" />
+                            </materialDesign:TextFieldAssist.CharacterCounterStyle>
+                        </TextBox>
                     </Grid>
 
                 </Grid>

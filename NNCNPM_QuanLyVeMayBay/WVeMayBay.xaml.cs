@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using NNCNPM_QuanLyVeMayBay.MyUserControls;
 using System.Data;
 using System.Windows.Threading;
+using System.Text.RegularExpressions;
 
 namespace NNCNPM_QuanLyVeMayBay
 {
@@ -29,7 +30,7 @@ namespace NNCNPM_QuanLyVeMayBay
             this.TB_MaChuyenBay.Text = (sender as WChonChuyenBay).MaChuyenBayIsSelected;
             LoadThanhTien();
             (sender as Window).Close();
-        }    
+        }
         private void WChonHangVe_Thoat(object sender, EventArgs e)
         {
             this.TB_HangVe.Text = (sender as WChonHangVe).TenHangVeIsSelected;
@@ -51,11 +52,11 @@ namespace NNCNPM_QuanLyVeMayBay
         }
         void LoadThanhTien()
         {
-            if(TB_MaChuyenBay.Text!="" && TB_HangVe.Text!="")
+            if (TB_MaChuyenBay.Text != "" && TB_HangVe.Text != "")
             {
-                double giatien = Convert.ToDouble( DataProvider.Instance.ExecuteScalar("SELECT CHUYENBAY.GiaVe * HANGVE.TiLe FROM CHUYENBAY, HANGVE WHERE CHUYENBAY.MaChuyenBay = '" + TB_MaChuyenBay.Text + "'  AND HANGVE.TenHangVe = N'"+TB_HangVe.Text+"' ").ToString());
+                double giatien = Convert.ToDouble(DataProvider.Instance.ExecuteScalar("SELECT CHUYENBAY.GiaVe * HANGVE.TiLe FROM CHUYENBAY, HANGVE WHERE CHUYENBAY.MaChuyenBay = '" + TB_MaChuyenBay.Text + "'  AND HANGVE.TenHangVe = N'" + TB_HangVe.Text + "' ").ToString());
                 TB_ThanhTien.Text = String.Format("{0:0,0}", giatien);
-            }    
+            }
         }
         public WVeMayBay()
         {
@@ -88,11 +89,11 @@ namespace NNCNPM_QuanLyVeMayBay
                             + "AND VEMAYBAY.MaChuyenBay = CHUYENBAY.MaChuyenBay AND VEMAYBAY.MaHangVe = HANGVE.MaHangVe AND VEMAYBAY.CMND = HANHKHACH.CMND "
                             + "AND VEMAYBAY.CMND LIKE '%" + TB_TimVe.Text.ToString() + "%' "; ;
             table = DataProvider.Instance.ExecuteQuery(query);
-            foreach(DataRow i in table.Rows)
+            foreach (DataRow i in table.Rows)
             {
                 MyUserControls.TicketUC ticket = new TicketUC();
-                
-                if(!i.ItemArray[10].ToString().Equals("Ve Mua"))
+
+                if (!i.ItemArray[10].ToString().Equals("Ve Mua"))
                 {
                     Uri fileUri = new Uri("/Icon/icons8-booking-50.png", UriKind.Relative);
                     ticket.IMG_LoaiVe.Source = new BitmapImage(fileUri);
@@ -152,7 +153,7 @@ namespace NNCNPM_QuanLyVeMayBay
 
         private void BTN_MaChuyenBay_Click(object sender, RoutedEventArgs e)
         {
-            if(DP_NgayBay.Text=="")
+            if (DP_NgayBay.Text == "")
             {
                 MessageBox.Show("Chưa nhập ngày bay", "Thông báo", MessageBoxButton.OK);
                 return;
@@ -162,13 +163,13 @@ namespace NNCNPM_QuanLyVeMayBay
             //chonChuyenBay.Left = this.Left + this.Width;
             //chonChuyenBay.Top = this.Top + this.Height;
             chonChuyenBay.ShowDialog();
-            
-            
+
+
         }
 
         private void BTN_HangVe_Click(object sender, RoutedEventArgs e)
         {
-            if(TB_MaChuyenBay.Text=="")
+            if (TB_MaChuyenBay.Text == "")
             {
                 MessageBox.Show("Chưa nhập mã chuyến bay", "Thông báo", MessageBoxButton.OK);
                 return;
@@ -181,20 +182,20 @@ namespace NNCNPM_QuanLyVeMayBay
         private void TB_CMND_TextChanged(object sender, TextChangedEventArgs e)
         {
             int count = 0;
-            string query = "SELECT COUNT(*) FROM HANHKHACH WHERE HANHKHACH.CMND = '"+TB_CMND.Text+"'";
+            string query = "SELECT COUNT(*) FROM HANHKHACH WHERE HANHKHACH.CMND = '" + TB_CMND.Text + "'";
             count = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(query).ToString());
-            if(count==1)
+            if (count == 1)
             {
                 IsHKExist = true;
                 DataTable dataTable = new DataTable();
                 dataTable.Clear();
-                dataTable =  DataProvider.Instance.ExecuteQuery("SELECT * FROM HANHKHACH WHERE HANHKHACH.CMND = '" + TB_CMND.Text + "'");
-                foreach(DataRow i in dataTable.Rows)
+                dataTable = DataProvider.Instance.ExecuteQuery("SELECT * FROM HANHKHACH WHERE HANHKHACH.CMND = '" + TB_CMND.Text + "'");
+                foreach (DataRow i in dataTable.Rows)
                 {
                     TB_TenKH.Text = i.ItemArray[1].ToString();
                     TB_SDT.Text = i.ItemArray[2].ToString();
-                }    
-                
+                }
+
             }
             else
             {
@@ -206,7 +207,8 @@ namespace NNCNPM_QuanLyVeMayBay
 
         private void BTN_HoanTat_Click(object sender, RoutedEventArgs e)
         {
-            if(DP_NgayBay.Text=="")
+            string ID = "";
+            if (DP_NgayBay.Text == "")
             {
                 MessageBox.Show("Chưa điền ngày bay", "Thông báo", MessageBoxButton.OK);
                 return;
@@ -221,7 +223,7 @@ namespace NNCNPM_QuanLyVeMayBay
                 MessageBox.Show("Chưa chọn hạng vé", "Thông báo", MessageBoxButton.OK);
                 return;
             }
-            if(TB_CMND.Text=="")
+            if (TB_CMND.Text == "")
             {
                 MessageBox.Show("Chưa điền CMND/CCCD", "Thông báo", MessageBoxButton.OK);
                 return;
@@ -236,30 +238,35 @@ namespace NNCNPM_QuanLyVeMayBay
                 MessageBox.Show("Chưa điền số điện thoại", "Thông báo", MessageBoxButton.OK);
                 return;
             }
+            if (TB_SDT.Text.Length != 10)
+            {
+                MessageBox.Show("Số điện thoại điền không đúng!", "Thông báo", MessageBoxButton.OK);
+                return;
+            }
             if (CB_LoaiVe.Text == "")
             {
                 MessageBox.Show("Chưa điền Loại vé", "Thông báo", MessageBoxButton.OK);
                 return;
             }
-            if(!IsHKExist)
+            if (!IsHKExist)
             {
                 try
                 {
-                    string query = "INSERT INTO HANHKHACH VALUES('" + TB_CMND.Text + "','" + TB_TenKH.Text + "','" + TB_SDT.Text + "')";
+                    string query = "INSERT INTO HANHKHACH VALUES('" + TB_CMND.Text + "', N'" + TB_TenKH.Text + "','" + TB_SDT.Text + "')";
                     DataProvider.Instance.ExecuteNonQuery(query);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString(), "Thông báo", MessageBoxButton.OK);
                     return;
                 }
-            }    
+            }
             try
             {
                 int Soid = Convert.ToInt32(DataProvider.Instance.ExecuteScalar("SELECT COUNT(*) FROM VEMAYBAY").ToString());
                 string MaHangVe = DataProvider.Instance.ExecuteScalar("SELECT HANGVE.MaHangVe FROM HANGVE WHERE HANGVE.TenHangVe = N'" + TB_HangVe.Text + "'").ToString();
                 string LoaiVe = "";
-                string ID = CreateMaVe(Soid);
+                ID = CreateMaVe(Soid);
                 string query = "";
                 if (CB_LoaiVe.Text == "Vé mua")
                 {
@@ -277,15 +284,28 @@ namespace NNCNPM_QuanLyVeMayBay
                     else break;
                 }
 
-                query = "INSERT INTO VEMAYBAY VALUES('"+ID+"','"+TB_MaChuyenBay.Text+"','"+TB_CMND.Text+"','"+MaHangVe+"',"+TB_ThanhTien.Text.Replace(".",String.Empty)+",'"+LoaiVe+"')";
+                query = "INSERT INTO VEMAYBAY VALUES('" + ID + "','" + TB_MaChuyenBay.Text + "','" + TB_CMND.Text + "','" + MaHangVe + "'," + TB_ThanhTien.Text.Replace(".", String.Empty) + ",'" + LoaiVe + "', '" + DateTime.Today.ToString("yyyy/MM/dd") + "')";
                 DataProvider.Instance.ExecuteNonQuery(query);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(CutExceptionMessage(ex.ToString()), "Thông báo", MessageBoxButton.OK);
                 return;
             }
-            MessageBox.Show("Đã hoàn tất", "Thông báo", MessageBoxButton.OK);
+            if (CB_LoaiVe.Text == "Vé mua")
+            {
+                MessageBoxResult result = MessageBox.Show("Bạn có muốn in vé không?", "Thông báo", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    WPrintTicket printTicket = new WPrintTicket(ID);
+                    printTicket.PrintTicket();
+                }
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Đã hoàn tất đặt vé", "Thông báo", MessageBoxButton.OK);
+            }
+
             LoadEmpty();
             Load();
         }
@@ -293,7 +313,7 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             string ID = "VE";
             int sochia = 1000;
-            while(sochia>0)
+            while (sochia > 0)
             {
                 int n = SoID / sochia;
                 ID = ID + n.ToString();
@@ -324,6 +344,18 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             TB_MaChuyenBay.Text = "";
             TB_HangVe.Text = "";
+        }
+
+        private void TB_CMND_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void TB_SDT_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
