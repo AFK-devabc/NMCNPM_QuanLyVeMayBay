@@ -62,10 +62,13 @@ namespace NNCNPM_QuanLyVeMayBay
             cbb_SanBayDen.ItemsSource = list_TenSBDen;
             cbb_SanBayDi.SelectedIndex = 0;
             cbb_SanBayDen.SelectedIndex = 0;
-            tb_GiaVeMax.Text = datatable_ChuyenBay.AsEnumerable().Max(row => Convert.ToInt32(row[5].ToString().Replace(",", ""))).ToString();
-            tb_GiaVeMin.Text = datatable_ChuyenBay.AsEnumerable().Min(row => Convert.ToInt32(row[5].ToString().Replace(",", ""))).ToString();
-            tb_TGBayMax.Text = datatable_ChuyenBay.AsEnumerable().Max(row => Convert.ToInt32(row[7])).ToString();
-            tb_TGBayMin.Text = datatable_ChuyenBay.AsEnumerable().Min(row => Convert.ToInt32(row[7])).ToString();
+            if (datatable_ChuyenBay.Rows.Count > 0)
+            {
+                tb_GiaVeMax.Text = datatable_ChuyenBay.AsEnumerable().Max(row => Convert.ToInt32(row[5].ToString().Replace(",", ""))).ToString();
+                tb_GiaVeMin.Text = datatable_ChuyenBay.AsEnumerable().Min(row => Convert.ToInt32(row[5].ToString().Replace(",", ""))).ToString();
+                tb_TGBayMax.Text = datatable_ChuyenBay.AsEnumerable().Max(row => Convert.ToInt32(row[7])).ToString();
+                tb_TGBayMin.Text = datatable_ChuyenBay.AsEnumerable().Min(row => Convert.ToInt32(row[7])).ToString();
+            }
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
