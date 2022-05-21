@@ -53,7 +53,12 @@ namespace NNCNPM_QuanLyVeMayBay.MyUserControls
             {
                 query = "UPDATE VEMAYBAY SET Loaive = 'Ve Mua' where VEMAYBAY.MaVe = '" + MaVe + "' ";
                 DataProvider.Instance.ExecuteNonQuery(query);
-                MessageBox.Show("Đã hoàn tất chuyển thành vé mua", "Thông báo", MessageBoxButton.OK);
+                MessageBoxResult result = MessageBox.Show("Bạn có muốn in vé không?", "Thông báo", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    WPrintTicket printTicket = new WPrintTicket(MaVe);
+                    printTicket.PrintTicket();
+                }
             }
             else
             {
