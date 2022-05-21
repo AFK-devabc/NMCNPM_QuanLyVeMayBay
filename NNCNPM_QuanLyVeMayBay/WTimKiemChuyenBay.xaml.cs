@@ -15,6 +15,8 @@ namespace NNCNPM_QuanLyVeMayBay
     public partial class WTimKiemChuyenBay : Window
     {
         private DataTable datatable_ChuyenBay;
+        private DataTable datatable_SanBayDi;
+        private DataTable datatable_SanBayDen;
         List<string> list_MaSBDi = new List<string>();
         List<string> list_MaSBDen = new List<string>();
         List<string> list_TenSBDi = new List<string>();
@@ -28,14 +30,14 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
-
-
         }
 
         private void WTimKiemChuyenBay_Loaded(object sender, RoutedEventArgs e)
 
         {
             datatable_ChuyenBay = DataProvider.Instance.ExecuteQuery("select MaChuyenBay as'Chuyến bay',MaSanBayDi as 'Mã sân bay đi',SB1.TenSanBay as 'Tên sân bay đi',MaSanBayDen as 'Mã sân bay đến',SB2.TenSanBay as 'Tên sân bay đến', REPLACE(CONVERT(varchar(20), GiaVe, 1), '.00', '') as 'Giá vé cơ bản',NgayBay as 'Ngày-Giờ khởi hành', ThoiGianBay as 'Thời gian bay(phút)' from CHUYENBAY,SANBAY SB1,SANBAY SB2 where CHUYENBAY.MaSanBayDi=SB1.MaSanBay and CHUYENBAY.MaSanBayDen=SB2.MaSanBay", new object[] { "chuyenbay" });
+            datatable_SanBayDi = DataProvider.Instance.ExecuteQuery("select distinct MaSanBayDi,TenSanBay from CHUYENBAY,SanBay where CHUYENBAY.MaSanBayDi=SANBAY.MaSanBay", new object[] { "chuyenbay" });
+            datatable_SanBayDen= DataProvider.Instance.ExecuteQuery("select distinct MaSanBayDen,TenSanBay from CHUYENBAY,SanBay where CHUYENBAY.MaSanBayDen=SANBAY.MaSanBay", new object[] { "chuyenbay" });
             datagrid.ItemsSource = datatable_ChuyenBay.AsDataView();
             datagrid.IsReadOnly = true;
             //datagrid.Columns[1].Visibility = Visibility.Collapsed;
@@ -44,18 +46,16 @@ namespace NNCNPM_QuanLyVeMayBay
             list_MaSBDen.Add("Không chọn");
             list_TenSBDi.Add("Không chọn");
             list_TenSBDen.Add("Không chọn");
-
-            foreach (DataRow dr in datatable_ChuyenBay.Rows)
+            foreach (DataRow dr in datatable_SanBayDi.Rows)
             {
-                list_MaSBDi.Add(dr[1].ToString());
-                list_TenSBDi.Add(dr[2].ToString());
-
+                list_MaSBDi.Add(dr[0].ToString());
+                list_TenSBDi.Add(dr[1].ToString());
             }
 
-            foreach (DataRow dr in datatable_ChuyenBay.Rows)
+            foreach (DataRow dr in datatable_SanBayDen.Rows)
             {
-                list_MaSBDen.Add(dr[3].ToString());
-                list_TenSBDen.Add(dr[4].ToString());
+                list_MaSBDen.Add(dr[0].ToString());
+                list_TenSBDen.Add(dr[1].ToString());
             }
 
             cbb_SanBayDi.ItemsSource = list_TenSBDi;
