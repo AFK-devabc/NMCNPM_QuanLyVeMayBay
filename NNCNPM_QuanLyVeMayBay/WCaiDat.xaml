@@ -9,38 +9,70 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="WTrangChu" Height="770" Width="1120" OpacityMask="#FF732929" >
-    <Grid>
-        <Label Content="thời gian bay tối thiểu : " HorizontalAlignment="Left" Margin="80,119,0,0" VerticalAlignment="Top" Width="228" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TB_TGBMin" HorizontalAlignment="Left" Height="32" Margin="313,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" FontSize="16" PreviewTextInput="IsNumberic_only"/>
-        <Label Content="Thời gian dừng tối đa : " HorizontalAlignment="Left" Margin="80,156,0,0" VerticalAlignment="Top" Width="228" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TB_TGDMax" HorizontalAlignment="Left" Height="32" Margin="313,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" FontSize="16" PreviewTextInput="IsNumberic_only"/>
-        <Label Content="Thời gian dừng tối thiểu : " HorizontalAlignment="Left" Margin="80,193,0,0" VerticalAlignment="Top" Width="228" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TB_TGDMin" HorizontalAlignment="Left" Height="32" Margin="313,193,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.311,-0.794" FontSize="16" PreviewTextInput="IsNumberic_only"/>
-        <Label Content="Số sân bay trung gian tối đa : " HorizontalAlignment="Left" Margin="80,82,0,0" VerticalAlignment="Top" Width="228" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TB_SBTGToiDa" HorizontalAlignment="Left" Height="32" Margin="313,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontSize="16" PreviewTextInput="IsNumberic_only"/>
-        <Label Content="Số sân bay tối đa : " HorizontalAlignment="Left" Margin="616,88,0,0" VerticalAlignment="Top" Width="146" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TB_SanBayToiDa" HorizontalAlignment="Left" Height="32" Margin="767,88,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" FontSize="16" IsEnabled="False"/>
-        <Label Content="Thời gian hủy vé sau : " HorizontalAlignment="Left" Margin="80,267,0,0" VerticalAlignment="Top" Width="228" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TB_TGHuyVe" HorizontalAlignment="Left" Height="32" Margin="313,267,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" FontSize="16" PreviewTextInput="IsNumberic_only"/>
-        <Label Content="Thời gian đặt vé trước : " HorizontalAlignment="Left" Margin="80,230,0,0" VerticalAlignment="Top" Width="228" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="TB_TGDatVeMax" HorizontalAlignment="Left" Height="32" Margin="313,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontSize="16" PreviewTextInput="IsNumberic_only"/>
-        <Label Content="Phút" HorizontalAlignment="Left" Margin="465,119,0,0" VerticalAlignment="Top" Width="89" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" VerticalContentAlignment="Center"/>
-        <Label Content="Phút" HorizontalAlignment="Left" Margin="465,156,0,0" VerticalAlignment="Top" Width="89" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" VerticalContentAlignment="Center"/>
-        <Label Content="Phút" HorizontalAlignment="Left" Margin="465,193,0,0" VerticalAlignment="Top" Width="89" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" VerticalContentAlignment="Center"/>
-        <Label Content="Giờ" HorizontalAlignment="Left" Margin="465,230,0,0" VerticalAlignment="Top" Width="89" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" VerticalContentAlignment="Center"/>
-        <Label Content="Giờ" HorizontalAlignment="Left" Margin="465,267,0,0" VerticalAlignment="Top" Width="89" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" VerticalContentAlignment="Center"/>
-        <DataGrid x:Name="DGV_SanBay" HorizontalAlignment="Left" Height="239" Margin="614,125,0,0" VerticalAlignment="Top" Width="357" EnableRowVirtualization="False" IsReadOnly="True"/>
-        <Button x:Name="BTN_Luu" Content="Lưu" HorizontalAlignment="Left" Margin="403,332,0,0" VerticalAlignment="Top" Width="75" Click="BTN_Luu_Click"/>
+    <Grid Loaded="Grid_Loaded">
+        <Label Content="thời gian bay tối thiểu : " HorizontalAlignment="Left" Margin="28,89,0,0" VerticalAlignment="Top" Width="228" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TB_TGBMin" HorizontalAlignment="Left" Height="32" Margin="256,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" FontSize="16" PreviewTextInput="IsNumberic_only"/>
+        <Label Content="Thời gian dừng tối đa : " HorizontalAlignment="Left" Margin="28,126,0,0" VerticalAlignment="Top" Width="228" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TB_TGDMax" HorizontalAlignment="Left" Height="32" Margin="256,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" FontSize="16" PreviewTextInput="IsNumberic_only"/>
+        <Label Content="Thời gian dừng tối thiểu : " HorizontalAlignment="Left" Margin="28,163,0,0" VerticalAlignment="Top" Width="228" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TB_TGDMin" HorizontalAlignment="Left" Height="32" Margin="256,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.311,-0.794" FontSize="16" PreviewTextInput="IsNumberic_only"/>
+        <Label Content="Số sân bay trung gian tối đa : " HorizontalAlignment="Left" Margin="28,52,0,0" VerticalAlignment="Top" Width="228" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TB_SBTGToiDa" HorizontalAlignment="Left" Height="32" Margin="256,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontSize="16" PreviewTextInput="IsNumberic_only"/>
+        <Label Content="Số sân bay tối đa : " HorizontalAlignment="Left" Margin="605,52,0,0" VerticalAlignment="Top" Width="146" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TB_SanBayToiDa" HorizontalAlignment="Left" Height="32" Margin="756,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="214" FontSize="16" IsEnabled="False"/>
+        <Label Content="Thời gian hủy vé sau : " HorizontalAlignment="Left" Margin="28,237,0,0" VerticalAlignment="Top" Width="228" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TB_TGHuyVe" HorizontalAlignment="Left" Height="32" Margin="256,237,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" FontSize="16" PreviewTextInput="IsNumberic_only"/>
+        <Label Content="Thời gian đặt vé trước : " HorizontalAlignment="Left" Margin="28,200,0,0" VerticalAlignment="Top" Width="228" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TB_TGDatVeMax" HorizontalAlignment="Left" Height="32" Margin="256,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontSize="16" PreviewTextInput="IsNumberic_only"/>
+        <Label Content="Phút" HorizontalAlignment="Left" Margin="412,89,0,0" VerticalAlignment="Top" Width="55" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" VerticalContentAlignment="Center"/>
+        <Label Content="Phút" HorizontalAlignment="Left" Margin="412,126,0,0" VerticalAlignment="Top" Width="55" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" VerticalContentAlignment="Center"/>
+        <Label Content="Phút" HorizontalAlignment="Left" Margin="412,163,0,0" VerticalAlignment="Top" Width="55" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" VerticalContentAlignment="Center"/>
+        <Label Content="Giờ" HorizontalAlignment="Left" Margin="412,200,0,0" VerticalAlignment="Top" Width="55" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" VerticalContentAlignment="Center"/>
+        <Label Content="Giờ" HorizontalAlignment="Left" Margin="412,237,0,0" VerticalAlignment="Top" Width="55" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" VerticalContentAlignment="Center"/>
+        <DataGrid x:Name="DGV_SanBay" HorizontalAlignment="Left" Height="239" Margin="613,92,0,0" VerticalAlignment="Top" Width="357" EnableRowVirtualization="False" IsReadOnly="True"/>
+        <Button x:Name="BTN_Luu" Content="Lưu" HorizontalAlignment="Left" Margin="256,274,0,0" VerticalAlignment="Top" Width="135" Click="BTN_Luu_Click"/>
         <TextBox x:Name="TB_MaSanBay"
-            Margin="614,389,334.6,320"
+            Margin="613,336,352.6,373"
             materialDesign:HintAssist.Hint="Mã sân bay"
             FontSize="16"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom"/>
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom" IsReadOnly="True"/>
         <TextBox x:Name="TB_TenSanBay"
-            Margin="806,389,142.6,320"
+            Margin="766,336,143.6,373"
             materialDesign:HintAssist.Hint="Tên sân bay"
             FontSize="16"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom"/>
-        <Button x:Name="BTN_Them" Content="Thêm" HorizontalAlignment="Left" Margin="870,466,0,0" VerticalAlignment="Top" Width="75" Click="BTN_Them_Click"/>
+        <Button x:Name="BTN_ThemSanBay" Content="Thêm" HorizontalAlignment="Left" Margin="895,372,0,0" VerticalAlignment="Top" Width="75" Click="BTN_Them_Click"/>
+        <Label Content="Số hạng vé : " HorizontalAlignment="Left" Margin="72,364,0,0" VerticalAlignment="Top" Width="115" Height="32" FontSize="16" RenderTransformOrigin="0.266,1.024" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TB_SoHangVe" HorizontalAlignment="Left" Height="32" Margin="192,364,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="245" FontSize="16" IsEnabled="False"/>
+        <DataGrid x:Name="DGV_HangVe" HorizontalAlignment="Left" Height="210" Margin="72,401,0,0" VerticalAlignment="Top" Width="370" EnableRowVirtualization="False" CanUserAddRows="False" >
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.384"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="1.193"/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+        </DataGrid>
+        <TextBox x:Name="TB_MaHangVe"
+            Margin="74,606,895.6,103"
+            materialDesign:HintAssist.Hint="Mã hạng vé"
+            FontSize="16"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.53,-0.432" IsReadOnly="True"/>
+        <TextBox x:Name="TB_TenHangVe"
+            Margin="76,671,924.6,38"
+            materialDesign:HintAssist.Hint="Tên"
+            FontSize="16"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom"/>
+        <Button x:Name="BTN_ThemHangVe" Content="Thêm" HorizontalAlignment="Left" Margin="362,687,0,0" VerticalAlignment="Top" Width="75" Click="BTN_ThemHangVe_Click"/>
+        <TextBox x:Name="TB_TiLe"
+            Margin="198,671,754.6,38"
+            materialDesign:HintAssist.Hint="Tỉ lệ"
+            FontSize="16"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom" PreviewTextInput="IsNumberic_only"/>
+        <Button x:Name="BTN_ApDung" Content="Áp dụng chỉnh sửa" HorizontalAlignment="Left" Margin="256,621,0,0" VerticalAlignment="Top" Width="181" Click="BTN_ApDung_Click"/>
+        <Label Content="Danh sách các sân bay" HorizontalAlignment="Left" Margin="613,16,0,0" VerticalAlignment="Top" Width="252" Height="35" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Quy định chuyến bay" HorizontalAlignment="Left" Margin="119,16,0,0" VerticalAlignment="Top" Width="252" Height="35" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Danh sách các hạng vé" HorizontalAlignment="Left" Margin="74,324,0,0" VerticalAlignment="Top" Width="252" Height="35" FontSize="20" FontWeight="Bold"/>
     </Grid>
 </Window>

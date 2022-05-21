@@ -45,7 +45,7 @@ namespace NNCNPM_QuanLyVeMayBay
 
         private void bnt_ChuyenBay_Click(object sender, RoutedEventArgs e)
         {
-            WThongTinChuyenBay child = new WThongTinChuyenBay();
+            WChuyenBay child = new WChuyenBay();
             object content = child.Content;
             child.Content = null;
             this.GridTabWindow.Children.Clear();
