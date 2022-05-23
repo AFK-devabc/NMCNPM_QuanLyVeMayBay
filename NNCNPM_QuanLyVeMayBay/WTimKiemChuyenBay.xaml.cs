@@ -35,13 +35,13 @@ namespace NNCNPM_QuanLyVeMayBay
         private void WTimKiemChuyenBay_Loaded(object sender, RoutedEventArgs e)
 
         {
-            datatable_ChuyenBay = DataProvider.Instance.ExecuteQuery("select MaChuyenBay as'Chuyến bay',MaSanBayDi as 'Mã sân bay đi',SB1.TenSanBay as 'Tên sân bay đi',MaSanBayDen as 'Mã sân bay đến',SB2.TenSanBay as 'Tên sân bay đến', REPLACE(CONVERT(varchar(20), GiaVe, 1), '.00', '') as 'Giá vé cơ bản',NgayBay as 'Ngày-Giờ khởi hành', ThoiGianBay as 'Thời gian bay(phút)' from CHUYENBAY,SANBAY SB1,SANBAY SB2 where CHUYENBAY.MaSanBayDi=SB1.MaSanBay and CHUYENBAY.MaSanBayDen=SB2.MaSanBay", new object[] { "chuyenbay" });
+            datatable_ChuyenBay = DataProvider.Instance.ExecuteQuery("select MaChuyenBay as'Chuyến bay',MaSanBayDi as 'Mã sân bay đi',SB1.TenSanBay as 'Tên sân bay đi',MaSanBayDen as 'Mã sân bay đến',SB2.TenSanBay as 'Tên sân bay đến', REPLACE(CONVERT(varchar(20), GiaVe, 1), '.00', '') as 'Giá vé cơ bản',NgayBay as 'Ngày-Giờ khởi hành', ThoiGianBay as 'Thời gian bay(phút)' from CHUYENBAY,SANBAY SB1,SANBAY SB2 where CHUYENBAY.MaSanBayDi=SB1.MaSanBay and CHUYENBAY.MaSanBayDen=SB2.MaSanBay ORDER BY CHUYENBAY.NGAYBAY DESC", new object[] { "chuyenbay" });
             datatable_SanBayDi = DataProvider.Instance.ExecuteQuery("select distinct MaSanBayDi,TenSanBay from CHUYENBAY,SanBay where CHUYENBAY.MaSanBayDi=SANBAY.MaSanBay", new object[] { "chuyenbay" });
             datatable_SanBayDen= DataProvider.Instance.ExecuteQuery("select distinct MaSanBayDen,TenSanBay from CHUYENBAY,SanBay where CHUYENBAY.MaSanBayDen=SANBAY.MaSanBay", new object[] { "chuyenbay" });
             datagrid.ItemsSource = datatable_ChuyenBay.AsDataView();
             datagrid.IsReadOnly = true;
-            //datagrid.Columns[1].Visibility = Visibility.Collapsed;
-            //datagrid.Columns[3].Visibility = Visibility.Collapsed;
+            datagrid.Columns[1].Visibility = Visibility.Collapsed;
+            datagrid.Columns[3].Visibility = Visibility.Collapsed;
             list_MaSBDi.Add("Không chọn");
             list_MaSBDen.Add("Không chọn");
             list_TenSBDi.Add("Không chọn");
@@ -79,8 +79,22 @@ namespace NNCNPM_QuanLyVeMayBay
         }
         void LoadSanBay()
         {
+
             DataTable dt = new DataTable();
             dt = datatable_ChuyenBay.Copy();
+            if(tb_MaChuyenBay.Text.Length > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    string gt_tim = tb_MaChuyenBay.Text;
+                    string ma = dt.Rows[i][0].ToString();
+                    if (!ma.Contains(gt_tim))
+                    {
+                        dt.Rows.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }    
             if (cbb_SanBayDi.SelectedIndex != -1 && cbb_SanBayDi.SelectedValue.ToString() != "Không chọn")
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
@@ -218,14 +232,14 @@ namespace NNCNPM_QuanLyVeMayBay
                     }
                 }
                 datagrid.ItemsSource = dt.AsDataView();
-                //datagrid.Columns[1].Visibility = Visibility.Collapsed;
-                //datagrid.Columns[3].Visibility = Visibility.Collapsed;
+                datagrid.Columns[1].Visibility = Visibility.Collapsed;
+                datagrid.Columns[3].Visibility = Visibility.Collapsed;
             }
             else
             {
                 datagrid.ItemsSource = dt.AsDataView();
-                //datagrid.Columns[1].Visibility = Visibility.Collapsed;
-                //datagrid.Columns[3].Visibility = Visibility.Collapsed;
+                datagrid.Columns[1].Visibility = Visibility.Collapsed;
+                datagrid.Columns[3].Visibility = Visibility.Collapsed;
             }
             if (dt.Rows.Count == 0)
             {
@@ -296,6 +310,11 @@ namespace NNCNPM_QuanLyVeMayBay
                 tb_GiaVeMax.SelectionStart = tb_GiaVeMax.Text.Length;
 
             }
+            LoadSanBay();
+        }
+
+        private void tb_MaChuyenBay_TextChanged(object sender, TextChangedEventArgs e)
+        {
             LoadSanBay();
         }
     }

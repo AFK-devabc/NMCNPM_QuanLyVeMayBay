@@ -10,6 +10,7 @@
     <Grid Loaded="WTimKiemChuyenBay_Loaded">
         <Grid HorizontalAlignment="Left" Height="720" Margin="10,10,0,0" VerticalAlignment="Top" Width="260">
             <Label Content="Tìm kiếm chuyến bay" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="264" FontSize="16"/>
+            
             <Label Content="Sân bay đi" HorizontalAlignment="Left" Margin="5,84,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
             <Label Content="Sân bay đến" HorizontalAlignment="Left" Margin="5,138,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
             <ComboBox Name="cbb_SanBayDi" HorizontalAlignment="Left" Margin="5,108,10,0" VerticalAlignment="Top" Width="230" SelectionChanged="cbb_SanBayDi_SelectionChanged" Foreground="Black" />
@@ -65,6 +66,12 @@
             <CheckBox Name="ck_ghetrong"  Content="Còn ghế trống" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="117" Height="22" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
         </Grid>
         <Label Content="Danh sách các chuyến bay" HorizontalAlignment="Left" Margin="270,10,0,0" VerticalAlignment="Top" Width="835" Height="47" FontSize="20" FontWeight="Bold"/>
+        <TextBox x:Name="tb_MaChuyenBay"
+                            Margin="645,-5,0,0"
+                            materialDesign:HintAssist.Hint="Tìm theo mã chuyến bay"
+                            FontSize="20"
+                            Foreground="Black"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="tb_MaChuyenBay_TextChanged"/>
         <DataGrid x:Name="datagrid" HorizontalAlignment="Left" Height="668" Margin="270,62,0,0" VerticalAlignment="Top" Width="835" CanUserResizeColumns="False" >
 
         </DataGrid>
