@@ -158,9 +158,6 @@
     <Compile Include="WDangNhap.xaml.cs">
       <DependentUpon>WDangNhap.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WDatVeMayBay.xaml.cs">
-      <DependentUpon>WDatVeMayBay.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WDoiMatKhau.xaml.cs">
       <DependentUpon>WDoiMatKhau.xaml</DependentUpon>
     </Compile>
@@ -231,10 +228,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WDatVeMayBay.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="WDoiMatKhau.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -291,25 +284,13 @@
     <Resource Include="Icon\1200px-User_font_awesome.svg.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icon\tải xuống.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Icon\neu-hay-chup-anh-tren-may-bay-hay-doc-ngay-bai-viet-nay-1460945087496 %281%29.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icon\219986.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icon\png-clipart-airplane-computer-icons-symbol-airport-hand-logo-thumbnail.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Icon\images.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icon\pngtree-vector-search-icon-png-image_3782164.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icon\png-clipart-computer-icons-statistics-bar-chart-histogram-statistics-miscellaneous-angle-thumbnail.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -324,16 +305,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icon\padlock %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icon\settings.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Icon\istockphoto-662107734-170667a.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icon\setting-icon-isolated-on-white-background-vector-25322705.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icon\adduser.png" />
@@ -368,6 +340,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icon\vemaybay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ticket-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\airport-64.png" />
+    <Resource Include="Icon\home-7-64.png" />
+    <Resource Include="Icon\report-2-64.png" />
+    <Resource Include="Icon\search-2-64.png" />
+    <Resource Include="Icon\settings-4-64.png" />
+    <Resource Include="Icon\ticket-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\businessman-64.png" />
+    <Resource Include="Icon\padlock-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\add-user-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\padlock-64 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon\Poster.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.4.0\build\MaterialDesignThemes.targets')" />

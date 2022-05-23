@@ -11,8 +11,8 @@
             <Label Content="WELCOME" HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" Foreground="#DD0011C8"/>
             <Button x:Name="BTN_Login" Content="Đăng nhập" HorizontalAlignment="Center" Margin="63,251,22,0" VerticalAlignment="Top" Width="144" Background="#FF2D4289" Click="button_Login_Click"/>
             <TextBox x:Name="TB_UserName" HorizontalAlignment="Center" Height="34" TextWrapping="Wrap" Width="144" Text="" VerticalAlignment="Top" Margin="60,116,22,0" Background="White" FontSize="14" TextAlignment="Center"/>
-            <Image HorizontalAlignment="Left" Height="40" Margin="10,110,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.325" Source="Icon/1200px-User_font_awesome.svg.png"/>
-            <Image HorizontalAlignment="Left" Height="32" Margin="10,163,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.325" Source="Icon/tải xuống.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="40" Margin="10,110,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.325" Source="Icon/businessman-64.png"/>
+            <Image HorizontalAlignment="Left" Height="32" Margin="10,163,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.325" Source="Icon/padlock-64 (1).png" Stretch="Fill"/>
             <Label x:Name="L_Message" HorizontalAlignment="Left" Margin="61,223,0,0" VerticalAlignment="Top" Width="144" Height="23" Background="{x:Null}" Foreground="#DDFF0000" FontWeight="Bold" HorizontalContentAlignment="Right"/>
             <CheckBox x:Name="CB_NhoPass" Content="Nhớ mật khẩu" HorizontalAlignment="Left" Margin="102,200,0,0" VerticalAlignment="Top" Width="103" IsChecked="True"/>
             <PasswordBox x:Name="TB_UserPass" HorizontalAlignment="Left" Margin="63,163,0,0" VerticalAlignment="Top" Width="142" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>

@@ -8,72 +8,89 @@
         mc:Ignorable="d"
         Title="WTimKiemChuyenBay" Height="770" Width="1120" >
     <Grid Loaded="WTimKiemChuyenBay_Loaded">
-        <Grid HorizontalAlignment="Left" Height="720" Margin="10,10,0,0" VerticalAlignment="Top" Width="260">
-            <Label Content="Tìm kiếm chuyến bay" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="264" FontSize="16"/>
-            
-            <Label Content="Sân bay đi" HorizontalAlignment="Left" Margin="5,84,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
-            <Label Content="Sân bay đến" HorizontalAlignment="Left" Margin="5,138,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold"/>
-            <ComboBox Name="cbb_SanBayDi" HorizontalAlignment="Left" Margin="5,108,10,0" VerticalAlignment="Top" Width="230" SelectionChanged="cbb_SanBayDi_SelectionChanged" Foreground="Black" />
-            <ComboBox Name="cbb_SanBayDen" HorizontalAlignment="Left" Margin="5,162,10,0" VerticalAlignment="Top" Width="230" SelectionChanged="cbb_SanBayDen_SelectionChanged" Foreground="Black"/>
-            <Label Width="259" VerticalAlignment="Top" Margin="5,192,0,0" HorizontalAlignment="Left" FontWeight="Bold" Content="Ngày - giờ khởi hành " RenderTransformOrigin="0.5,0.5">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-0.026"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Label Width="259" VerticalAlignment="Top" Margin="5,255,0,0" HorizontalAlignment="Left" FontWeight="Bold" Content="Thời gian bay tối đa" RenderTransformOrigin="0.5,0.5">
-
-            </Label>
-            <Label Content="Từ" HorizontalAlignment="Left" Margin="5,285,0,0" VerticalAlignment="Top"/>
-            <TextBox Name="tb_TGBayMin" PreviewTextInput="NumberValidationTextBox"  Width="80" VerticalAlignment="Top" Margin="30,285,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="Black" RenderTransformOrigin="0.5,0.5" MaxLength="9" TextChanged="tb_TGBayMin_TextChanged">
-                <materialDesign:TextFieldAssist.CharacterCounterStyle>
-                    <Style TargetType="TextBlock" />
-                </materialDesign:TextFieldAssist.CharacterCounterStyle>
-            </TextBox>
-
-            <Label Content="Đến" HorizontalAlignment="Left" Margin="110,285,0,0" VerticalAlignment="Top"/>
-            <TextBox Name="tb_TGBayMax" PreviewTextInput="NumberValidationTextBox"  Width="80" VerticalAlignment="Top" Margin="150,285,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="Black" RenderTransformOrigin="0.5,0.5" MaxLength="9" TextChanged="tb_TGBayMax_TextChanged">
-                <materialDesign:TextFieldAssist.CharacterCounterStyle>
-                    <Style TargetType="TextBlock" />
-                </materialDesign:TextFieldAssist.CharacterCounterStyle>
-            </TextBox>
-
-            <Label Width="259" VerticalAlignment="Top" Margin="5,315,0,0" HorizontalAlignment="Left" FontWeight="Bold" Content="Giá vé cơ bản" RenderTransformOrigin="0.5,0.5">
-
-            </Label>
-            <Label Content="Từ" HorizontalAlignment="Left" Margin="5,335,0,0" VerticalAlignment="Top"/>
-            <TextBox Name="tb_GiaVeMin" PreviewTextInput="NumberValidationTextBox" Width="80"  VerticalAlignment="Top" Margin="30,335,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="Black" RenderTransformOrigin="0.5,0.5" MaxLength="11" TextChanged="tb_GiaVeMin_TextChanged">
-                <materialDesign:TextFieldAssist.CharacterCounterStyle>
-                    <Style TargetType="TextBlock" />
-                </materialDesign:TextFieldAssist.CharacterCounterStyle>
-            </TextBox>
-
-            <Label Content="Đến" HorizontalAlignment="Left" Margin="110,335,0,0" VerticalAlignment="Top"/>
-
-            <TextBox Name="tb_GiaVeMax" PreviewTextInput="NumberValidationTextBox" Width="80"  VerticalAlignment="Top" Margin="150,335,0,0" HorizontalAlignment="Left" FontWeight="Bold" Foreground="Black"  RenderTransformOrigin="0.5,0.5" MaxLength="11"  TextChanged="tb_GiaVeMax_TextChanged">
-                <materialDesign:TextFieldAssist.CharacterCounterStyle>
-                    <Style TargetType="TextBlock" />
-                </materialDesign:TextFieldAssist.CharacterCounterStyle>
-            </TextBox>
-
-
-            <DatePicker Name="dtp_NgayBay" Width="100" VerticalAlignment="Top" Margin="5,221,0,0" HorizontalAlignment="Left" SelectedDateChanged="dtp_NgayBay_SelectedDateChanged" Foreground="Black"/>
-            <materialDesign:TimePicker Name="dtp_GioBay" HorizontalAlignment="Left" Margin="130,221,0,0" VerticalAlignment="Top" Width="100" Is24Hours="True" SelectedTimeChanged="dtp_GioBay_SelectedTimeChanged" Foreground="Black" />
-            <CheckBox Name="ck_ghetrong"  Content="Còn ghế trống" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="117" Height="22" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
-        </Grid>
-        <Label Content="Danh sách các chuyến bay" HorizontalAlignment="Left" Margin="270,10,0,0" VerticalAlignment="Top" Width="835" Height="47" FontSize="20" FontWeight="Bold"/>
-        <TextBox x:Name="tb_MaChuyenBay"
-                            Margin="645,-5,0,0"
-                            materialDesign:HintAssist.Hint="Tìm theo mã chuyến bay"
-                            FontSize="20"
-                            Foreground="Black"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="tb_MaChuyenBay_TextChanged"/>
-        <DataGrid x:Name="datagrid" HorizontalAlignment="Left" Height="668" Margin="270,62,0,0" VerticalAlignment="Top" Width="835" CanUserResizeColumns="False" >
-
+        <DataGrid x:Name="datagrid" HorizontalAlignment="Left" Height="630" Margin="270,100,0,0" VerticalAlignment="Top" Width="835" CanUserResizeColumns="False" >
         </DataGrid>
+        <StackPanel Margin="10,100,848.6,0" Background="White">
+            <Expander
+                    HorizontalAlignment="Stretch"
+                    Header="Chuyến bay" Margin="0,0,-0.2,0" FontSize="14" FontWeight="Bold" Background="White" Foreground="Black">
+                <StackPanel
+                        Orientation="Vertical"
+                        Margin="0,0,-0.2,0">
+                    <Grid  Margin="0,0,-0.2,0">
+                        <Label Content="Sân bay đi" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="127" FontWeight="Normal"/>
+                        <Label Content="Sân bay đến" HorizontalAlignment="Left" Margin="5,54,0,0" VerticalAlignment="Top" Width="127" FontWeight="Normal"/>
+                        <ComboBox Name="cbb_SanBayDi" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="230" SelectionChanged="cbb_SanBayDi_SelectionChanged" Foreground="Black" FontWeight="Normal" />
+                        <ComboBox Name="cbb_SanBayDen" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Width="230" SelectionChanged="cbb_SanBayDen_SelectionChanged" Foreground="Black" FontWeight="Normal"/>
+                    </Grid>
+                </StackPanel>
+            </Expander>
+            <Expander
+                    HorizontalAlignment="Stretch"
+                    Header="Ngày, giờ" Margin="0,0,-0.2,0" FontSize="14" FontWeight="Bold" Background="White" Foreground="Black">
+                <StackPanel
+                        Orientation="Vertical"
+                        Margin="0,0,-0.2,0">
+                    <Grid  Margin="0,0,-0.2,0">
+                        <Label Width="240" VerticalAlignment="Top" Margin="0,9,0.4,0" HorizontalAlignment="Right" FontWeight="Normal" Content="Ngày - giờ khởi hành " RenderTransformOrigin="0.5,0.5">
+                            <Label.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-0.026"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Label.RenderTransform>
+                        </Label>
+                        <Label Width="240" VerticalAlignment="Top" Margin="15,64,0,0" HorizontalAlignment="Left" FontWeight="Normal" Content="Thời gian bay tối đa" RenderTransformOrigin="0.5,0.5">
+
+                        </Label>
+                        <Label Content="Từ" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                        <TextBox Name="tb_TGBayMin" PreviewTextInput="NumberValidationTextBox"  Width="82" VerticalAlignment="Top" Margin="36,90,0,-0.2" HorizontalAlignment="Left" FontWeight="Normal" Foreground="Black" RenderTransformOrigin="0.5,0.5" MaxLength="9" TextChanged="tb_TGBayMin_TextChanged">
+                            <materialDesign:TextFieldAssist.CharacterCounterStyle>
+                                <Style TargetType="TextBlock" />
+                            </materialDesign:TextFieldAssist.CharacterCounterStyle>
+                        </TextBox>
+                        <Label Content="Đến" HorizontalAlignment="Left" Margin="123,91,0,-0.2" VerticalAlignment="Top" RenderTransformOrigin="1.155,0.51" FontWeight="Normal"/>
+                        <TextBox Name="tb_TGBayMax" PreviewTextInput="NumberValidationTextBox"  Width="93" VerticalAlignment="Top" Margin="162,90,0,-0.4" HorizontalAlignment="Left" FontWeight="Normal" Foreground="Black" RenderTransformOrigin="0.5,0.5" MaxLength="9" TextChanged="tb_TGBayMax_TextChanged">
+                            <materialDesign:TextFieldAssist.CharacterCounterStyle>
+                                <Style TargetType="TextBlock" />
+                            </materialDesign:TextFieldAssist.CharacterCounterStyle>
+                        </TextBox>
+
+                        <DatePicker Name="dtp_NgayBay" Width="130" VerticalAlignment="Top" Margin="0,32,0,0" HorizontalAlignment="Left" SelectedDateChanged="dtp_NgayBay_SelectedDateChanged" Foreground="Black" FontWeight="Normal"/>
+                        <materialDesign:TimePicker Name="dtp_GioBay" HorizontalAlignment="Left" Margin="135,32,0,0" VerticalAlignment="Top" Width="110" Is24Hours="True" SelectedTimeChanged="dtp_GioBay_SelectedTimeChanged" Foreground="Black" FontWeight="Normal" />
+                    </Grid>
+                </StackPanel>
+            </Expander>
+            <Expander
+                    HorizontalAlignment="Stretch"
+                    Header="Vé" Margin="0,0,-0.2,0" FontSize="14" FontWeight="Bold" Background="White" Foreground="Black">
+                <StackPanel
+                        Orientation="Vertical"
+                        Margin="0,0,-0.2,0">
+                    <Grid  Margin="0,0,-0.2,0">
+                        <Label Width="245" VerticalAlignment="Top" Margin="10,4,0,0" HorizontalAlignment="Left" FontWeight="Normal" Content="Giá vé cơ bản" RenderTransformOrigin="0.5,0.5">
+                        </Label>
+                        <Label Content="Từ" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                        <TextBox Name="tb_GiaVeMin" PreviewTextInput="NumberValidationTextBox" Width="86"  VerticalAlignment="Top" Margin="30,30,0,0" HorizontalAlignment="Left" FontWeight="Normal" Foreground="Black" RenderTransformOrigin="0.5,0.5" MaxLength="11" TextChanged="tb_GiaVeMin_TextChanged">
+                            <materialDesign:TextFieldAssist.CharacterCounterStyle>
+                                <Style TargetType="TextBlock" />
+                            </materialDesign:TextFieldAssist.CharacterCounterStyle>
+                        </TextBox>
+                        <Label Content="Đến" HorizontalAlignment="Left" Margin="121,31,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                        <TextBox Name="tb_GiaVeMax" PreviewTextInput="NumberValidationTextBox" Width="100"  VerticalAlignment="Top" Margin="155,30,0,0" HorizontalAlignment="Left" FontWeight="Normal" Foreground="Black"  RenderTransformOrigin="0.5,0.5" MaxLength="11"  TextChanged="tb_GiaVeMax_TextChanged">
+                            <materialDesign:TextFieldAssist.CharacterCounterStyle>
+                                <Style TargetType="TextBlock" />
+                            </materialDesign:TextFieldAssist.CharacterCounterStyle>
+                        </TextBox>
+                        <CheckBox Name="ck_ghetrong"  Content="Còn ghế trống" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Width="117" Height="22" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" FontWeight="Normal"/>
+
+                    </Grid>
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+        <Label HorizontalAlignment="Left" Margin="0,0,-0.4,0" VerticalAlignment="Top" Width="1114" Height="60" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" Background="#FF183251" Foreground="#DDFFFFFF" Content="Tìm kiếm chuyến bay" HorizontalContentAlignment="Center"/>
+
     </Grid>
 </Window>

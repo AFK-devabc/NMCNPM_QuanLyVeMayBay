@@ -114,7 +114,6 @@ namespace NNCNPM_QuanLyVeMayBay
                 ticket.TB_TenHanhKhach.Text = i.ItemArray[7].ToString();
                 ticket.TB_SDT.Text = i.ItemArray[8].ToString();
                 string Tien = i.ItemArray[9].ToString();
-                Tien = Tien.Substring(0, Tien.IndexOf(","));
                 double tien = Convert.ToDouble(Tien);
                 ticket.TB_ThanhTien.Text = String.Format("{0:0,0}", tien);
                 ticket.HuyVe += HuyVe;
@@ -133,19 +132,6 @@ namespace NNCNPM_QuanLyVeMayBay
             }
 
         }
-
-        private void btn_Book_Click(object sender, RoutedEventArgs e)
-        {
-            MaterialDesignThemes.Wpf.Snackbar snackbar = new MaterialDesignThemes.Wpf.Snackbar();
-
-            MaterialDesignThemes.Wpf.SnackbarMessageQueue s = new MaterialDesignThemes.Wpf.SnackbarMessageQueue();
-            s.Enqueue("Chỗ này đã có người đặt!");
-
-            snackbar.MessageQueue = s;
-
-            gr_book.Children.Add(snackbar);
-        }
-
         private void TB_TimVe_TextChanged(object sender, TextChangedEventArgs e)
         {
             Load();
@@ -284,7 +270,7 @@ namespace NNCNPM_QuanLyVeMayBay
                     else break;
                 }
 
-                query = "INSERT INTO VEMAYBAY VALUES('" + ID + "','" + TB_MaChuyenBay.Text + "','" + TB_CMND.Text + "','" + MaHangVe + "'," + TB_ThanhTien.Text.Replace(".", String.Empty) + ",'" + LoaiVe + "', '" + DateTime.Today.ToString("yyyy/MM/dd") + "')";
+                query = "INSERT INTO VEMAYBAY VALUES('" + ID + "','" + TB_MaChuyenBay.Text + "','" + TB_CMND.Text + "','" + MaHangVe + "'," + TB_ThanhTien.Text.Replace(",", String.Empty) + ",'" + LoaiVe + "', '" + DateTime.Today.ToString("yyyy/MM/dd") + "')";
                 DataProvider.Instance.ExecuteNonQuery(query);
             }
             catch (Exception ex)

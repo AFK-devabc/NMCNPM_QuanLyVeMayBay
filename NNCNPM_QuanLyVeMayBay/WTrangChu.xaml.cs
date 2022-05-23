@@ -25,7 +25,7 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             InitializeComponent();
             UserName = name;
-            L_name.Content += name;
+            L_name.Text += name;
             LoadData();
         }
 
@@ -73,5 +73,6 @@ namespace NNCNPM_QuanLyVeMayBay
                 L_ChuyenBay.Content = table.Rows[0].ItemArray[0].ToString() + L_ChuyenBay.Content;
             }
         }
+
     }
 }

@@ -188,5 +188,15 @@ namespace NNCNPM_QuanLyVeMayBay
             else 
                 tb_MaChuyenBay.Text = "MH-" + DateTime.Today.ToString("yyyy") + DateTime.Today.ToString("MM") + "-000" + (dt_TTChuyenBay.Rows.Count + 1);
         }
+
+        private void EDP_ChuyenBay_Expanded(object sender, RoutedEventArgs e)
+        {
+            EDP_SanBay.IsExpanded = false;
+        }
+
+        private void EDP_SanBay_Expanded(object sender, RoutedEventArgs e)
+        {
+            EDP_ChuyenBay.IsExpanded = false;
+        }
     }
 }
