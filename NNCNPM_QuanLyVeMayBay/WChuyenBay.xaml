@@ -69,7 +69,7 @@
                     </Grid>
                 </StackPanel>
             </Expander>
-            <Button Content="Thêm lịch trình" Click="bt_Them_Click" Height="30" Background="#FF315EA3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="304" BorderBrush="#FF315EA3"/>
+            <Button Content="Thêm lịch trình" Click="bt_Them_Click" Height="30" Background="#FF315EA3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="135" BorderBrush="#FF315EA3"/>
         </StackPanel>
 
 

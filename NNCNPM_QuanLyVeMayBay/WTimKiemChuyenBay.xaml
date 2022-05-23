@@ -17,7 +17,7 @@
                 <StackPanel
                         Orientation="Vertical"
                         Margin="0,0,-0.2,0">
-                    <Grid  Margin="0,0,-0.2,0">
+                    <Grid  Margin="0,0,-0.2,0" >
                         <Label Content="Sân bay đi" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="127" FontWeight="Normal"/>
                         <Label Content="Sân bay đến" HorizontalAlignment="Left" Margin="5,54,0,0" VerticalAlignment="Top" Width="127" FontWeight="Normal"/>
                         <ComboBox Name="cbb_SanBayDi" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="230" SelectionChanged="cbb_SanBayDi_SelectionChanged" Foreground="Black" FontWeight="Normal" />
@@ -89,8 +89,12 @@
                     </Grid>
                 </StackPanel>
             </Expander>
+            <TextBox x:Name="tb_MaChuyenBay"
+                            materialDesign:HintAssist.Hint="Tìm theo mã chuyến bay"
+                            FontSize="14"
+                            Foreground="Black"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="tb_MaChuyenBay_TextChanged" Margin="10,0,10.2,0" Height="41" FontWeight="Bold"/>
         </StackPanel>
         <Label HorizontalAlignment="Left" Margin="0,0,-0.4,0" VerticalAlignment="Top" Width="1114" Height="60" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" Background="#FF183251" Foreground="#DDFFFFFF" Content="Tìm kiếm chuyến bay" HorizontalContentAlignment="Center"/>
-
     </Grid>
 </Window>

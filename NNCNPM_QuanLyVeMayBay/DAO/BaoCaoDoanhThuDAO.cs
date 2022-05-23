@@ -183,7 +183,7 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
             }
             else
             {
-                
+
             }
         }
 
@@ -241,6 +241,20 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
             {
 
             }
+        }
+
+        /// <summary>
+        /// Hàm trả về Datatable doanh thu theo tháng 
+        /// </summary>
+        /// <param name="nam"></param>
+        /// <param name="thang"></param>
+        public DataTable BaoCaoDoanhThuTheoThang(int nam, int thang)
+        {
+            string query = string.Format("SELECT cb.MaChuyenBay 'Mã chuyến bay', Count(vmb.MaChuyenBay) 'Số vé', SUM(vmb.GiaTien) 'Doanh thu' FROM(SELECT * FROM CHUYENBAY cb WHERE MONTH(cb.NgayBay) = {0} AND YEAR(cb.NgayBay) = {1}) cb LEFT JOIN VeMayBay vmb ON cb.MaChuyenBay = vmb.MaChuyenBay GROUP BY cb.MaChuyenBay ", thang, nam);
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            return data;
         }
     }
 }

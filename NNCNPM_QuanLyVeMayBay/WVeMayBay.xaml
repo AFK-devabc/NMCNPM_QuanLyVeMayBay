@@ -167,7 +167,7 @@
                 <Button x:Name="BTN_HoanTat" Content="Hoàn tất" 
                                 BorderBrush="Transparent"
                                 FontSize="16"
-                                Background="#FF315EA3" Click="BTN_HoanTat_Click" Margin="70,98,77,10">
+                                Background="#FF315EA3" Click="BTN_HoanTat_Click" Margin="70,98,77,10" Width="135">
                 </Button>
             </Grid>
 

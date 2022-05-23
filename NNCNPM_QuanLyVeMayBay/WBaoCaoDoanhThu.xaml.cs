@@ -57,25 +57,16 @@ namespace NNCNPM_QuanLyVeMayBay
 
             this.DataContext = this;
 
-
-            LoadCbbChonNam();
-
-            Load((int)DateTime.Now.Year);
+            Load((int)DateTime.Now.Year, (int)DateTime.Now.Month);
 
             FullName = "Hong Truong Vinh";
         }
 
-        void Load(int nam)
-        {
-            CotSoVe_ChuyenBay(nam);
-            CotDoanhThu_ChuyenBay(nam);
-        }
-
-        void LoadCbbChonNam()
+        void Load(int nam, int thang)
         {
             cbb_ChonNam.Items.Clear();
             //string currentMonth = DateTime.Now.Month.ToString();
-            
+
             int currentYear = (int)DateTime.Now.Year;
 
             for (int i = currentYear; i >= 2015; i--)
@@ -93,24 +84,43 @@ namespace NNCNPM_QuanLyVeMayBay
             }
 
             cbb_ChonThang.SelectedItem = (int)DateTime.Now.Month;
+
+            dg_BaoCaoThang.IsReadOnly = true;
+
+            CotChuyenBay_Nam(nam);
+            DuongDoanhThu_Nam(nam);
+
+            LoadDoanhThuThang(nam, thang);
         }
 
-        private void CotSoVe_ChuyenBay(int nam)
+        private void LoadDoanhThu_Nam(int nam)
+        {
+            CotChuyenBay_Nam(nam);
+            DuongDoanhThu_Nam(nam);
+        }
+
+        private void CotChuyenBay_Nam(int nam)
         {
             Col_CountTicket.ItemsSource = BaoCaoDoanhThuDAO.Instance.LaySoChuyenBayTheoNam(nam);
         }
 
-        private void CotDoanhThu_ChuyenBay(int nam)
+        private void DuongDoanhThu_Nam(int nam)
         {
             Line_TurnoverFlight.ItemsSource = BaoCaoDoanhThuDAO.Instance.LayDoanhThuTheoNam(nam);
         }
 
+        private void LoadDoanhThuThang(int nam, int thang)
+        {
+            DataTable data = BaoCaoDoanhThuDAO.Instance.BaoCaoDoanhThuTheoThang(nam, thang);
+            dg_BaoCaoThang.ItemsSource = data.AsDataView();
+        }
+
         private void cbb_ChonNam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
             int nam = (int)(sender as ComboBox).SelectedItem;
 
-            Load(nam);
+            LoadDoanhThu_Nam(nam);
         }
 
         private void cbb_ChonThang_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -125,8 +135,10 @@ namespace NNCNPM_QuanLyVeMayBay
 
             int thang = (int)cbb_ChonThang.SelectedItem;
 
-            Duong_DoanhThuThang.ItemsSource = BaoCaoDoanhThuDAO.Instance.LayDoanhThuTheoThang(nam, thang);
-            Cot_SoVeThang.ItemsSource = BaoCaoDoanhThuDAO.Instance.LaySoVeTheoThang(nam, thang);
+            LoadDoanhThuThang(nam, thang);
+
+            //Duong_DoanhThuThang.ItemsSource = BaoCaoDoanhThuDAO.Instance.LayDoanhThuTheoThang(nam, thang);
+            //Cot_SoVeThang.ItemsSource = BaoCaoDoanhThuDAO.Instance.LaySoVeTheoThang(nam, thang);
         }
 
         private void btn_ExportMonth_Click(object sender, RoutedEventArgs e)

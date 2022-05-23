@@ -36,6 +36,8 @@
                         <Label Content="Giờ" HorizontalAlignment="Left" Margin="383,119,0,0" VerticalAlignment="Top" Width="55"  FontSize="14"  VerticalContentAlignment="Center" FontWeight="Normal"/>
                         <Label Content="Giờ" HorizontalAlignment="Left" Margin="383,145,0,0" VerticalAlignment="Top" Width="55"  FontSize="14"  VerticalContentAlignment="Center" FontWeight="Normal"/>
                         <Button x:Name="BTN_Luu" Content="Lưu" HorizontalAlignment="Left" Margin="250,178,0,0" VerticalAlignment="Top" Width="135" Click="BTN_Luu_Click" FontSize="14" FontWeight="Bold" Background="#FF315EA3"/>
+                        <Label Content="*** Thông tin có thể chỉnh sửa của các chuyến bay, &#xD;&#xA;dùng để thay đổi quy định của toàn bộ tất cả các chuyến bay" HorizontalAlignment="Center" Margin="629,36,31.8,81.6" Width="434" VerticalAlignment="Center" Height="92" VerticalContentAlignment="Center" Foreground="#DDFF0000"/>
+
                     </Grid>
                 </StackPanel>
             </Expander>
@@ -50,12 +52,13 @@
                         <TextBox x:Name="TB_SoHangVe" HorizontalAlignment="Left"  Margin="171,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" FontSize="16" IsEnabled="False" FontWeight="Normal"/>
                         <DataGrid x:Name="DGV_HangVe" HorizontalAlignment="Left" Height="235" Margin="450,5,0,0" VerticalAlignment="Top" Width="370" EnableRowVirtualization="False" CanUserAddRows="False" IsReadOnly="True" >
                         </DataGrid>
-                        <TextBox x:Name="TB_MaHangVe"
-            Margin="32,54,849.8,150.4"
+                        <TextBox x:Name="TB_MaHangVe"                             
+                            Margin="32,54,849.8,150.4"
             materialDesign:HintAssist.Hint="Mã hạng vé"
             FontSize="16"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.53,-0.432" IsReadOnly="True" FontWeight="Normal"/>
                         <TextBox x:Name="TB_TenHangVe"
+                                 
             Margin="32,100,855.8,97.2"
             materialDesign:HintAssist.Hint="Tên"
             FontSize="16"
@@ -68,7 +71,9 @@
                                 </TransformGroup>
                             </TextBox.RenderTransform>
                         </TextBox>
-                        <Button x:Name="BTN_ThemHangVe" Content="Thêm" HorizontalAlignment="Left" Margin="250,68,0,0" VerticalAlignment="Top" Width="161" Click="BTN_ThemHangVe_Click" RenderTransformOrigin="0.516,0.25" FontWeight="Bold" Background="#FF315EA3"/>
+                        <Label Content="*** Danh sách toàn các hạng vé của chuyến bay, &#xD;&#xA;có thể thêm hạng vé mới" HorizontalAlignment="Center" Margin="32,159,683.8,17.2" Width="379" VerticalAlignment="Center" Height="75" VerticalContentAlignment="Center" Foreground="#DDFF0000"/>
+
+                        <Button x:Name="BTN_ThemHangVe" Content="Thêm" HorizontalAlignment="Left" Margin="268,68,0,0" VerticalAlignment="Top" Width="135" Click="BTN_ThemHangVe_Click" RenderTransformOrigin="0.516,0.25" FontWeight="Bold" Background="#FF315EA3"/>
                         <TextBox x:Name="TB_TiLe"
             Margin="250,105,714.8,97.2"
             materialDesign:HintAssist.Hint="Tỉ lệ"
@@ -92,18 +97,19 @@
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom" IsReadOnly="True" RenderTransformOrigin="0.532,0.71"/>
                         <DataGrid x:Name="DGV_SanBay" HorizontalAlignment="Left" Height="239" Margin="450,5,0,0" VerticalAlignment="Top" Width="357" EnableRowVirtualization="False" IsReadOnly="True"/>
                         <Label Content="Tổng số sân bay : " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="146"  FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                        <TextBox x:Name="TB_SanBayToiDa" HorizontalAlignment="Left"  Margin="156,9,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" FontSize="16" IsEnabled="False"/>
+                        <TextBox x:Name="TB_SanBayToiDa" HorizontalAlignment="Left"  Margin="156,9,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="233" FontSize="16" IsEnabled="False"/>
+                        <Label Content="*** Danh sách toàn bộ các sân bay mà chuyến bay &#xD;&#xA;có thể chọn làm điểm đi hoặc đến, &#xD;&#xA;có thể thêm sân bay" HorizontalAlignment="Center" Margin="10,149,707,529.6" Width="379" VerticalAlignment="Center" Height="75" VerticalContentAlignment="Center" Foreground="#DDFF0000"/>
                         <TextBox x:Name="TB_TenSanBay"
-            Margin="10,98,700,609.6"
+            Margin="10,98,707,609.6"
             materialDesign:HintAssist.Hint="Tên sân bay"
             FontSize="16"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom"/>
-                        <Button x:Name="BTN_ThemSanBay" Content="Thêm" HorizontalAlignment="Left" Margin="280,60,0,0" VerticalAlignment="Top" Width="116" Click="BTN_Them_Click" Background="#FF315EA3"/>
+                        <Button x:Name="BTN_ThemSanBay" Content="Thêm" HorizontalAlignment="Left" Margin="280,60,0,0" VerticalAlignment="Top" Width="135" Click="BTN_Them_Click" Background="#FF315EA3"/>
                     </Grid>
                 </StackPanel>
             </Expander>
         </StackPanel>
-        <Label HorizontalAlignment="Left" Margin="0,0,-0.4,0" VerticalAlignment="Top" Width="1114" Height="60" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" Background="#FF183251" Foreground="#DDFFFFFF" Content="Thông tin cài đặt" HorizontalContentAlignment="Center"/>
+        <Label HorizontalAlignment="Left" Margin="0,0,-0.4,0" VerticalAlignment="Top" Width="1114" Height="60" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" Background="#FF183251" Foreground="#DDFFFFFF" Content="Thông tin cài đặt / Thay đổi quy định" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>
