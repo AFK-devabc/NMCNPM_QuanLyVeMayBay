@@ -172,6 +172,7 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             LoadDSChuyenBay();
             LoadVeSanBay();
+            EDP_SanBay.IsExpanded = true;
         }
         private void LoadDSChuyenBay()
         {
@@ -196,7 +197,7 @@ namespace NNCNPM_QuanLyVeMayBay
 
         private void EDP_SanBay_Expanded(object sender, RoutedEventArgs e)
         {
-            EDP_ChuyenBay.IsExpanded = false;
+                EDP_ChuyenBay.IsExpanded = false;
         }
     }
 }

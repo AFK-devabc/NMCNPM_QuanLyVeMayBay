@@ -11,28 +11,37 @@
         Title="Bán vé máy bay" Height="770" Width="1120" OpacityMask="#FF732929" >
     <Grid Margin="0,0,-0.4,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Margin="0,0,0,6">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="750.4"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="1113.6"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label HorizontalAlignment="Left" Margin="0,0,-0.4,0" VerticalAlignment="Top" Width="1114" Height="60" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" Background="#FF183251" Foreground="#DDFFFFFF" Content="Vé máy bay" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+            <Grid HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top" Width="1094" Height="60" >
+                <Border BorderThickness="1" CornerRadius="8,8,8,8" BorderBrush="#FF2980B9">
+                    <Grid Margin="9.2,0.2,-0.4,0.2" >
+                        <Image HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="57" Source="Icon/ticket-128.png" RenderTransformOrigin="0.5,0.5" Margin="40,1,0,0"/>
+                        <Label HorizontalAlignment="Center"  FontSize="35" FontWeight="Bold" Background="{x:Null}" Foreground="#DD000000" Content="Vé máy bay"  Margin="144,1,610,-1" Width="330" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"  >
+
+                        </Label>
+                    </Grid>
+                </Border>
+            </Grid>
+
 
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Margin="0,71,0,0" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="793.6"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <ScrollViewer Grid.Column="1" Margin="5,65,-0.4,0">
+            <ScrollViewer Grid.Column="1" Margin="5,66,-0.4,0">
 
-                <StackPanel x:Name="SPN_ShowList" Grid.Column="0" Background="WhiteSmoke" Width="753">
+                <StackPanel x:Name="SPN_ShowList" Grid.Column="0" Background="White" Width="752" Height="629">
                     <StackPanel.Resources>
                         <Style TargetType="{x:Type uc:AvailableFlights}">
                             <Setter Property="Margin" Value="7,10,10,0"/>
@@ -42,136 +51,142 @@
                 </StackPanel>
             </ScrollViewer>
 
-            <Grid Grid.Column="0" x:Name="grd_Book" Margin="4,0,87,0">
+            <Grid Grid.Column="0" x:Name="grd_Book" Margin="4,10,10,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="680"></RowDefinition>
                 </Grid.RowDefinitions>
             </Grid>
-            <TextBox x:Name="TB_TimVe"
-                            Margin="420,10,9.6,649"
-                            materialDesign:HintAssist.Hint="Tìm theo CMND/CCCD"
-                            FontSize="14"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TB_TimVe_TextChanged" Grid.Column="1"/>
+            <TextBox x:Name="TB_TimVe"                             
+                Margin="490,-10,127.6,639"
+                materialDesign:HintAssist.Hint="Tìm theo CMND/CCCD"
+                FontSize="14"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TB_TimVe_TextChanged" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.53,-0.432" FontWeight="Normal" Foreground="Black" BorderBrush="#89FFFFFF" CaretBrush="White" SelectionBrush="White" Grid.Column="1"/>
 
         </Grid>
-        <StackPanel Margin="-3,66,813,6" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Width="304">
-            <StackPanel.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.368"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-1.594"/>
-                </TransformGroup>
-            </StackPanel.RenderTransform>
-            <Expander
-                    HorizontalAlignment="Stretch"
-                    Header="Thông tin chuyến bay" FontSize="13" Background="White" Foreground="Black" FontWeight="Bold" Margin="10,0,0,0"  >
-                <StackPanel
-                        Orientation="Vertical" Height="163">
-                    <Grid Height="158">
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
+        <StackPanel Margin="10,59,804,6" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Width="300">
+            <Border BorderThickness="1" CornerRadius="8,8,8,8" Background="#FFFECA57" Margin="0,0,0.4,0" Width="300">
+                <Expander
+                    HorizontalAlignment="Right"
+                    Header="Thông tin chuyến bay" FontSize="14" Background="{x:Null}" Foreground="Black" FontWeight="Bold" Margin="0" Width="300" IsExpanded="True"  >
 
-                        <Grid Grid.Row="0">
-                            <DatePicker x:Name="DP_NgayBay"
-                                 Margin="30,0,80,0"
+                    <StackPanel
+                        Orientation="Vertical" Height="163" Background="White" Margin="0,0,0.2,0">
+                        <Grid Height="158">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <DatePicker x:Name="DP_NgayBay"
+                                 Margin="10,12,100,-0.2"
                                  materialDesign:HintAssist.Hint="Nhập ngày bay"
-                                 FontSize="14"
-                                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDateChanged="DP_NgayBay_SelectedDateChanged"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="280"></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <TextBox Grid.Column="0" x:Name="TB_MaChuyenBay"
-                                 Margin="30,0,0,0"
+                                 FontSize="12"
+                                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDateChanged="DP_NgayBay_SelectedDateChanged" FontWeight="Normal"/>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="280"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0" x:Name="TB_MaChuyenBay"
+                                 Margin="10,8,103,3.8"
                                  materialDesign:HintAssist.Hint="Nhập mã chuyến bay"
-                                 FontSize="14"
+                                 FontSize="12"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                 IsReadOnly="True" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-                            <Button Grid.Column="1" x:Name="BTN_MaChuyenBay" Content="Chọn" Margin="100,10,10,10.8" Click="BTN_MaChuyenBay_Click"></Button>
-                        </Grid>
-                        <Grid Grid.Row="2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="280"></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <TextBox Grid.Column="0" x:Name="TB_HangVe"
-                                 Margin="30,0,0,0"
+                                 IsReadOnly="True" VerticalAlignment="Center" VerticalContentAlignment="Center" FontWeight="Normal" TextChanged="TB_MaChuyenBay_TextChanged"/>
+                                <Button x:Name="BTN_MaChuyenBay" Content="Chọn" Margin="192,19,10,1.8" Click="BTN_MaChuyenBay_Click" RenderTransformOrigin="0.5,0.5" Background="#FF10AC84" BorderBrush="{x:Null}" FontSize="12"/>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="280"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0" x:Name="TB_HangVe"
+                                 Margin="10,4,103,7.8"
                                  materialDesign:HintAssist.Hint="Nhập hạng vé"
-                                 FontSize="14"
+                                 FontSize="12"
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                 IsReadOnly="True" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
-                            <Button Grid.Column="1" x:Name="BTN_HangVe" Content="Chọn" Margin="100,15,10,5.8" Click="BTN_HangVe_Click"></Button>
+                                 IsReadOnly="True" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontWeight="Normal">
+                                    <TextBox.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform AngleY="-0.239"/>
+                                            <RotateTransform/>
+                                            <TranslateTransform Y="-0.396"/>
+                                        </TransformGroup>
+                                    </TextBox.RenderTransform>
+                                </TextBox>
+                                <Button x:Name="BTN_HangVe" Content="Chọn" Margin="192,11,10,9.8" Click="BTN_HangVe_Click" Background="#FF10AC84" BorderBrush="{x:Null}" FontSize="12" />
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </StackPanel>
-            </Expander>
-            <Expander
+                    </StackPanel>
+                </Expander>
+            </Border>
+            <Border BorderThickness="1" CornerRadius="8,8,8,8" Background="#FFFECA57" Margin="0,0,0.4,0" Width="300">
+                <Expander
                     HorizontalAlignment="Stretch"
-                    Header="Thông tin hành khách" FontSize="13" FontWeight="Bold" Foreground="Black" Background="White" Margin="10,0,0,0"  >
-                <StackPanel
-                        Orientation="Vertical">
-                    <Grid Height="139">
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <TextBox x:Name="TB_CMND"
-                                 Margin="30,0,20,0"
+                    Header="Thông tin hành khách" FontSize="13" FontWeight="Bold" Foreground="Black" Background="{x:Null}" Margin="0" Width="300" IsExpanded="True"  >
+                    <StackPanel
+                        Orientation="Vertical" Background="White">
+                        <Grid Height="139">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBox x:Name="TB_CMND"
+                                 Margin="10,0,40,4.4"
                                  materialDesign:HintAssist.Hint="Nhập CMND/CCCD"
-                                 FontSize="14"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TB_CMND_TextChanged" PreviewTextInput="TB_CMND_PreviewTextInput" VerticalAlignment="Center"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <TextBox x:Name="TB_TenKH"
-                                 Margin="30,0,20,0"
+                                 FontSize="12"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TB_CMND_TextChanged" PreviewTextInput="TB_CMND_PreviewTextInput" VerticalAlignment="Center" FontWeight="Normal"/>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <TextBox x:Name="TB_TenKH"
+                                 Margin="10,0,40,4.4"
                                  materialDesign:HintAssist.Hint="Nhập họ tên"
-                                 FontSize="14"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"/>
-                        </Grid>
-                        <Grid Grid.Row="2">
-                            <TextBox x:Name="TB_SDT"
-                                 Margin="30,0,20,0"
+                                 FontSize="12"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" FontWeight="Normal"/>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <TextBox x:Name="TB_SDT"
+                                 Margin="10,0,40,4.4"
                                  materialDesign:HintAssist.Hint="Nhập số điện thoại"
-                                 FontSize="14"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" PreviewTextInput="TB_SDT_PreviewTextInput" MaxLength="10" VerticalAlignment="Center">
-                                <materialDesign:TextFieldAssist.CharacterCounterStyle>
-                                    <Style TargetType="TextBlock" />
-                                </materialDesign:TextFieldAssist.CharacterCounterStyle>
-                            </TextBox>
+                                 FontSize="12"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" PreviewTextInput="TB_SDT_PreviewTextInput" MaxLength="10" VerticalAlignment="Center" FontWeight="Normal">
+                                    <materialDesign:TextFieldAssist.CharacterCounterStyle>
+                                        <Style TargetType="TextBlock" />
+                                    </materialDesign:TextFieldAssist.CharacterCounterStyle>
+                                </TextBox>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </StackPanel>
-            </Expander>
-
-            <Grid Height="140" Margin="10,0,0,0">
-                <ComboBox x:Name="CB_LoaiVe" Margin="26,1,0,100"
+                    </StackPanel>
+                </Expander>
+            </Border>
+            <Grid Margin="0,0,0.4,0">
+                <ComboBox x:Name="CB_LoaiVe" Margin="5,10,9.6,236.6"
                               materialDesign:HintAssist.Hint="Nhập loại vé"
-                              FontSize="13"
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                               />
-                <TextBlock Grid.Column="0" Margin="26,54,187,63"
+                <TextBlock Grid.Column="0" 
                                    Text="Thành tiền:"
                                    FontWeight="Bold"
                                    Foreground="Black"
-                                   FontSize="13">
+                                   FontSize="14" Margin="0,115,205.6,140.8">
                 </TextBlock>
-                <TextBox x:Name="TB_ThanhTien" IsReadOnly="True" Margin="122,54,8,63" FontSize="13"/>
+                <TextBox x:Name="TB_ThanhTien" IsReadOnly="True" Margin="84,115,9.6,141.8" FontSize="14"/>
                 <Button x:Name="BTN_HoanTat" Content="Hoàn tất" 
                                 BorderBrush="Transparent"
-                                FontSize="16"
-                                Background="#FF315EA3" Click="BTN_HoanTat_Click" Margin="70,98,77,10" Width="135">
+                                FontSize="14"
+                                Background="#FF2980A3" Click="BTN_HoanTat_Click" Margin="71,161,74,92" Width="135">
                 </Button>
             </Grid>
 
         </StackPanel>
+        <Label Content="Thông tin vé " HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" FontSize="20" Width="255" FontWeight="Bold" Grid.Row="1"/>
+        <Label Content="Danh sách vé" HorizontalAlignment="Left" Margin="331,20,0,0" VerticalAlignment="Top" FontSize="20" Width="286" FontWeight="Bold" Grid.Row="1"/>
     </Grid>
 
 </Window>

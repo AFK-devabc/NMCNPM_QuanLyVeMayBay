@@ -48,12 +48,12 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             if (nowWindow == 1)
                 return;
-            BTN_ChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0, 70, 165));
-            BTN_BaoCao.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_CaiDat.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_TrangChu.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_TimKiem.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_VeChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
+            BTN_ChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0,76,153));
+            BTN_BaoCao.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_CaiDat.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_TrangChu.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_TimKiem.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_VeChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
             nowWindow = 1;
             WChuyenBay child = new WChuyenBay();
             object content = child.Content;
@@ -67,12 +67,12 @@ namespace NNCNPM_QuanLyVeMayBay
             if (nowWindow == 2)
                 return;
             nowWindow = 2;
-            BTN_VeChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0, 70, 165));
-            BTN_BaoCao.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_CaiDat.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_ChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_TimKiem.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_TrangChu.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
+            BTN_VeChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0,76,153));
+            BTN_BaoCao.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_CaiDat.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_ChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_TimKiem.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_TrangChu.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
             WVeMayBay child = new WVeMayBay();
             object content = child.Content;
             child.Content = null;
@@ -85,12 +85,12 @@ namespace NNCNPM_QuanLyVeMayBay
             if (nowWindow == 3)
                 return;
             nowWindow = 3;
-            BTN_TimKiem.Background = new SolidColorBrush(Color.FromArgb(255, 0, 70, 165));
-            BTN_BaoCao.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_CaiDat.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_ChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_TrangChu.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_VeChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
+            BTN_TimKiem.Background = new SolidColorBrush(Color.FromArgb(255, 0,76,153));
+            BTN_BaoCao.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_CaiDat.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_ChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_TrangChu.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_VeChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
 
             WTimKiemChuyenBay child = new WTimKiemChuyenBay();
             object content = child.Content;
@@ -104,12 +104,12 @@ namespace NNCNPM_QuanLyVeMayBay
             if (nowWindow == 4)
                 return;
             nowWindow = 4;
-            BTN_BaoCao.Background = new SolidColorBrush(Color.FromArgb(255, 0, 70, 165));
-            BTN_TrangChu.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_CaiDat.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_ChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_TimKiem.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_VeChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
+            BTN_BaoCao.Background = new SolidColorBrush(Color.FromArgb(255, 0,76,153));
+            BTN_TrangChu.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_CaiDat.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_ChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_TimKiem.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_VeChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
 
             WBaoCaoDoanhThu child = new WBaoCaoDoanhThu();
             object content = child.Content;
@@ -139,12 +139,12 @@ namespace NNCNPM_QuanLyVeMayBay
             if (nowWindow == 5)
                 return;
             nowWindow = 5;
-            BTN_CaiDat.Background = new SolidColorBrush(Color.FromArgb(255, 0, 70, 165));
-            BTN_BaoCao.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_TrangChu.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_ChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_TimKiem.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_VeChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
+            BTN_CaiDat.Background = new SolidColorBrush(Color.FromArgb(255, 0,76,153));
+            BTN_BaoCao.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_TrangChu.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_ChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_TimKiem.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_VeChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
             WCaiDat child = new WCaiDat();
             object content = child.Content;
             child.Content = null;
@@ -156,12 +156,12 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             if (nowWindow == 0)
                 return;
-            BTN_TrangChu.Background = new SolidColorBrush(Color.FromArgb(255, 0, 70, 165));
-            BTN_BaoCao.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_CaiDat.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_ChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_TimKiem.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
-            BTN_VeChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0, 100, 200));
+            BTN_TrangChu.Background = new SolidColorBrush(Color.FromArgb(255, 0,76,153));
+            BTN_BaoCao.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_CaiDat.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_ChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_TimKiem.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
+            BTN_VeChuyenBay.Background = new SolidColorBrush(Color.FromArgb(255, 0,30,60));
             nowWindow = 0;
 
             WTrangChu child = new WTrangChu(UserName);

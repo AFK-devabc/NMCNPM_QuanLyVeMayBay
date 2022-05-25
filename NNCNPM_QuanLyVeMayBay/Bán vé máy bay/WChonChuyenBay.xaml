@@ -6,39 +6,33 @@
         xmlns:local="clr-namespace:NNCNPM_QuanLyVeMayBay"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Chọn chuyến bay" Height="450" Width="830" WindowStartupLocation="CenterScreen">
+        Title="Chọn chuyến bay" Height="450" Width="1049.102" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="420"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="400"></ColumnDefinition>
-                <ColumnDefinition Width="200"></ColumnDefinition>
-                <ColumnDefinition Width="200"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Danh sách chuyến bay"
-                       FontSize="20"
-                       FontWeight="Bold"
-                       Height="50" Margin="0,10,0,0"></TextBlock>
-            <TextBox Grid.Column="1" x:Name="TB_TimNoiDi" 
-                            Margin="0,0,30,10"
+        <Grid Margin="192,10,10,10">
+            <DataGrid x:Name="DG_DSChuyenBay" HorizontalAlignment="Left" VerticalAlignment="Top" Width="840" AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" MouseDoubleClick="DG_DSChuyenBay_MouseDoubleClick" IsReadOnly="True" Background="White" FontSize="12"/>
+        </Grid>
+
+        <Grid HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Height="400" >
+            <Border BorderThickness="1" CornerRadius="20,20,20,20" Background="#FFFECA57" Margin="0">
+                <Grid Margin="-0.8,0.2,-0.8,0.4" >
+                    <Label HorizontalAlignment="Center"  FontSize="14" FontWeight="Bold" Background="{x:Null}" Foreground="#DD000000" Content="Lựa chọn&#xD;&#xA;chuyến bay"  Margin="10,55,9.8,284.8" Width="157" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  />
+                    <Label HorizontalAlignment="Center" Background="{x:Null}" Foreground="#DD000000" Content="Lựa chọn chuyến bay &#xD;&#xA;của ban, có thể sử dụng &#xD;&#xA;ô bên dưới để tìm kiếm"  Margin="10,118,9.8,200.8" Width="157" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center"  />
+                    <TextBox x:Name="TB_TimNoiDen" 
+                            Margin="10,218,9.8,133.8"
+                            materialDesign:HintAssist.Hint="Nhập nơi đến"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TB_TimNoiDen_TextChanged"/>
+                    <TextBox x:Name="TB_TimNoiDi" 
+                            Margin="10,269,9.8,82.8"
                             materialDesign:HintAssist.Hint="Nhập nơi đi"
-                            FontSize="15"
                             TextAlignment="Left"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TB_TimNoiDi_TextChanged"/>
-            <TextBox Grid.Column="2" x:Name="TB_TimNoiDen" 
-                            Margin="0,0,30,10"
-                            materialDesign:HintAssist.Hint="Nhập nơi đến"
-                            FontSize="15"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TB_TimNoiDen_TextChanged"/>
+                    <Image HorizontalAlignment="Left" Height="40" Margin="66,15,0,0" VerticalAlignment="Top" Width="40" Source="/NNCNPM_QuanLyVeMayBay;component/Icon/airport-64.png"/>
+                </Grid>
+            </Border>
         </Grid>
-        <Grid Grid.Row="1">
-            <DataGrid x:Name="DG_DSChuyenBay" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="830" AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" MouseDoubleClick="DG_DSChuyenBay_MouseDoubleClick" IsReadOnly="True">
-                
-            </DataGrid>
-        </Grid>
-        
+
     </Grid>
 </Window>

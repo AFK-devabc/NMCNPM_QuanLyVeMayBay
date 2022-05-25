@@ -343,5 +343,10 @@ namespace NNCNPM_QuanLyVeMayBay
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+        private void TB_MaChuyenBay_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -65,7 +65,10 @@ namespace NNCNPM_QuanLyVeMayBay
 
         private void DG_DSChuyenBay_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            
             DataRowView dt = (DataRowView)DG_DSChuyenBay.SelectedItem;
+            if (dt == null)
+                return;
             MaChuyenBayIsSelected = dt["Mã chuyến bay"].ToString();
             int TongSoGhe = Convert.ToInt32(dt["Tổng số ghế"].ToString());
             int SoGheDaDat = Convert.ToInt32(dt["Số ghế đã đặt"].ToString());

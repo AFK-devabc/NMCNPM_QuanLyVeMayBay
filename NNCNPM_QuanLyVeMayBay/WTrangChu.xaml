@@ -10,16 +10,16 @@
         mc:Ignorable="d"
         Title="WTrangChu" Height="770" Width="1120" OpacityMask="#FF732929" >
     <Grid Background="White">
-        <Grid HorizontalAlignment="Left" Height="680" VerticalAlignment="Top" Width="240
-              " Background="White" Margin="0,60,0,0">
+        <Grid HorizontalAlignment="Left" Height="630" VerticalAlignment="Top" Width="230" Margin="10,100,0,0">
+            <Border CornerRadius="20,20,20,20" Background="White"/>
             <Image Height="120" Margin="0,83,0,0" Width="120" Source="Icon/219986.png" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <Button x:Name="BTN_DoiMatKhau" HorizontalAlignment="Right" Margin="0,301,10,0" VerticalAlignment="Top" Width="213"  Height="30" Background="#FF315EA3" BorderBrush="#FF673AB7" Click="BTN_DoiMatKhau_Click">
+            <Button x:Name="BTN_DoiMatKhau" HorizontalAlignment="Right" Margin="0,301,10,0" VerticalAlignment="Top" Width="213"  Height="30" Background="#FF2980B9" BorderBrush="{x:Null}" Click="BTN_DoiMatKhau_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="Icon/padlock-64.png" Height="26" RenderTransformOrigin="0.02,0.533" Width="50"/>
                     <TextBlock Width="134" FontWeight="Bold" Height="21" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Text="Đổi mật khẩu"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="BTN_ThemTaiKhoan" HorizontalAlignment="Right" Margin="0,343,10,0" VerticalAlignment="Top" Width="213"  Height="30" Background="#FF315EA3" BorderBrush="#FF673AB7" Click="BTN_ThemTaiKhoan_Click">
+            <Button x:Name="BTN_ThemTaiKhoan" HorizontalAlignment="Right" Margin="0,343,10,0" VerticalAlignment="Top" Width="213"  Height="30" Background="#FF2980B9" BorderBrush="{x:Null}" Click="BTN_ThemTaiKhoan_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="Icon/add-user-64.png" Height="26" RenderTransformOrigin="0.02,0.533" Width="50"/>
                     <TextBlock Width="134" FontWeight="Bold" Height="21" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Text="Thêm tài khoản"/>
@@ -27,30 +27,34 @@
             </Button>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="173" Margin="245,100,-0.4,0" VerticalAlignment="Top" Width="869">
-            <Grid HorizontalAlignment="Left" Height="160" Margin="0,10,0,0" VerticalAlignment="Top" Width="280" Background="#FF9AA282" RenderTransformOrigin="0.5,0.5">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleY="1" ScaleX="1"/>
-                        <SkewTransform AngleY="0" AngleX="0"/>
-                        <RotateTransform Angle="0"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
+            <Grid HorizontalAlignment="Left" Height="173" VerticalAlignment="Top" Width="280" RenderTransformOrigin="0.5,0.5">
+                <Border BorderThickness="1" CornerRadius="20,20,20,20" Background="#FFFFEF82"/>
                 <Image HorizontalAlignment="Left" Height="67" Margin="10,48,0,0" VerticalAlignment="Top" Width="71" Source="Icon/icons8-ticket-confirmed-100.png" Stretch="Fill"/>
-                <Label x:Name="L_VeDaBan" Content="&#xD;&#xA;Vé đã bán" HorizontalAlignment="Center" Margin="135,39,19,0" VerticalAlignment="Top" RenderTransformOrigin="-0.289,-0.075" Width="116" Height="76" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFFFFFF"/>
+                <Label x:Name="L_VeDaBan" Content="&#xD;&#xA;Vé đã bán" HorizontalAlignment="Center" Margin="135,39,19,0" VerticalAlignment="Top" RenderTransformOrigin="-0.289,-0.075" Width="116" Height="76" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DD000000"/>
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="160" Margin="313,10,0,0" VerticalAlignment="Top" Width="270" Background="#FF567358">
+            <Grid HorizontalAlignment="Left" Height="173" Margin="303,0,0,0" VerticalAlignment="Top" Width="270" >
+                <Border BorderThickness="1" CornerRadius="20,20,20,20" Background="#FFEFD345"/>
                 <Image HorizontalAlignment="Left" Height="76" Margin="10,39,0,0" VerticalAlignment="Top" Width="76" Source="Icon/icons8-flight-64.png" Stretch="Fill"/>
-                <Label x:Name="L_ChuyenBay" Content="&#xD;&#xA;Chuyến bay&#xA;trong ngày" HorizontalAlignment="Center" Margin="134,39,10,0" VerticalAlignment="Top" RenderTransformOrigin="-0.289,-0.075" Width="126" Height="91" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFFFFFF"/>
+                <Label x:Name="L_ChuyenBay" Content="&#xD;&#xA;Chuyến bay&#xA;trong ngày" HorizontalAlignment="Center" Margin="134,39,10,0" VerticalAlignment="Top" RenderTransformOrigin="-0.289,-0.075" Width="126" Height="91" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DD000000"/>
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="160" Margin="601,10,0,0" VerticalAlignment="Top" Width="270" Background="#FF346751">
+            <Grid HorizontalAlignment="Left" Height="173" Margin="601,0,-2,0" VerticalAlignment="Top" Width="270" >
+                <Border BorderThickness="1" CornerRadius="20,20,20,20" Background="#FFBABD42" Margin="0,0,10,0"/>
                 <Image HorizontalAlignment="Left" Height="67" Margin="10,48,0,0" VerticalAlignment="Top" Width="71" Source="Icon/2413253.png" Stretch="Fill"/>
-                <Label x:Name="L_DoanhSo" Content="&#xD;&#xA;Doanh số&#xA; trong ngày" HorizontalAlignment="Center" Margin="123,39,20,0" VerticalAlignment="Top" RenderTransformOrigin="-0.289,-0.075" Width="127" Height="94" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFFFFFF"/>
+                <Label x:Name="L_DoanhSo" Content="&#xD;&#xA;Doanh số&#xA; trong ngày" HorizontalAlignment="Center" Margin="123,39,20,0" VerticalAlignment="Top" RenderTransformOrigin="-0.289,-0.075" Width="127" Height="94" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DD000000"/>
             </Grid>
         </Grid>
-        <TextBox x:Name="L_name" HorizontalAlignment="Left" Height="55" Margin="10,278,0,0" TextWrapping="Wrap" Text="Xin chào, &#xD;&#xA;" VerticalAlignment="Top" Width="218" FontSize="20" Foreground="Black" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
-        <Label HorizontalAlignment="Left" Margin="0,0,-0.4,0" VerticalAlignment="Top" Width="1114" Height="60" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center" Background="#FF183251" Foreground="#DDFFFFFF" Content="Trang chủ" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="L_name" HorizontalAlignment="Left" Height="55" Margin="10,314,0,0" TextWrapping="Wrap" Text="Xin chào, &#xD;&#xA;" VerticalAlignment="Top" Width="230" FontSize="20" Foreground="Black" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" TextDecorations="{x:Null}"/>
 
-        <Image HorizontalAlignment="Left" Height="462" Margin="245,278,-0.4,0" VerticalAlignment="Top" Width="869" Source="Icon/Poster.jpg" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="452" Margin="245,278,0,0" VerticalAlignment="Top" Width="859" Source="Icon/Poster.jpg" Stretch="Fill"/>
+        <Grid HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top" Width="1094" Height="60" >
+            <Border BorderThickness="1" CornerRadius="8,8,8,8" BorderBrush="#FF2980B9">
+                <Grid Margin="9.2,0.2,-0.4,0.2" >
+                    <Image HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="57" Source="Icon/home-7-128.png" RenderTransformOrigin="0.5,0.5" Margin="40,1,0,0"/>
+                    <Label HorizontalAlignment="Center"  FontSize="35" FontWeight="Bold" Background="{x:Null}" Foreground="#DD000000" Content="Trang chủ"  Margin="144,1,610,-1" Width="330" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"  >
+
+                    </Label>
+                </Grid>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

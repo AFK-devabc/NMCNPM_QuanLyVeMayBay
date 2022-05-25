@@ -4,23 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NNCNPM_QuanLyVeMayBay"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Chọn hạng vé" Height="300" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Chọn hạng vé" Height="300" Width="618.957" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <TextBlock Grid.Column="0" Text="Danh sách hạng vé"
-                       FontSize="20"
-                       FontWeight="Bold"
-                       Height="50" Margin="0,10,0,0"></TextBlock>
+        <Grid Margin="192,10,9.8,10.4">
+            <DataGrid x:Name="DG_DSHangVe" HorizontalAlignment="Left" VerticalAlignment="Top" Width="411" AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" MouseDoubleClick="DG_DSHangVe_MouseDoubleClick" IsReadOnly="True"/>
         </Grid>
-        <Grid Grid.Row="1">
-            <DataGrid x:Name="DG_DSHangVe" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" MouseDoubleClick="DG_DSHangVe_MouseDoubleClick" IsReadOnly="True">
-                
-            </DataGrid>
+        <Grid HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Height="250" >
+            <Border BorderThickness="1" CornerRadius="20,20,20,20" Background="#FFFECA57" Margin="0">
+                <Grid Margin="-0.8,0.2,-0.8,0.4" >
+                    <Label HorizontalAlignment="Center"  FontSize="14" FontWeight="Bold" Background="{x:Null}" Foreground="#DD000000" Content="Lựa chọn&#xA;hạng vé"  Margin="10,55,9.8,143.4" Width="157" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  />
+                    <Label HorizontalAlignment="Center" Background="{x:Null}" Foreground="#DD000000" Content="Lựa chọn hạng ghế &#xA;của bạn, double click để&#xD;&#xA;chọn"  Margin="10,121,9.8,10.4" Width="157" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center"  />
+                    <Image HorizontalAlignment="Left" Height="40" Margin="66,15,0,0" VerticalAlignment="Top" Width="40" Source="/NNCNPM_QuanLyVeMayBay;component/Icon/airport-64.png"/>
+                </Grid>
+            </Border>
         </Grid>
+
     </Grid>
 </Window>

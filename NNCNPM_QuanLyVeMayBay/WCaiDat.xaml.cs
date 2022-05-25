@@ -160,7 +160,8 @@ namespace NNCNPM_QuanLyVeMayBay
             TB_TGDatVeMax.Text = temp.Rows[0].ItemArray[6].ToString();
             TB_TGHuyVe.Text = temp.Rows[0].ItemArray[7].ToString();
 
-
+            EPD_QDChuyenBay.IsExpanded = true;
+            EPD_DSHangVe.IsExpanded = true;
         }
 
         //private void BTN_ApDung_Click(object sender, RoutedEventArgs e)

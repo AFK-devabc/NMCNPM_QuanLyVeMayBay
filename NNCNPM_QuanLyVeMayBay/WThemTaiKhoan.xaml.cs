@@ -33,7 +33,7 @@ namespace NNCNPM_QuanLyVeMayBay
 
         private void BNT_XacNhan_Click(object sender, RoutedEventArgs e)
         {          
-            if(TB_UserName.Text == "")
+            if(TB_UserName.Text == string.Empty)
             {
                 L_Message.Content = "Phải điền tên đăng nhập!";
             }
