@@ -1,5 +1,7 @@
 ﻿--Mọi thông tin đều chỉ mang tính chất minh hoạ, hầu như không đúng trong thực tế
 --Các bước : drop trigger TRG_VEMAYBAY => insert Tham số,sân bay, hành khách=> thêm chuyến bay, hạng vé, vé máy bay => create trigger vé máy bay
+USE BANVEMAYBAY
+GO
 
 drop trigger TRG_VEMAYBAY
 insert into THAMSO values(0,2,30,10,20,0,24,23);
@@ -283,7 +285,7 @@ insert into SOLUONGVE values('MH-202206-1010','HV0001',15,0)
 insert into SOLUONGVE values('MH-202206-1010','HV0003',5,0)
 insert into VEMAYBAY values('VE0106','MH-202206-1010','1','HV0001',165000,'Ve Dat Cho','2022-6-2 15:00:00')
 insert into VEMAYBAY values('VE0107','MH-202206-1010','1','HV0003',300000,'Ve Dat Cho','2022-6-2 16:00:00')
-
+GO
 CREATE TRIGGER TRG_VEMAYBAY ON VEMAYBAY
 FOR INSERT
 AS
@@ -326,4 +328,4 @@ BEGIN
 	WHERE SOLUONGVE.MaChuyenBay IN (SELECT MaChuyenBay FROM inserted )
 	AND SOLUONGVE.MaHangVe IN (SELECT MaHangVe FROM inserted WHERE inserted.MaChuyenBay = SOLUONGVE.MaChuyenBay)
 
-END
+END 
