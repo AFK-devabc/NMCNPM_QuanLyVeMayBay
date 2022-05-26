@@ -39,9 +39,9 @@
                 <ColumnDefinition Width="793.6"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <ScrollViewer Grid.Column="1" Margin="5,66,-0.4,0">
+            <ScrollViewer Grid.Column="1" Margin="5,66,9.6,0" Height="603" VerticalAlignment="Top">
 
-                <StackPanel x:Name="SPN_ShowList" Grid.Column="0" Background="White" Width="752" Height="629">
+                <StackPanel x:Name="SPN_ShowList" Grid.Column="0" Background="White" Width="752">
                     <StackPanel.Resources>
                         <Style TargetType="{x:Type uc:AvailableFlights}">
                             <Setter Property="Margin" Value="7,10,10,0"/>
