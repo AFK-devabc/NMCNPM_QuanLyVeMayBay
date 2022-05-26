@@ -17,6 +17,7 @@ namespace NNCNPM_QuanLyVeMayBay
         private DataTable datatable_ChuyenBay;
         private DataTable datatable_SanBayDi;
         private DataTable datatable_SanBayDen;
+        DataTable dt = new DataTable();
         List<string> list_MaSBDi = new List<string>();
         List<string> list_MaSBDen = new List<string>();
         List<string> list_TenSBDi = new List<string>();
@@ -78,9 +79,7 @@ namespace NNCNPM_QuanLyVeMayBay
 
         }
         void LoadSanBay()
-        {
-
-            DataTable dt = new DataTable();
+        {         
             dt = datatable_ChuyenBay.Copy();
             if (tb_MaChuyenBay.Text.Length > 0)
             {
@@ -316,6 +315,22 @@ namespace NNCNPM_QuanLyVeMayBay
         private void tb_MaChuyenBay_TextChanged(object sender, TextChangedEventArgs e)
         {
             LoadSanBay();
+        }
+
+        private void datagrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DateTime t = DateTime.Now;
+            int n =DateTime.Compare(t, DateTime.Parse(dt.Rows[datagrid.SelectedIndex][6].ToString()));
+            if (n < 0)
+            {
+                WChiTietChuyenBay f = new WChiTietChuyenBay(dt.Rows[datagrid.SelectedIndex][0].ToString(), dt.Rows[datagrid.SelectedIndex][5].ToString(), dt.Rows[datagrid.SelectedIndex][7].ToString(), 1);
+                f.ShowDialog();
+            }
+            if(n>=0)
+            {
+                WChiTietChuyenBay f = new WChiTietChuyenBay(dt.Rows[datagrid.SelectedIndex][0].ToString(), dt.Rows[datagrid.SelectedIndex][5].ToString(), dt.Rows[datagrid.SelectedIndex][7].ToString(), 0);
+                f.ShowDialog();
+            }    
         }
     }
 }

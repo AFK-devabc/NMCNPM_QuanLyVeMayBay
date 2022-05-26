@@ -1,9 +1,37 @@
 ﻿--Mọi thông tin đều chỉ mang tính chất minh hoạ, hầu như không đúng trong thực tế
---Các bước : drop trigger TRG_VEMAYBAY => insert Tham số,sân bay, hành khách=> thêm chuyến bay, hạng vé, vé máy bay => create trigger vé máy bay
+--Các bước : sửa trigger TRG_VEMAYBAY => insert Tham số,sân bay, hành khách=> thêm chuyến bay, hạng vé, vé máy bay => sửa trigger TRG_VEMAYBAY 
 USE BANVEMAYBAY
 GO
 
-drop trigger TRG_VEMAYBAY
+ALTER TRIGGER [dbo].[TRG_VEMAYBAY] ON [dbo].[VEMAYBAY]
+FOR INSERT
+AS
+BEGIN
+	DECLARE @COUNT2 INT
+	DECLARE @SLGHE INT
+	SELECT @SLGHE = COUNT(*) FROM inserted
+		GROUP BY inserted.MaHangVe, inserted.MaChuyenBay
+	SELECT @COUNT2 = COUNT(*)
+	FROM 
+	(
+		SELECT inserted.MaChuyenBay, inserted.MaHangVe, COUNT(*) AS SoLuongGhe FROM inserted
+		GROUP BY inserted.MaHangVe, inserted.MaChuyenBay
+	) AS K, SOLUONGVE
+	WHERE K.MaChuyenBay = SOLUONGVE.MaChuyenBay AND K.MaHangVe = SOLUONGVE.MaHangVe AND K.SoLuongGhe > SOLUONGVE.TongSoGhe - SOLUONGVE.SoGheDaDat
+	IF(@COUNT2>0)
+	BEGIN
+		PRINT(@SLGHE)
+		PRINT(N'ERROR: Không đủ ghế')
+		ROLLBACK TRANSACTION
+	END
+
+
+	UPDATE SOLUONGVE SET SoGheDaDat = SoGheDaDat + 1
+	WHERE SOLUONGVE.MaChuyenBay IN (SELECT MaChuyenBay FROM inserted )
+	AND SOLUONGVE.MaHangVe IN (SELECT MaHangVe FROM inserted WHERE inserted.MaChuyenBay = SOLUONGVE.MaChuyenBay)
+
+END 
+go
 insert into THAMSO values(0,2,30,10,20,0,24,23);
 insert into SANBAY values('AP0001',N'Nội Bài');
 insert into SANBAY values('AP0002',N'Tân Sơn Nhất');
@@ -46,13 +74,13 @@ insert into VEMAYBAY values('VE0001','MH-202109-0667','2','HV0002',150000,'Ve Mu
 insert into VEMAYBAY values('VE0003','MH-202109-0667','3','HV0001',110000,'Ve Mua','2021-9-14 00:00:00')
 insert into VEMAYBAY values('VE0004','MH-202109-0667','4','HV0003',200000,'Ve Mua','2021-9-13 00:00:00')
 
-insert into CHUYENBAY values('MH0678','AP0010','AP0004',100000,'2021-9-26 13:30:00',31)
-insert into SOLUONGVE values('MH0678','HV0002',10,0)
-insert into SOLUONGVE values('MH0678','HV0003',5,0)
-insert into VEMAYBAY values('VE0005','MH0678','5','HV0002',150000,'Ve Mua','2021-9-25 00:00:00')
-insert into VEMAYBAY values('VE0006','MH0678','6','HV0003',200000,'Ve Mua','2021-9-26 00:00:00')
-insert into VEMAYBAY values('VE0007','MH0678','7','HV0002',150000,'Ve Mua','2021-9-25 00:00:00')
-insert into VEMAYBAY values('VE0008','MH0678','8','HV0003',200000,'Ve Mua','2021-9-26 00:00:00')
+insert into CHUYENBAY values('MH-202109-0678','AP0010','AP0004',100000,'2021-9-26 13:30:00',31)
+insert into SOLUONGVE values('MH-202109-0678','HV0002',10,0)
+insert into SOLUONGVE values('MH-202109-0678','HV0003',5,0)
+insert into VEMAYBAY values('VE0005','MH-202109-0678','5','HV0002',150000,'Ve Mua','2021-9-25 00:00:00')
+insert into VEMAYBAY values('VE0006','MH-202109-0678','6','HV0003',200000,'Ve Mua','2021-9-26 00:00:00')
+insert into VEMAYBAY values('VE0007','MH-202109-0678','7','HV0002',150000,'Ve Mua','2021-9-25 00:00:00')
+insert into VEMAYBAY values('VE0008','MH-202109-0678','8','HV0003',200000,'Ve Mua','2021-9-26 00:00:00')
 
 insert into CHUYENBAY values('MH-202110-0679','AP0001','AP0003',100000,'2021-10-7 8:30:00',45) 
 insert into SOLUONGVE values('MH-202110-0679','HV0003',15,0)
@@ -285,8 +313,10 @@ insert into SOLUONGVE values('MH-202206-1010','HV0001',15,0)
 insert into SOLUONGVE values('MH-202206-1010','HV0003',5,0)
 insert into VEMAYBAY values('VE0106','MH-202206-1010','1','HV0001',165000,'Ve Dat Cho','2022-6-2 15:00:00')
 insert into VEMAYBAY values('VE0107','MH-202206-1010','1','HV0003',300000,'Ve Dat Cho','2022-6-2 16:00:00')
+
+
 GO
-CREATE TRIGGER TRG_VEMAYBAY ON VEMAYBAY
+ALTER TRIGGER [dbo].[TRG_VEMAYBAY] ON [dbo].[VEMAYBAY]
 FOR INSERT
 AS
 BEGIN
@@ -328,4 +358,5 @@ BEGIN
 	WHERE SOLUONGVE.MaChuyenBay IN (SELECT MaChuyenBay FROM inserted )
 	AND SOLUONGVE.MaHangVe IN (SELECT MaHangVe FROM inserted WHERE inserted.MaChuyenBay = SOLUONGVE.MaChuyenBay)
 
-END 
+END
+

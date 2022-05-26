@@ -337,6 +337,7 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             TB_MaChuyenBay.Text = "";
             TB_HangVe.Text = "";
+            LoadThanhTien();
         }
 
         private void TB_CMND_PreviewTextInput(object sender, TextCompositionEventArgs e)

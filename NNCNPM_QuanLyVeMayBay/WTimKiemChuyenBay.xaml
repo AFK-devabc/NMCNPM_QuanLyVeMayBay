@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="WTimKiemChuyenBay" Height="770" Width="1120" >
     <Grid Loaded="WTimKiemChuyenBay_Loaded">
-        <DataGrid x:Name="datagrid" HorizontalAlignment="Left" Height="591" Margin="331,139,0,0" VerticalAlignment="Top" Width="774" CanUserResizeColumns="False" Background="White" >
+        <DataGrid x:Name="datagrid" HorizontalAlignment="Left" Height="591" Margin="331,139,0,0" VerticalAlignment="Top" Width="774" CanUserResizeColumns="False" Background="White" MouseDoubleClick="datagrid_MouseDoubleClick" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFFECA57"/>
