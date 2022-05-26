@@ -38,12 +38,67 @@
             </Grid.RowDefinitions>
 
             <Grid Margin="0,166,-0.4,0">
+
                 <dvc:Chart Title="Báo Cáo Doanh Thu Năm " Background="White">
-                    <dvc:ColumnSeries x:Name="Col_CountTicket" DependentValuePath="Value" 
-		IndependentValuePath="Key"  Title="Số chuyến bay" />
-                    <dvc:LineSeries  x:Name="Line_TurnoverFlight"  DependentValuePath="Value" 
-		IndependentValuePath="Key" ItemsSource="{Binding}" 
-		IsSelectionEnabled="True" Title="Doanh thu"/>
+
+                    <dvc:Chart.Axes>
+                        <dvc:CategoryAxis Orientation="X">
+                            <dvc:CategoryAxis.AxisLabelStyle>
+                                <Style x:Name="Dong_Doi" TargetType="Control">
+                                    <Setter Property="FontSize" Value="15"/>
+
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Style>
+                            </dvc:CategoryAxis.AxisLabelStyle>
+                        </dvc:CategoryAxis>
+
+                        <dvc:CategoryAxis Orientation="Y">
+                            <dvc:CategoryAxis.AxisLabelStyle>
+                                <Style x:Name="Cot_Trai" TargetType="Control">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Style>
+                            </dvc:CategoryAxis.AxisLabelStyle>
+                        </dvc:CategoryAxis>
+
+                        <dvc:CategoryAxis Orientation="Y">
+                            <dvc:CategoryAxis.AxisLabelStyle>
+                                <Style x:Name="Cot_Phai" TargetType="Control">
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Style>
+                            </dvc:CategoryAxis.AxisLabelStyle>
+                        </dvc:CategoryAxis>
+
+                    </dvc:Chart.Axes>
+
+                    <dvc:Chart.Series>
+                        <dvc:ColumnSeries x:Name="Col_CountTicket"
+                                            Title="Số chuyến bay" 
+                                          DependentValuePath="Value" 
+		                                  IndependentValuePath="Key"
+                                          ItemsSource="{Binding}">
+                            <dvc:ColumnSeries.LegendItemStyle >
+                                <Style TargetType="dvc:LegendItem">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Style>
+                            </dvc:ColumnSeries.LegendItemStyle>
+                            <dvc:ColumnSeries.DependentRangeAxis>
+                                <dvc:LinearAxis  Orientation="Y"/>
+                            </dvc:ColumnSeries.DependentRangeAxis>
+                        </dvc:ColumnSeries>
+
+                        <dvc:LineSeries  x:Name="Line_TurnoverFlight"
+                                          Title="Doanh thu"
+                                         DependentValuePath="Value" 
+		                                 IndependentValuePath="Key" 
+                                         ItemsSource="{Binding}" 
+		                                 IsSelectionEnabled="True"/>
+
+                    </dvc:Chart.Series>
+
+
+
                 </dvc:Chart>
             </Grid>
 
@@ -91,13 +146,7 @@
                             </Style>
                         </DataGrid.Resources>
                     </DataGrid>
-                    <!--<dvc:Chart Title="Báo Cáo Doanh Thu Bán Vé Các Chuyến Bay" Background="Azure" >
-                        <dvc:ColumnSeries x:Name="Cot_SoVeThang" DependentValuePath="Value" 
-		IndependentValuePath="Key"  Title="Số vé" />
-                        <dvc:LineSeries  x:Name="Duong_DoanhThuThang"  DependentValuePath="Value" 
-		IndependentValuePath="Key" ItemsSource="{Binding}" 
-		IsSelectionEnabled="True" Title="Doanh thu"/>
-                    </dvc:Chart>-->
+                    
                     
                 </Grid>
 
