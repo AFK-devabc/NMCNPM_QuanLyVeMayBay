@@ -243,7 +243,7 @@ namespace NNCNPM_QuanLyVeMayBay
             }
             if (dt.Rows.Count == 0)
             {
-                // datagrid.ItemsSource = null;
+                datagrid.ItemsSource = null;
 
             }
         }

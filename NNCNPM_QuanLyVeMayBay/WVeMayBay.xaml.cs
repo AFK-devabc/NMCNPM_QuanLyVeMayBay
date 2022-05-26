@@ -27,6 +27,8 @@ namespace NNCNPM_QuanLyVeMayBay
         DispatcherTimer timer = new DispatcherTimer();
         private void WChonChuyenBay_Thoat(object sender, EventArgs e)
         {
+            if (TB_MaChuyenBay.Text != "")
+                TB_HangVe.Text = "";
             this.TB_MaChuyenBay.Text = (sender as WChonChuyenBay).MaChuyenBayIsSelected;
             LoadThanhTien();
             (sender as Window).Close();
@@ -57,6 +59,7 @@ namespace NNCNPM_QuanLyVeMayBay
                 double giatien = Convert.ToDouble(DataProvider.Instance.ExecuteScalar("SELECT CHUYENBAY.GiaVe * HANGVE.TiLe FROM CHUYENBAY, HANGVE WHERE CHUYENBAY.MaChuyenBay = '" + TB_MaChuyenBay.Text + "'  AND HANGVE.TenHangVe = N'" + TB_HangVe.Text + "' ").ToString());
                 TB_ThanhTien.Text = String.Format("{0:0,0}", giatien);
             }
+            else TB_ThanhTien.Text = "";
         }
         public WVeMayBay()
         {
@@ -69,6 +72,7 @@ namespace NNCNPM_QuanLyVeMayBay
             timer.Tick += Timer_Tick;
             timer.Interval = new TimeSpan(0, 3, 0);
             timer.Start();
+            HuyVe();
             Load();
         }
 
@@ -87,7 +91,9 @@ namespace NNCNPM_QuanLyVeMayBay
                             + "from CHUYENBAY, SANBAY SB1, SANBAY SB2, HANGVE, VEMAYBAY, HANHKHACH "
                             + "WHERE CHUYENBAY.MaSanBayDi = SB1.MaSanBay AND CHUYENBAY.MaSanBayDen = SB2.MaSanBay "
                             + "AND VEMAYBAY.MaChuyenBay = CHUYENBAY.MaChuyenBay AND VEMAYBAY.MaHangVe = HANGVE.MaHangVe AND VEMAYBAY.CMND = HANHKHACH.CMND "
-                            + "AND VEMAYBAY.CMND LIKE '%" + TB_TimVe.Text.ToString() + "%' "; ;
+                            + "AND VEMAYBAY.CMND LIKE '%" + TB_TimVe.Text.ToString() + "%' "
+                            + "AND CHUYENBAY.NGAYBAY >= '"+DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")+"' "
+                            + "ORDER BY CHUYENBAY.NGAYBAY DESC "; 
             table = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow i in table.Rows)
             {
@@ -269,8 +275,9 @@ namespace NNCNPM_QuanLyVeMayBay
                         Soid++;
                     else break;
                 }
-
-                query = "INSERT INTO VEMAYBAY VALUES('" + ID + "','" + TB_MaChuyenBay.Text + "','" + TB_CMND.Text + "','" + MaHangVe + "'," + TB_ThanhTien.Text.Replace(",", String.Empty) + ",'" + LoaiVe + "', '" + DateTime.Today.ToString("yyyy/MM/dd") + "')";
+                TB_ThanhTien.Text = TB_ThanhTien.Text.Replace(".", string.Empty);
+                TB_ThanhTien.Text = TB_ThanhTien.Text.Replace(",", string.Empty);
+                query = "INSERT INTO VEMAYBAY VALUES('" + ID + "','" + TB_MaChuyenBay.Text + "','" + TB_CMND.Text + "','" + MaHangVe + "'," + TB_ThanhTien.Text + ",'" + LoaiVe + "', '" + DateTime.Today.ToString("yyyy/MM/dd") + "')";
                 DataProvider.Instance.ExecuteNonQuery(query);
             }
             catch (Exception ex)
