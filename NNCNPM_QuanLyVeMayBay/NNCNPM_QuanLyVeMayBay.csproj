@@ -149,6 +149,9 @@
     <Compile Include="WCaiDat.xaml.cs">
       <DependentUpon>WCaiDat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WChiTietChuyenBay.xaml.cs">
+      <DependentUpon>WChiTietChuyenBay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WChuyenBay.xaml.cs">
       <DependentUpon>WChuyenBay.xaml</DependentUpon>
     </Compile>
@@ -212,6 +215,10 @@
     <Page Include="WCaiDat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WChiTietChuyenBay.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="WChuyenBay.xaml">
       <Generator>MSBuild:Compile</Generator>

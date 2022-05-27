@@ -19,7 +19,7 @@
                     <StackPanel
                         Orientation="Vertical"
                         Margin="0,0,-0.2,0" Background="#FF0A1929" >
-                        <Grid Margin="0,0,-0.4,0" Height="266">
+                        <Grid Margin="0,0,-0.4,0" Height="247">
                             <Label Content="thời gian bay tối thiểu : " HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="228"  FontSize="14"  HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontWeight="Normal" Foreground="White" RenderTransformOrigin="0.472,0.447"/>
                             <TextBox x:Name="TB_TGBMin" HorizontalAlignment="Left"  Margin="243,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" FontSize="14" PreviewTextInput="IsNumberic_only" FontWeight="Normal" Foreground="White" Background="White"/>
                             <Label Content="Thời gian dừng tối đa : " HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="228"  FontSize="14"  HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontWeight="Normal" Foreground="White"/>
@@ -37,8 +37,8 @@
                             <Label Content="Phút" HorizontalAlignment="Left" Margin="383,112,0,0" VerticalAlignment="Top" Width="55"  FontSize="14"  VerticalContentAlignment="Center" FontWeight="Normal" Foreground="White"/>
                             <Label Content="Giờ" HorizontalAlignment="Left" Margin="383,143,0,0" VerticalAlignment="Top" Width="55"  FontSize="14"  VerticalContentAlignment="Center" FontWeight="Normal" Foreground="White"/>
                             <Label Content="Giờ" HorizontalAlignment="Left" Margin="383,176,0,0" VerticalAlignment="Top" Width="55"  FontSize="14"  VerticalContentAlignment="Center" FontWeight="Normal" Foreground="White"/>
-                            <Button x:Name="BTN_Luu" Content="Lưu" HorizontalAlignment="Left" Margin="243,224,0,0" VerticalAlignment="Top" Width="135" Click="BTN_Luu_Click" FontSize="14" FontWeight="Bold" Background="#FF10AC84"/>
-                            <Label Content="*** Thông tin có thể chỉnh sửa&#xD;&#xA; của các chuyến bay, &#xA;dùng để thay đổi quy định của&#xD;&#xA; toàn bộ tất cả các chuyến bay" HorizontalAlignment="Center" Margin="431,5,9.8,169" Width="258" VerticalAlignment="Center" Height="92" VerticalContentAlignment="Center" Foreground="#DDFF0000"/>
+                            <Button x:Name="BTN_Luu" Content="Lưu" HorizontalAlignment="Left" Margin="243,207,0,0" VerticalAlignment="Top" Width="135" Click="BTN_Luu_Click" FontSize="14" FontWeight="Bold" Background="#FF10AC84"/>
+                            <Label Content="*** Thông tin có thể chỉnh sửa&#xD;&#xA; của các chuyến bay, &#xA;dùng để thay đổi quy định của&#xD;&#xA; toàn bộ tất cả các chuyến bay" HorizontalAlignment="Center" Margin="431,79,9.8,76" Width="258" VerticalAlignment="Center" Height="92" VerticalContentAlignment="Center" Foreground="#DDFF0000"/>
 
                         </Grid>
                     </StackPanel>
@@ -54,8 +54,7 @@
                         <Grid Margin="0,0,-0.4,0">
                             <Label Content="Tổng số hạng vé : " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="125"  FontSize="14"  HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontWeight="Normal" Foreground="White"/>
                             <TextBox x:Name="TB_SoHangVe" HorizontalAlignment="Left"  Margin="140,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="176" FontSize="14" IsEnabled="False" FontWeight="Normal" Foreground="White"/>
-                            <DataGrid x:Name="DGV_HangVe" HorizontalAlignment="Left" Height="231" Margin="321,10,0,0" VerticalAlignment="Top" Width="370" EnableRowVirtualization="False" CanUserAddRows="False" IsReadOnly="True" >
-                            </DataGrid>
+                            <DataGrid x:Name="DGV_HangVe" HorizontalAlignment="Left" Height="233" Margin="321,10,0,0" VerticalAlignment="Top" Width="370" EnableRowVirtualization="False" CanUserAddRows="False"/>
                             <TextBox x:Name="TB_MaHangVe"                             
                             Margin="11,43,602.8,161.2"
             materialDesign:HintAssist.Hint="Mã hạng vé"
@@ -69,7 +68,7 @@
             Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.5,0.5" FontWeight="Normal" Foreground="White" CaretBrush="White" SelectionBrush="White" BorderBrush="#89FFFFFF">
 
                             </TextBox>
-                            <Label Content="*** Danh sách toàn các hạng vé của &#xD;&#xA;chuyến bay, có thể thêm hạng vé mới" HorizontalAlignment="Center" Margin="11,160,382.8,17.8" Width="305" VerticalAlignment="Center" Height="75" VerticalContentAlignment="Center" Foreground="#DDFF0000" FontSize="14"/>
+                            <Label Content="*** Danh sách toàn các hạng vé của chuyến &#xD;&#xA;bay, có thể thêm hạng vé mới, chỉnh sửa&#xD;tên, giá của hạng vé trong bảng" HorizontalAlignment="Center" Margin="11,180,382.8,9.8" Width="305" VerticalAlignment="Center" Height="63" VerticalContentAlignment="Center" Foreground="#DDFF0000" FontSize="14"/>
 
                             <Button x:Name="BTN_ThemHangVe" Content="Thêm" HorizontalAlignment="Left" Margin="181,106,0,0" VerticalAlignment="Top" Width="135" Click="BTN_ThemHangVe_Click" RenderTransformOrigin="0.516,0.25" FontWeight="Bold" Background="#FF10AC84" FontSize="14" BorderBrush="{x:Null}"/>
                             <TextBox x:Name="TB_TiLe"
@@ -77,6 +76,7 @@
             materialDesign:HintAssist.Hint="Tỉ lệ"
             FontSize="14"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom" PreviewTextInput="IsNumberic_only" FontWeight="Normal" Foreground="White" BorderBrush="#89FFFFFF" CaretBrush="White" SelectionBrush="White"/>
+                            <Button x:Name="BTN_ApDung" Content="Áp dụng" HorizontalAlignment="Left" Margin="181,143,0,0" VerticalAlignment="Top" Width="135" Click="BTN_ApDung_Click" RenderTransformOrigin="0.516,0.25" FontWeight="Bold" Background="#FF10AC84" FontSize="14" BorderBrush="{x:Null}"/>
 
                         </Grid>
                     </StackPanel>

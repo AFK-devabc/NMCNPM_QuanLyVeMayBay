@@ -319,6 +319,8 @@ namespace NNCNPM_QuanLyVeMayBay
 
         private void datagrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            if (datagrid.SelectedItem == null)
+                return;
             DateTime t = DateTime.Now;
             int n =DateTime.Compare(t, DateTime.Parse(dt.Rows[datagrid.SelectedIndex][6].ToString()));
             if (n < 0)

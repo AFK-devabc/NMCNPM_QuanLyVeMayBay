@@ -23,6 +23,7 @@ namespace NNCNPM_QuanLyVeMayBay
         private VMChuyenbay vmChuyenBay;
         List<string> MaSanBay = new List<string>();
         DataTable dt_TTChuyenBay;
+        DataTable dt = new DataTable();
         public WChuyenBay()
         {
             InitializeComponent();
@@ -198,6 +199,24 @@ namespace NNCNPM_QuanLyVeMayBay
         private void EDP_SanBay_Expanded(object sender, RoutedEventArgs e)
         {
                 EDP_ChuyenBay.IsExpanded = false;
+        }
+
+        private void dtg_DSChuyenBay_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dtg_DSChuyenBay.SelectedItem == null)
+                return;
+            DateTime t = DateTime.Now;
+            int n = DateTime.Compare(t, DateTime.Parse(dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][4].ToString()));
+            if (n < 0)
+            {
+                WChiTietChuyenBay f = new WChiTietChuyenBay(dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][0].ToString(), dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][3].ToString(), dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][5].ToString(), 1);
+                f.ShowDialog();
+            }
+            if (n >= 0)
+            {
+                WChiTietChuyenBay f = new WChiTietChuyenBay(dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][0].ToString(), dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][3].ToString(), dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][5].ToString(), 0);
+                f.ShowDialog();
+            }
         }
     }
 }

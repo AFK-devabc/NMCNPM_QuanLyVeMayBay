@@ -142,7 +142,9 @@
                     <DataGrid x:Name="dg_BaoCaoThang" Margin="0,0,28,0" CanUserResizeColumns="False" Background="White" MinColumnWidth="50">
                         <DataGrid.Resources>
                             <Style TargetType="{x:Type DataGridColumnHeader}">
-                                <Setter Property="Background" Value="#FFFECA57"  />
+                                <Setter Property="Background" Value="#FFFECA57"/>
+                                <Setter Property="Height" Value="25" ></Setter>
+                                <Setter Property="FontWeight" Value="Bold"></Setter>
                             </Style>
                         </DataGrid.Resources>
                     </DataGrid>

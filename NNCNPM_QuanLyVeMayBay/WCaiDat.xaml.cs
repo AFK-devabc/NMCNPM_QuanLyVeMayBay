@@ -136,12 +136,11 @@ namespace NNCNPM_QuanLyVeMayBay
             else
                 TB_MaSanBay.Text = "AP000" + (Int32.Parse(TB_SanBayToiDa.Text) + 1).ToString();
 
-
             datatable_HangVe = DataProvider.Instance.ExecuteQuery("select MaHangVe as 'Mã hạng vé', TenHangVe as 'Tên hạng vé', TiLe as 'Tỉ lệ' from HANGVE");
             datatable_HangVe.PrimaryKey = new DataColumn[] { datatable_HangVe.Columns["Mã hạng vé"] };
             DGV_HangVe.ItemsSource = datatable_HangVe.AsDataView();
             TB_SoHangVe.Text = datatable_HangVe.Rows.Count.ToString();
-           
+
             if (Int32.Parse(TB_SoHangVe.Text) >= 999)
                 TB_MaHangVe.Text = "HV" + (Int32.Parse(TB_SoHangVe.Text) + 1).ToString();
             else if (Int32.Parse(TB_SoHangVe.Text) >= 99)
@@ -162,32 +161,33 @@ namespace NNCNPM_QuanLyVeMayBay
 
             EPD_QDChuyenBay.IsExpanded = true;
             EPD_DSHangVe.IsExpanded = true;
+            datatable_HangVe.Columns[0].ReadOnly = true;
         }
 
-        //private void BTN_ApDung_Click(object sender, RoutedEventArgs e)
-        //{
-        //    foreach (DataRow i in datatable_HangVe.Rows)
-        //    {
-        //        float t = 0;
-        //        if (!float.TryParse(i.ItemArray[2].ToString(), out t))
-        //        {
-        //            MessageBox.Show("Tỉ lệ phải là số");
-        //            return;
-        //        }
-        //    }
-        //    foreach (DataRow i in datatable_HangVe.Rows)
-        //    {
-        //        string command = "update HANGVE set TenHangVe = N'" + i.ItemArray[1].ToString() + "', TiLe = " + i.ItemArray[2].ToString() + " where MaHangVe = '" + i.ItemArray[0].ToString() + "'";
-        //        DataProvider.Instance.ExecuteNonQuery(command);
-        //    }
-        //    MessageBox.Show("Thêm thành công!");
-        //}
+        private void BTN_ApDung_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (DataRow i in datatable_HangVe.Rows)
+            {
+                float t = 0;
+                if (!float.TryParse(i.ItemArray[2].ToString(), out t))
+                {
+                    MessageBox.Show("Tỉ lệ phải là số");
+                    return;
+                }
+            }
+            foreach (DataRow i in datatable_HangVe.Rows)
+            {
+                string command = "update HANGVE set TenHangVe = N'" + i.ItemArray[1].ToString() + "', TiLe = " + i.ItemArray[2].ToString() + " where MaHangVe = '" + i.ItemArray[0].ToString() + "'";
+                DataProvider.Instance.ExecuteNonQuery(command);
+            }
+            MessageBox.Show("Chỉnh sửa thành công!");
+        }
 
 
         private void EPD_QDChuyenBay_Collapsed(object sender, RoutedEventArgs e)
         {
             if (EPD_DSHangVe.IsExpanded == true)
-                EPD_DSSanBay.IsExpanded = false;            
+                EPD_DSSanBay.IsExpanded = false;
         }
 
         private void EPD_DSHangVe_Collapsed(object sender, RoutedEventArgs e)
@@ -200,7 +200,7 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             if (EPD_QDChuyenBay.IsExpanded == true)
                 EPD_DSHangVe.IsExpanded = false;
-
         }
+
     }
 }

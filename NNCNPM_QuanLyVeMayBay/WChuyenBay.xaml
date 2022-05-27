@@ -14,10 +14,12 @@
         mc:Ignorable="d"
         Title="WThongTinChuyenBay" Height="770" Width="1120" Background="White">
     <Grid Loaded="Grid_Loaded" Background="White">
-        <DataGrid x:Name="dtg_DSChuyenBay" HorizontalAlignment="Left" Height="593" Margin="331,137,0,0" VerticalAlignment="Top" Width="772" CanUserResizeColumns="False" Background="White">
+        <DataGrid x:Name="dtg_DSChuyenBay" HorizontalAlignment="Left" Height="593" Margin="331,137,0,0" VerticalAlignment="Top" Width="772" CanUserResizeColumns="False" Background="White" MouseDoubleClick="dtg_DSChuyenBay_MouseDoubleClick">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FFFECA57"  />
+                    <Setter Property="Height" Value="25" ></Setter>
+                    <Setter Property="FontWeight" Value="Bold"></Setter>
                 </Style>
             </DataGrid.Resources>
         </DataGrid>

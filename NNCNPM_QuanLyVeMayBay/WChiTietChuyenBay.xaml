@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NNCNPM_QuanLyVeMayBay"
         mc:Ignorable="d"
-        Title="Chi tiết chuyến bay" Height="600" Width="900"
+        Title="Chi tiết chuyến bay" Height="456.8" Width="737.6"
         WindowStartupLocation="CenterScreen">
     <Grid Background="AliceBlue" >
         <Grid VerticalAlignment="Top" Margin="0,0,0,0" Height="50" Width="800">
-            <Label Content="Mã chuyến bay: " HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Height="42" Width="167" FontSize="20" FontWeight="Bold"/>
-            <TextBlock Name="tbk_MaChuyenBay" Text =" " HorizontalAlignment="Left" Height="42" Margin="350,15,0,0" VerticalAlignment="Top" Width="300" FontSize="20"/>
+            <Label Content="Mã chuyến bay: " HorizontalAlignment="Left" Margin="119,15,0,0" VerticalAlignment="Top" Width="167" FontSize="14" FontWeight="Bold"/>
+            <TextBlock Name="tbk_MaChuyenBay" Text =" " HorizontalAlignment="Left" Margin="269,15,0,0" VerticalAlignment="Top" Width="300" FontSize="14" Height="25"/>
         </Grid>
-        <Grid VerticalAlignment="Top" Margin="0,50,0,0" Height="50" Width="800">
-            <Label Content="Giá vé: " HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Height="42" Width="167" FontSize="16" FontWeight="Bold"/>
-            <TextBlock Name="tbk_giave" Text =" " HorizontalAlignment="Left" Height="42" Margin="90,15,0,0" VerticalAlignment="Top" Width="300" FontSize="16"/>
+        <Grid VerticalAlignment="Top" Margin="10,50,9.8,0" Height="50">
+            <Label Content="Giá vé: " HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Width="65" FontWeight="Bold"/>
+            <TextBlock Name="tbk_giave" Text =" " HorizontalAlignment="Left" Margin="100,14,0,0" VerticalAlignment="Top" Width="208"/>
 
-            <Label Content="Thời gian bay: " HorizontalAlignment="Left" Margin="380,10,0,0" VerticalAlignment="Top" Height="42" Width="167" FontSize="16" FontWeight="Bold"/>
-            <TextBlock Name="tbk_thoigianbay" Text =" " HorizontalAlignment="Left" Height="42" Margin="500,15,0,0" VerticalAlignment="Top" Width="300" FontSize="16"/>
+            <Label Content="Thời gian bay: " HorizontalAlignment="Left" Margin="333,10,0,0" VerticalAlignment="Top" Width="99" FontWeight="Bold"/>
+            <TextBlock Name="tbk_thoigianbay" Text =" " HorizontalAlignment="Left" Margin="432,14,0,0" VerticalAlignment="Top" Width="227"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Margin="25,142,0,142" Width="366" Height="250">
-            <DataGrid Name="datagrid_Ghe" Margin="0,0,0,0" IsReadOnly="True" ColumnWidth="122" CanUserResizeColumns="False">
+        <Grid HorizontalAlignment="Left" Margin="19,133,0,50.2" Width="344">
+            <DataGrid Name="datagrid_Ghe" Margin="0,0,0,0" IsReadOnly="True" ColumnWidth="100" CanUserResizeColumns="False" FontSize="12">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#FFFECA57"/>
@@ -30,8 +30,8 @@
                 </DataGrid.Resources>
             </DataGrid>
         </Grid>
-        <Grid HorizontalAlignment="Left" Margin="500,0,0,0" Width="366" Height="250" >
-            <DataGrid Name="datagrid_TrungGian" Margin="0,0,0,0" IsReadOnly="True" ColumnWidth="182.5" CanUserResizeColumns="False" >
+        <Grid HorizontalAlignment="Left" Margin="383,133,0,50.2" Width="319" >
+            <DataGrid Name="datagrid_TrungGian" Margin="0,0,0,0" IsReadOnly="True" ColumnWidth="182.5" CanUserResizeColumns="False" FontSize="12" >
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#FFFECA57"/>
@@ -40,13 +40,13 @@
                     </Style>
                 </DataGrid.Resources>
             </DataGrid>
-            <Label Name="lb_thongbao" Content="Không có sân bay trung gian" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top" Height="52" Width="343" FontSize="16" FontWeight="Bold" Visibility="Collapsed"/>
+            <Label Name="lb_thongbao" Content="Không có sân bay trung gian" HorizontalAlignment="Center" Margin="10,10,10,0" VerticalAlignment="Top" Height="33" Width="299" FontWeight="Bold" Visibility="Collapsed"/>
         </Grid>
-        <Label Content="Chi tiết ghế:" HorizontalAlignment="Left" Height="46" Margin="25,117,0,0" VerticalAlignment="Top" Width="175" FontSize="16" FontWeight="Bold"/>
-        <Label Content="Chi tiết sân bay trung gian:" HorizontalAlignment="Left" Height="45" Margin="500,122,0,0" VerticalAlignment="Top" Width="263" FontSize="16" FontWeight="Bold"/>
-        <Button Content="Đóng" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" Height="45" Margin="0,515,0,0" VerticalAlignment="Top" Width="150"  Background="#FF2980A3" Click="Button_Click"/>
-        <Label Name="lb_TrangThai1" Content="Chuyến bay đã khởi hành"  Height="52" FontSize="20" Width="550" FontWeight="Bold" Foreground="Red" Margin="318,458,318,0" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <Label Name="lb_TrangThai0" Content="Chuyến bay chưa khởi hành"  Height="52" FontSize="20" FontWeight="Bold" Foreground="Green" Margin="287,458,295,0" VerticalAlignment="Top"  Visibility="Collapsed"/>
+        <Label Content="Chi tiết ghế:" HorizontalAlignment="Left" Margin="71,100,0,0" VerticalAlignment="Top" Width="175" FontWeight="Bold"/>
+        <Label Content="Chi tiết sân bay trung gian:" HorizontalAlignment="Left" Margin="416,100,0,0" VerticalAlignment="Top" Width="263" FontWeight="Bold"/>
+        <Button Content="Đóng" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Height="32" Margin="570,385,29.2,0" VerticalAlignment="Top" Width="132"  Background="#FF2980A3" Click="Button_Click"/>
+        <Label Name="lb_TrangThai1" Content="Chuyến bay đã khởi hành"  Height="32" FontSize="14" FontWeight="Bold" Foreground="Red"  VerticalAlignment="Top" Margin="245,385,254.2,0" HorizontalContentAlignment="Center" Visibility="Collapsed"/>
+        <Label Name="lb_TrangThai0" Content="Chuyến bay chưa khởi hành"  Height="32" FontSize="14" FontWeight="Bold" Foreground="Green"  VerticalAlignment="Top" Margin="245,385,254.2,0" HorizontalContentAlignment="Center" Visibility="Collapsed"/>
 
     </Grid>
 </Window>
