@@ -68,7 +68,7 @@
             Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.5,0.5" FontWeight="Normal" Foreground="White" CaretBrush="White" SelectionBrush="White" BorderBrush="#89FFFFFF">
 
                             </TextBox>
-                            <Label Content="*** Danh sách toàn các hạng vé của chuyến &#xD;&#xA;bay, có thể thêm hạng vé mới, chỉnh sửa&#xD;tên, giá của hạng vé trong bảng" HorizontalAlignment="Center" Margin="11,180,382.8,9.8" Width="305" VerticalAlignment="Center" Height="63" VerticalContentAlignment="Center" Foreground="#DDFF0000" FontSize="14"/>
+                            <Label Content="*** Danh sách toàn các hạng vé của chuyến &#xD;&#xA;bay, có thể thêm hạng vé mới, chỉnh sửa&#xD;tên, giá của hạng vé trong bảng" HorizontalAlignment="Center" Margin="11,180,382.8,9.8" Width="305" VerticalAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFF0000" FontSize="14"/>
 
                             <Button x:Name="BTN_ThemHangVe" Content="Thêm" HorizontalAlignment="Left" Margin="181,106,0,0" VerticalAlignment="Top" Width="135" Click="BTN_ThemHangVe_Click" RenderTransformOrigin="0.516,0.25" FontWeight="Bold" Background="#FF10AC84" FontSize="14" BorderBrush="{x:Null}"/>
                             <TextBox x:Name="TB_TiLe"
@@ -99,7 +99,7 @@
                             <DataGrid x:Name="DGV_SanBay" HorizontalAlignment="Left" Height="239" Margin="320,10,0,0" VerticalAlignment="Top" Width="370" EnableRowVirtualization="False" IsReadOnly="True"/>
                             <Label Content="Tổng số sân bay : " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="146"  FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Foreground="White"/>
                             <TextBox x:Name="TB_SanBayToiDa" HorizontalAlignment="Left"  Margin="156,9,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" FontSize="16" IsEnabled="False" Foreground="White" CaretBrush="White" SelectionBrush="White"/>
-                            <Label Content="*** Danh sách toàn bộ các sân bay mà &#xD;&#xA;chuyến bay có thể chọn làm điểm đi hoặc &#xD;&#xA;đến, có thể thêm sân bay" HorizontalAlignment="Center" Margin="10,134,384,47" Width="306" VerticalAlignment="Center" Height="75" VerticalContentAlignment="Center" Foreground="#DDFF0000" Background="{x:Null}"/>
+                            <Label Content="*** Danh sách toàn bộ các sân bay mà &#xD;&#xA;chuyến bay có thể chọn làm điểm đi hoặc &#xD;&#xA;đến, có thể thêm sân bay" HorizontalAlignment="Center" Margin="10,134,385,58" Width="305" VerticalAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFF0000" Background="{x:Null}"/>
                             <TextBox x:Name="TB_TenSanBay"
             Margin="119,46,385,169"
             materialDesign:HintAssist.Hint="Tên sân bay"

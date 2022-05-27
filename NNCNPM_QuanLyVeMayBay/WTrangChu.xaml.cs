@@ -27,6 +27,8 @@ namespace NNCNPM_QuanLyVeMayBay
             UserName = name;
             L_name.Text += name;
             LoadData();
+            if (name != "admin")
+                BTN_ThemTaiKhoan.Visibility = Visibility.Collapsed;
         }
 
         private void BTN_DoiMatKhau_Click(object sender, RoutedEventArgs e)

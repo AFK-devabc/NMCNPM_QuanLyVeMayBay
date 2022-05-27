@@ -322,15 +322,17 @@ namespace NNCNPM_QuanLyVeMayBay
             if (datagrid.SelectedItem == null)
                 return;
             DateTime t = DateTime.Now;
-            int n =DateTime.Compare(t, DateTime.Parse(dt.Rows[datagrid.SelectedIndex][6].ToString()));
+            DataRowView i = datagrid.SelectedItem as DataRowView;
+
+            int n =DateTime.Compare(t, DateTime.Parse(i.Row.ItemArray[6].ToString()));
             if (n < 0)
             {
-                WChiTietChuyenBay f = new WChiTietChuyenBay(dt.Rows[datagrid.SelectedIndex][0].ToString(), dt.Rows[datagrid.SelectedIndex][5].ToString(), dt.Rows[datagrid.SelectedIndex][7].ToString(), 1);
+                WChiTietChuyenBay f = new WChiTietChuyenBay(i.Row.ItemArray[0].ToString(), i.Row.ItemArray[5].ToString(), i.Row.ItemArray[7].ToString(), 1);
                 f.ShowDialog();
             }
             if(n>=0)
             {
-                WChiTietChuyenBay f = new WChiTietChuyenBay(dt.Rows[datagrid.SelectedIndex][0].ToString(), dt.Rows[datagrid.SelectedIndex][5].ToString(), dt.Rows[datagrid.SelectedIndex][7].ToString(), 0);
+                WChiTietChuyenBay f = new WChiTietChuyenBay(i.Row.ItemArray[0].ToString(), i.Row.ItemArray[5].ToString(), i.Row.ItemArray[7].ToString(), 0);
                 f.ShowDialog();
             }    
         }

@@ -139,7 +139,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid Margin="0,169,-0.4,0">
-                    <DataGrid x:Name="dg_BaoCaoThang" Margin="0,0,28,0" CanUserResizeColumns="False" Background="White" MinColumnWidth="50">
+                    <DataGrid x:Name="dg_BaoCaoThang" Margin="0,0,28,0" CanUserResizeColumns="False" Background="White" MinColumnWidth="60">
                         <DataGrid.Resources>
                             <Style TargetType="{x:Type DataGridColumnHeader}">
                                 <Setter Property="Background" Value="#FFFECA57"/>

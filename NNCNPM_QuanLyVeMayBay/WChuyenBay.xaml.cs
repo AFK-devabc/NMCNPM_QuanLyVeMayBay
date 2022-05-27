@@ -205,16 +205,18 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             if (dtg_DSChuyenBay.SelectedItem == null)
                 return;
+             DataRowView i = dtg_DSChuyenBay.SelectedItem as DataRowView;
+            
             DateTime t = DateTime.Now;
-            int n = DateTime.Compare(t, DateTime.Parse(dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][4].ToString()));
+            int n = DateTime.Compare(t, DateTime.Parse(i.Row.ItemArray[4].ToString()));
             if (n < 0)
             {
-                WChiTietChuyenBay f = new WChiTietChuyenBay(dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][0].ToString(), dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][3].ToString(), dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][5].ToString(), 1);
+                WChiTietChuyenBay f = new WChiTietChuyenBay(i.Row.ItemArray[0].ToString(), i.Row.ItemArray[3].ToString(), i.Row.ItemArray[5].ToString(), 1);
                 f.ShowDialog();
             }
             if (n >= 0)
             {
-                WChiTietChuyenBay f = new WChiTietChuyenBay(dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][0].ToString(), dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][3].ToString(), dt_TTChuyenBay.Rows[dtg_DSChuyenBay.SelectedIndex][5].ToString(), 0);
+                WChiTietChuyenBay f = new WChiTietChuyenBay(i.Row.ItemArray[0].ToString(), i.Row.ItemArray[3].ToString(), i.Row.ItemArray[5].ToString(), 0);
                 f.ShowDialog();
             }
         }
