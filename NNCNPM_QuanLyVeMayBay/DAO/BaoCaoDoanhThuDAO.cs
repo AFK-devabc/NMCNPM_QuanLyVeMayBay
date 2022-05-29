@@ -57,7 +57,7 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
 
             for (int i = 1; i < 13; i++)
             {
-                string query = string.Format("SELECT SUM(vmb.GiaTien) FROM VEMAYBAY vmb, CHUYENBAY cb WHERE vmb.LoaiVe = 'Ve Mua' AND vmb.MaChuyenBay = cb.MaChuyenBay AND YEAR(cb.NgayBay) = {0} AND MONTH(cb.NgayBay) = {1}", nam, i);
+                string query = string.Format("SELECT  REPLACE(CONVERT(varchar(20), SUM(vmb.GiaTien), 1), '.00', '') FROM VEMAYBAY vmb, CHUYENBAY cb WHERE vmb.LoaiVe = 'Ve Mua' AND vmb.MaChuyenBay = cb.MaChuyenBay AND YEAR(cb.NgayBay) = {0} AND MONTH(cb.NgayBay) = {1}", nam, i);
 
                 try
                 {
@@ -86,7 +86,7 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
         {
             List<KeyValuePair<string, int>> doanhThu = new List<KeyValuePair<string, int>>();
 
-            string query = string.Format("SELECT cb.MaChuyenBay, SUM(vmb.GiaTien) DoanhThu FROM(SELECT * FROM CHUYENBAY cb WHERE MONTH(cb.NgayBay) = {0} AND YEAR(cb.NgayBay) = {1}) cb LEFT JOIN VeMayBay vmb ON cb.MaChuyenBay = vmb.MaChuyenBay GROUP BY cb.MaChuyenBay ", thang, nam);
+            string query = string.Format("SELECT cb.MaChuyenBay, REPLACE(CONVERT(varchar(20),  REPLACE(CONVERT(varchar(20), SUM(vmb.GiaTien), 1), '.00', ''), 1), '.00', '')  DoanhThu FROM(SELECT * FROM CHUYENBAY cb WHERE MONTH(cb.NgayBay) = {0} AND YEAR(cb.NgayBay) = {1}) cb LEFT JOIN VeMayBay vmb ON cb.MaChuyenBay = vmb.MaChuyenBay GROUP BY cb.MaChuyenBay ", thang, nam);
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -156,7 +156,7 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
         /// <param name="thang"></param>
         public void XuatFileExelTheoThang(int nam, int thang)
         {
-            string query = string.Format("SELECT cb.MaChuyenBay, Count(vmb.MaChuyenBay) SoVe, SUM(vmb.GiaTien) DoanhThu FROM(SELECT * FROM CHUYENBAY cb WHERE MONTH(cb.NgayBay) = {0} AND YEAR(cb.NgayBay) = {1}) cb LEFT JOIN VeMayBay vmb ON vmb.LoaiVe = 'Ve Mua' AND cb.MaChuyenBay = vmb.MaChuyenBay GROUP BY cb.MaChuyenBay ", thang, nam);
+            string query = string.Format("SELECT cb.MaChuyenBay, Count(vmb.MaChuyenBay) SoVe,  REPLACE(CONVERT(varchar(20),  REPLACE(CONVERT(varchar(20), SUM(vmb.GiaTien), 1), '.00', ''), 1), '.00', '') DoanhThu FROM(SELECT * FROM CHUYENBAY cb WHERE MONTH(cb.NgayBay) = {0} AND YEAR(cb.NgayBay) = {1}) cb LEFT JOIN VeMayBay vmb ON vmb.LoaiVe = 'Ve Mua' AND cb.MaChuyenBay = vmb.MaChuyenBay GROUP BY cb.MaChuyenBay ", thang, nam);
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -197,7 +197,7 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
 
             for (int i = 1; i < 13; i++)
             {
-                string query = string.Format("SELECT COUNT(cb.MaChuyenBay) 'Số Chuyến Bay', Sum(vmb.GiaTien) 'Doanh Thu' FROM VEMAYBAY vmb, CHUYENBAY cb WHERE vmb.LoaiVe = 'Ve Mua' AND vmb.MaChuyenBay = cb.MaChuyenBay AND YEAR(cb.NgayBay) = {0} AND MONTH(cb.NgayBay) = {1}", nam, i);
+                string query = string.Format("SELECT COUNT(cb.MaChuyenBay) 'Số Chuyến Bay',  REPLACE(CONVERT(varchar(20), SUM(vmb.GiaTien), 1), '.00', '') 'Doanh Thu' FROM VEMAYBAY vmb, CHUYENBAY cb WHERE vmb.LoaiVe = 'Ve Mua' AND vmb.MaChuyenBay = cb.MaChuyenBay AND YEAR(cb.NgayBay) = {0} AND MONTH(cb.NgayBay) = {1}", nam, i);
 
                 DataTable dataRow = DataProvider.Instance.ExecuteQuery(query);
 
@@ -249,7 +249,7 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
         /// <param name="thang"></param>
         public DataTable BaoCaoDoanhThuTheoThang(int nam, int thang)
         {
-            string query = string.Format("SELECT cb.MaChuyenBay 'Mã chuyến bay', Count(vmb.MaChuyenBay) 'Số vé', SUM(vmb.GiaTien) 'Doanh thu' FROM(SELECT * FROM CHUYENBAY cb WHERE MONTH(cb.NgayBay) = {0} AND YEAR(cb.NgayBay) = {1}) cb LEFT JOIN VeMayBay vmb ON vmb.LoaiVe = 'Ve Mua' AND cb.MaChuyenBay = vmb.MaChuyenBay GROUP BY cb.MaChuyenBay ", thang, nam);
+            string query = string.Format("SELECT cb.MaChuyenBay 'Mã chuyến bay', Count(vmb.MaChuyenBay) 'Số vé',   REPLACE(CONVERT(varchar(20), SUM(vmb.GiaTien), 1), '.00', '') 'Doanh thu' FROM(SELECT * FROM CHUYENBAY cb WHERE MONTH(cb.NgayBay) = {0} AND YEAR(cb.NgayBay) = {1}) cb LEFT JOIN VeMayBay vmb ON vmb.LoaiVe = 'Ve Mua' AND cb.MaChuyenBay = vmb.MaChuyenBay GROUP BY cb.MaChuyenBay ", thang, nam);
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 

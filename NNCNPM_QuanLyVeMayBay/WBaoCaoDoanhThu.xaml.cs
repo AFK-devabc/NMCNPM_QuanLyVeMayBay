@@ -170,5 +170,6 @@ namespace NNCNPM_QuanLyVeMayBay
 
             BaoCaoDoanhThuDAO.Instance.XuatFileExelTheoNam(nam);
         }
+
     }
 }

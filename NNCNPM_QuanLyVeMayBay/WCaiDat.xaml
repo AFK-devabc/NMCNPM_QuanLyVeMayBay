@@ -20,7 +20,7 @@
                         Orientation="Vertical"
                         Margin="0,0,-0.2,0" Background="#FF0A1929" >
                         <Grid Margin="0,0,-0.4,0" Height="247">
-                            <Label Content="thời gian bay tối thiểu : " HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="228"  FontSize="14"  HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontWeight="Normal" Foreground="White" RenderTransformOrigin="0.472,0.447"/>
+                            <Label Content="Thời gian bay tối thiểu : " HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="228"  FontSize="14"  HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontWeight="Normal" Foreground="White" RenderTransformOrigin="0.472,0.447"/>
                             <TextBox x:Name="TB_TGBMin" HorizontalAlignment="Left"  Margin="243,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" FontSize="14" PreviewTextInput="IsNumberic_only" FontWeight="Normal" Foreground="Black" Background="White"/>
                             <Label Content="Thời gian dừng tối đa : " HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="228"  FontSize="14"  HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontWeight="Normal" Foreground="White"/>
                             <TextBox x:Name="TB_TGDMax" HorizontalAlignment="Left"  Margin="243,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" FontSize="14" PreviewTextInput="IsNumberic_only" FontWeight="Normal" Foreground="Black" Background="White"/>
