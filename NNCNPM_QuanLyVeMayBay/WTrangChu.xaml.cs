@@ -47,8 +47,8 @@ namespace NNCNPM_QuanLyVeMayBay
         {
             DataTable table = new DataTable();
             table.Clear();
-            string command = "select COUNT(VEMAYBAY.MaVe), sum(VEMAYBAY.GiaTien) from VEMAYBAY "
-                             + "where YEAR(VEMAYBAY.NgayMua) = '"+DateTime.Today.Year+"' and MONTH(VEMAYBAY.NgayMua) = '"+ DateTime.Today.Month + "' and DAY(VEMAYBAY.NgayMua)= '"+ DateTime.Today.Day+ "'"
+            string command = "select COUNT(VEMAYBAY.MaVe), REPLACE(CONVERT(varchar(30), sum(VEMAYBAY.GiaTien), 1), '.00', '') from VEMAYBAY "
+                             + "where YEAR(VEMAYBAY.NgayMua) = '"+DateTime.Today.Year+"' and MONTH(VEMAYBAY.NgayMua) = '"+ DateTime.Today.Month + "' and DAY(VEMAYBAY.NgayMua)= '"+ DateTime.Today.Day+ "' and VEMAYBAY.LoaiVe = 'Ve Mua'"
                             + " group by VEMAYBAY.NgayMua ";
             table = DataProvider.Instance.ExecuteQuery(command);
             if (table.Rows.Count < 1)
@@ -59,7 +59,7 @@ namespace NNCNPM_QuanLyVeMayBay
             else
             {
                 L_VeDaBan.Content = table.Rows[0].ItemArray[0].ToString() + L_VeDaBan.Content;
-                L_DoanhSo.Content = table.Rows[0].ItemArray[1].ToString() + L_DoanhSo.Content;
+                L_DoanhSo.Content = table.Rows[0].ItemArray[1].ToString() + " VNĐ" +  L_DoanhSo.Content;
             }
             table.Clear();
             command = "select COUNT(CHUYENBAY.MaChuyenBay)  from CHUYENBAY "

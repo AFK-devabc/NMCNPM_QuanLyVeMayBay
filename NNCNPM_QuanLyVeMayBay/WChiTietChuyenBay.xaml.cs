@@ -33,19 +33,21 @@ namespace NNCNPM_QuanLyVeMayBay
             tbk_MaChuyenBay.Text = machuyenbay;
             tbk_giave.Text = giave +" VNĐ";
             tbk_thoigianbay.Text = thoigianbay+" phút";
-            string ExeCommand = "select TenHangVe as 'Tên hạng vé', TongSoGhe as 'Tổng số ghế', (TongSoGhe - VeDaMua) as 'Số ghế trống' , SoGheDaDat as 'Số ghế đặt' " +
+            string ExeCommand = "select TenHangVe as 'Tên hạng vé', TongSoGhe as 'Tổng số ghế',  coalesce(TongSoGhe- VeDaMua,0) as 'Số ghế trống' , SoGheDaDat as 'Số ghế đặt' " +
                 " from(" +
                 " select MaHangVe, count(Loaive) as 'VeDaMua'" +
                 " from VEMAYBAY" +
                 " where Loaive = 'Ve mua' and MaChuyenBay = '"+machuyenbay+"'" +
                 " group by MaHangVe) as table1" +
-                " inner join (" +
+                " right join (" +
                 " select HANGVE.TenHangVe, TongSoGhe , SoGheDaDat , HANGVE.MaHangVe" +
                 " from SOLUONGVE, HANGVE" +
                 " where SOLUONGVE.MaHangVe= HANGVE.MaHangVe and MaChuyenBay = '" + machuyenbay + "'" +
                 " ) as table2" +
                 " on table1.MaHangVe = table2.MaHangVe";
+            
             datatable_Ghe = DataProvider.Instance.ExecuteQuery(ExeCommand, null);
+
             datagrid_Ghe.ItemsSource=datatable_Ghe.AsDataView();
 
             datatable_TrungGian = DataProvider.Instance.ExecuteQuery("select SANBAY.TenSanBay as 'Tên sân bay',TRUNGGIAN.ThoiGianDung as 'Thời gian dừng'  from TRUNGGIAN,SANBAY where MaChuyenBay='" + machuyenbay+"' AND TRUNGGIAN.MaSanBay=SANBAY.MaSanBay ", null);

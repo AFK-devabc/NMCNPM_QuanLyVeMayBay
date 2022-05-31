@@ -57,7 +57,7 @@ namespace NNCNPM_QuanLyVeMayBay.DAO
 
             for (int i = 1; i < 13; i++)
             {
-                string query = string.Format("SELECT  REPLACE(CONVERT(varchar(20), SUM(vmb.GiaTien), 1), '.00', '') FROM VEMAYBAY vmb, CHUYENBAY cb WHERE vmb.LoaiVe = 'Ve Mua' AND vmb.MaChuyenBay = cb.MaChuyenBay AND YEAR(cb.NgayBay) = {0} AND MONTH(cb.NgayBay) = {1}", nam, i);
+                string query = string.Format("SELECT SUM(vmb.GiaTien) FROM VEMAYBAY vmb, CHUYENBAY cb WHERE vmb.LoaiVe = 'Ve Mua' AND vmb.MaChuyenBay = cb.MaChuyenBay AND YEAR(cb.NgayBay) = {0} AND MONTH(cb.NgayBay) = {1}", nam, i);
 
                 try
                 {
