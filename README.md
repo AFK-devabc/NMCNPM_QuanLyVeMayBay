@@ -8,3 +8,9 @@
           phần "Data Source = (localdb)\MSSQLLocalDB", (localdb)\MSSQLLocalDB là "Sever name" - tên sever mà bạn đã chạy file sql 
           thay đổi (localdb)\MSSQLLocalDB thành tên sever của bạn, lưu 
 4.  Vào thư mục NNCNPM_QuanLyVeMayBay, chạy file NNCNPM_QuanLyVeMayBay.sln để chạy chương trình.
+
+
+*** Tài khoản     username : admin
+                  password : 123
+ mật khẩu của tài khoản mới được tạo mật khẩu tự động là 1
+ 
